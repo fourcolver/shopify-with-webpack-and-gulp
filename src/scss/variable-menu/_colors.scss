@@ -1,0 +1,68 @@
+/**
+ * colors
+ */
+.colors {
+    list-style-type: none;
+    margin:0 0 0 -6%;
+    padding:0 0 0 em(7);
+    @include clearfix;
+
+    @include apply-to(tablet) {
+        margin-left:em(-30);
+    }
+
+    li {
+        display:inline-block;
+        font-size: em(15);
+        margin:0 0 em(20) em(-7,15);
+        padding:0 0 1em 6%;
+        text-align: center;
+        width: 33.332%;
+
+        @include apply-to(small-phone) {
+            width:50%;
+        }
+
+        @include apply-to(tablet) {
+            padding: 0 0 em(16,15) em(30);
+            width: 25%;
+        }
+    }
+
+	&__heading {
+		margin-top: 0;
+	}
+
+	&__sample {
+		position: relative;
+		width: 100%;
+		padding: 50% 0;
+		margin-top: em(10);
+		border:1px solid $white;
+		box-shadow:0 0 em(4) 0 rgba(0,0,0,.25);
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			width: 50%;
+			height: 30%;
+		}
+
+		&:before {
+			left:0;
+		}
+
+		&:after {
+			right:0;
+		}
+
+		/* Samples */
+		@each $color,$value in $color-samples {
+			&--#{$color} {
+				background: $value;
+			}
+		}
+	}
+}

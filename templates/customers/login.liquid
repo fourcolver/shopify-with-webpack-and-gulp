@@ -1,0 +1,154 @@
+<section id="acLogin" class="container ac-login">
+
+	<div id="resetSuccess" class="message message--ac message--success" style="display: none;">
+		{{ 'customer.recover_password.success' | t }}
+	</div>
+
+	{% comment %} Login form and Register CTA {% endcomment %}
+	<div id="acLoginForm">
+		<div class="ac-login__row">
+
+			{% form 'customer_login', class: 'ac-login__col ac-login__col--1' %}
+
+				<div class="section-header">
+					<h1 class="section-header__hdg">
+						{{ 'customer.login.title' | t }}
+					</h1>
+				</div>
+
+				{{ form.errors | default_errors }}
+
+				<div class="form-list">
+					<div class="ac-login__col-bd cf">
+						<div class="form-item">
+							<div class="input-placeholder">
+								<label for="customerEmail">
+									{{ 'customer.login.email' | t }}
+								</label>
+								<input id="customerEmail" class="input{% if form.errors contains 'email' %} has-error{% endif %}" type="email" name="customer[email]" autocorrect="off" autocapitalize="off" autofocus>
+							</div>
+						</div>
+						{% if form.password_needed %}
+							<div class="form-item">
+								<div class="input-placeholder">
+									<label for="customerPassword">
+										{{ 'customer.login.password' | t }}
+									</label>
+									<input id="customerPassword" type="password" class="input{% if form.errors contains 'password' %} has-error{% endif %}" name="customer[password]">
+								</div>
+							</div>
+						{% endif %}
+					</div>
+					<div class="ac-login__col-ft cf">
+						<div class="form-item">
+							<button class="btn btn--full" type="submit">
+								<span class="btn__bg"></span>
+								<span class="btn__border"></span>
+								<span class="btn__label">
+									{{ 'customer.login.sign_in' | t }}
+								</span>
+							</button>
+						</div>
+						{% if form.password_needed %}
+							<div class="form-item">
+								<button id="recoverPassword" class="ac-btn-link btn-link" type="button">
+									{{ 'customer.login.forgot_password' | t }}
+								</button>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+
+			{% endform %}
+
+			<div class="ac-login__col ac-login__col--2">
+				<div class="section-header">
+					<h2 class="section-header__hdg">
+						{{ 'customer.login.new_account' | t }}
+					</h2>
+				</div>
+				<div class="ac-login__col-bd">
+					<p class="ac-login__register-desc">
+						Faster checkout,<br />multiple shipping addresses,<br />track orders and more.
+					</p>
+				</div>
+				<div class="ac-login__col-ft">
+					<a class="ac-login__register-btn btn btn--secondary btn--full" href="/account/register">
+						<span class="btn__bg"></span>
+						<span class="btn__border"></span>
+						<span class="btn__label">
+							{{ 'layout.customer.create_account' | t }}
+						</span>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	{% comment %} Recover password form {% endcomment %}
+	<div id="acRecoverPasswordForm" style="display: none;">
+
+		<div class="section-header">
+			<h2 class="section-header__hdg">
+				{{ 'customer.recover_password.title' | t }}
+			</h2>
+			<p>
+				{{ 'customer.recover_password.subtext' | t }}
+			</p>
+		</div>
+
+		{% form 'recover_customer_password', class: 'ac-form-col' %}
+
+			{{ form.errors | default_errors }}
+
+			{% if form.posted_successfully? %}
+				{% assign resetSuccess = true %}
+			{% endif %}
+
+			<ul class="form-list">
+				<li class="form-item">
+					<div class="input-placeholder">
+						<label for="recoverEmail">
+							{{ 'customer.recover_password.email' | t }}
+						</label>
+						<input id="recoverEmail" class="input" type="email" name="email" autocorrect="off" autocapitalize="off">
+					</div>
+				</li>
+				<li class="form-item ac-form-action">
+					<button class="btn btn--full" type="submit">
+						{{ 'customer.recover_password.submit' | t }}
+					</button>
+				</li>
+				<li class="form-item">
+					<button id="hideRecoverPasswordBtn" class="ac-btn-link btn-link" type="button">
+						{{ 'customer.recover_password.cancel' | t }}
+					</button>
+				</li>
+			</ul>
+
+		{% endform %}
+
+	</div>
+
+	{% comment %}
+		If accounts are set as optional, the following will be shown as an option
+		during checkout, not on the default /login page.
+	{% endcomment %}
+	{% if shop.checkout.guest_login %}
+		<div class="text-center">
+			<hr class="hr--invisible">
+			<h2>{{ 'customer.login.guest_title' | t }}</h2>
+			{% form 'guest_login' %}
+				<input type="submit" class="btn" value="{{ 'customer.login.guest_continue' | t }}">
+			{% endform %}
+		</div>
+	{% endif %}
+
+</section>
+
+{% if resetSuccess %}
+	<script>
+		document.getElementById('resetSuccess').style.display = 'block';
+	</script>
+{% endif %}

@@ -1,0 +1,7 @@
+{%- if description contains '<p>' or description contains '<ul>' or description contains '<ol>' -%}
+	{{- description -}}
+{%- else -%}
+	<p>
+		{{- description -}}
+	</p>
+{%- endif -%}

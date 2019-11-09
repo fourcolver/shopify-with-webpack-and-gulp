@@ -1,0 +1,27 @@
+.social-links {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: inline-block;
+		vertical-align:middle;
+		padding: 0 rem(15);
+	}
+
+	.icon {
+		display: inline-block;
+
+		&:before {
+			display: inline-block;
+			text-align: center;
+		}
+	}
+
+	&--footer {
+		text-align: center;
+		display: flex;
+	    justify-content: center;
+		align-items: center;
+	}
+}

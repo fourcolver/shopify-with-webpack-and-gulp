@@ -1,0 +1,19 @@
+/**
+ * Gutters
+ * @description - Used to add padding left and right to a container.
+ */
+@mixin gutters($map) {
+	@each $breakpoint, $gutter in $map {
+		@if $breakpoint == null {
+			padding-left:$gutter;
+			padding-right:$gutter;
+		}
+		@else {
+			@include apply-to($breakpoint) {
+				padding-left:$gutter;
+				padding-right:$gutter;
+			}
+		}
+	}
+	transition:padding $normal-timer $ease-1;
+}

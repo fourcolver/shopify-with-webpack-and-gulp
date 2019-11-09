@@ -1,0 +1,604 @@
+/**
+ * bag
+ *
+ * bag
+ * bag mini
+ * bag item
+ * bag exposed
+ * bag overlay
+ * bag add on
+ * bag confetti
+ * bag message
+ */
+
+/**
+ * bag
+ */
+.bag {
+	padding-bottom: em(30);
+
+	// .bag__form
+	&__form {
+	}
+
+	// .bag__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+
+		@include apply-to(tablet) {
+			align-items: flex-end;
+			flex-direction: row;
+		}
+	}
+
+	// .bag__back
+	&__back {
+		display: block;
+		font-size: em(14);
+		margin-top: em(16,14);
+		text-align: center;
+
+		.btn-back__icon {
+			margin-right: em(10,16);
+			vertical-align: middle;
+		}
+	}
+
+	// .bag__header
+	&__header {
+		margin-bottom: em(30,16);
+
+		// .bag__header-hdg
+		&-hdg {
+			font-size: em(24,16);
+		}
+	}
+
+	// .bag__close
+	&__close {
+    	left: 0;
+		position: absolute;
+	}
+
+	// .bag__offer
+	&__offer {
+		color: $pink-3;
+		font-style: italic;
+		font-weight: $bold;
+		margin-top: em(10);
+	}
+
+	// .bag__summary
+	&__summary {
+		border-top: 1px solid $pink-1;
+		margin-top: em(20);
+		padding: em(20) 0;
+		width: 100%;
+		@include apply-to(tablet) {
+			border-top: 0;
+			padding-bottom: 0;
+			width: 33.332%;
+		}
+	}
+
+	// .bag__items
+	&__items {
+		width: 100%;
+		@include apply-to(tablet) {
+			padding-right: 1em;
+			width: 66%;
+		}
+	}
+
+	// .bag__total
+	&__total {
+		display: flex;
+		font-size: em(18);
+		font-weight: $bold;
+		justify-content: space-between;
+
+		// .bag__total-label
+		&-label {
+		}
+
+		// .bag__total-value
+		&-value {
+		}
+	}
+
+	// .bag__actions
+	&__actions {
+	}
+
+	// .bag__action
+	&__action {
+	}
+
+	// .bag__checkout
+	&__checkout {
+	}
+
+	// .bag__continue
+	&__continue {
+	}
+
+	// .bag__empty
+	&__empty {
+		display: none;
+
+		@include apply-to(tablet) {
+		}
+	}
+
+	// .bag.is-empty
+	&.is-empty {
+
+		.bag__items,
+		.bag__totals,
+		.bag__checkout {
+			display: none;
+		}
+
+		.bag__empty {
+			display: block;
+		}
+	}
+}
+
+/**
+ * bag mini
+ */
+.bag--mini {
+	background: $white;
+	bottom: 0;
+	opacity: 0;
+	overflow-y: auto;
+	padding: em(30);
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translate3d(100%, 0, 0);
+	transition: opacity $general-timer $ease-1,
+				visibility $general-timer $ease-1,
+				transform $general-timer $ease-1;
+	visibility: hidden;
+	z-index: z(bag);
+
+	@include apply-to(mobile) {
+		padding-bottom: em(80);
+	}
+
+	@include apply-to(phone) {
+		left: 0;
+	}
+
+	@include apply-to(tablet) {
+		border-left: 1px solid $pink-1;
+	}
+
+	.is-bag-exposed & {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		transition-delay: $general-timer;
+		visibility: visible;
+	}
+
+	.header-promo-on & {
+		top: rem(30);
+	}
+
+	.bag {
+
+		&__content {
+			display: block;
+		}
+
+		&__summary {
+			border-top: 1px solid $pink-1;
+		}
+
+		&__summary,
+		&__items {
+			padding-bottom: em(10);
+			width: initial;
+		}
+
+		// bag--mini .bag__header
+		&__header {
+			margin: 0 0 em(16) 0;
+			position: relative;
+			text-align: center;
+		}
+	}
+}
+
+/**
+ * bag item
+ */
+.bag-item {
+	display: flex;
+	margin-bottom: 1em;
+
+	// overlay to prevent user interaction with the bag item
+	// this is only visible when the item is reloading
+	&::after {
+		background-color: $white;
+		bottom: 0;
+		content: '';
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: opacity $general-timer $ease-1,
+					visibility $general-timer $ease-1;
+		visibility: hidden;
+		z-index: z(front);
+	}
+
+	// item reloading
+	&.is-loading {
+
+		// overlay
+		&::after {
+			opacity: 0.6;
+			visibility: visible;
+		}
+	}
+
+	// .bag-item__photo
+	&__photo {
+		width: em(125);
+
+		// .bag-item__photo-ir
+		&-ir {
+		}
+	}
+
+	// .bag-item__info
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-left: 1em;
+		position: relative;
+		@include apply-to(phone) {
+			width: em(200);
+		}
+		@include apply-to(tablet) {
+			width: em(225);
+		}
+	}
+
+	// .bag-item__title <p>
+	&__title {
+		color: $gray-4;
+		font-style: italic;
+		font-weight: $medium;
+		margin-bottom: em(8,16);
+		margin-top: 0;
+	}
+
+	&__price,
+	&__variants {
+	}
+
+	&.giveaway-item {
+		.bag-item__price,
+		.bag-item__actions {
+			display: none;
+		}
+		.bag-item__title a {
+			pointer-events: none;
+		}
+	}
+
+	// .bag-item__price <p>
+	&__price {
+		font-size: em(14);
+		font-weight: $medium;
+		margin: 1em 0 1.2em;
+	}
+
+	// .bag-item__variants <p>
+	&__variants {
+		color: $gray-3;
+		font-size: em(13,16);
+		margin-bottom: 0;
+	}
+
+	// .bag-item__variant <span>
+	&__variant {
+		display: block;
+	}
+
+	// .bag-item__actions
+	&__actions {
+	}
+
+
+	// .bag-item__original-price
+	&__original-price {
+		.has-sale & {
+			text-decoration: line-through;
+		}
+	}
+
+	// .bag-item__remove
+	&__remove {
+		bottom: 0;
+		position: absolute;
+		right: 0;
+	}
+	// .bag-item__qty
+	&__qty {
+
+		button,
+		input {
+			color: $gray-7;
+		}
+
+		.increment {
+			border: 1px solid $gray-7;
+		}
+
+		.increment__icon--add {
+			margin-top: 5px;
+		}
+	}
+
+	// .bag-item__msg <p>
+	&__msg {
+	}
+}
+
+/**
+ * bag exposed
+ */
+.is-bag-exposed {
+	overflow: hidden;
+	width: 100%;
+
+	.hdr,
+	.nav,
+	.page-wrap,
+	.footer {
+
+		@include apply-to(small-phone) {
+		}
+	}
+}
+
+/**
+ * bag overlay
+ */
+.bag-overlay {
+	background-color: $black;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translate3d(0, 0, 0);
+	transition: opacity $general-timer $ease-1,
+				visibility $general-timer $ease-1,
+				transform $general-timer $ease-1;
+	visibility: hidden;
+	width: 100%;
+	z-index: z(bag-overlay);
+
+	.is-bag-exposed & {
+		opacity: 0.25;
+		transition-delay: $general-timer;
+		visibility: visible;
+	}
+}
+
+/**
+ * bag add on
+ */
+.bag__add-on {
+	border-top: 2px solid $pink-1;
+	padding: 1em 0;
+
+	// .bag__add-on-title
+	&-title {
+		color: $pink-1;
+		font-size: em(15);
+		font-weight: $bold;
+		margin-bottom: em(30,16);
+		text-align: center;
+	}
+
+	.bag-item {
+
+		&__actions {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__info {
+			width: em(258);
+		}
+
+		&__photo {
+			width: em(88);
+		}
+
+		&__qty {
+			display: inline-block;
+		}
+
+		&__price {
+			font-size: em(12);
+		}
+
+		&__title {
+			font-size: em(14);
+		}
+
+	}
+
+
+	.quick-add-btn {
+		font-size: em(12);
+		margin: 0;
+		padding-bottom: em(8,16);
+		padding-top: em(7,16);
+	}
+
+	.increment__input[type="number"] {
+		height: em(33);
+	}
+
+	.increment__btn {
+		height: em(33);
+	}
+}
+
+/**
+ * bag confetti
+ * (does not display on cart page)
+ */
+.bag__confetti {
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	opacity: 1;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: opacity $normal-timer $ease-1,
+				visibility $normal-timer $ease-1;
+	visibility: visible;
+	width: 100%;
+
+	&.is-hidden {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+
+/**
+ * bag message
+ */
+.bag-message {
+	background-image: url(' {{ "bg-pink-light.jpg" | asset_url }} ');
+    background-repeat: repeat-x;
+	padding: rem(12);
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+
+	.template-cart & {
+		max-width: rem(600);
+	}
+
+	&__cb-wrap {
+		margin-bottom: em(10);
+		position: relative;
+	}
+
+	&__label {
+		font-size: em(14);
+		font-weight: $medium;
+	}
+
+	&__pink {
+		color: $pink-1;
+		font-size: rem(15);
+		line-height: rem(20);
+	}
+
+
+	&__text-wrap {
+		display: none;
+
+		&.is-active {
+			display: block;
+			padding: rem(10) rem(15);
+		}
+	}
+
+	&__textarea  {
+		background: $pink-5;
+		border: none;
+		font-size: em(13);
+		min-height: em(80,13);
+		padding: em(13,13) em(20,13);
+		resize: none;
+		width: 100%;
+
+		.template-cart & {
+			padding: em(10);
+		}
+	}
+
+
+
+	.input-placeholder {
+		margin-bottom: rem(10);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		label,
+		.input {
+			font-size: rem(13);
+			padding: rem(13) rem(20);
+		}
+	}
+
+	input[type="checkbox"] {
+		-webkit-appearance: none;
+		background: transparent;
+		border: 1px solid $gray-9;
+		border-radius: 0;
+		color: $pink-1;
+		height: em(17);
+		vertical-align: bottom;
+		width: em(16);
+
+
+		& + label::before {
+			background-color: $white;
+			background-position: 0 0;
+			border: 1px solid $gray-9;
+			border-radius: rem(3);
+			color: $pink-1;
+			content: '';
+			display: block;
+			height: rem(20);
+			left: rem(3);
+			line-height: rem(14);
+			position: absolute;
+			top: rem(8);
+			width: rem(21);
+		}
+
+		&:checked {
+			& + label::before {
+				@include icon--pink-check;
+				font-size: rem(16);
+				height: rem(20);
+				width: rem(21);
+
+				.template-cart & {
+					color: $pink-1;
+				}
+			}
+		}
+
+		.template-cart & {
+			border-color: $pink-1;
+			color: $pink-1;
+		}
+	}
+
+}

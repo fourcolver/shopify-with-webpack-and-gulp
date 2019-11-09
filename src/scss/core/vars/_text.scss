@@ -1,0 +1,67 @@
+/**
+ * Font Families
+ */
+$primary-font: 'Gotham SSm A', 'Gotham SSm B', 'Gotham', sans-serif;
+$secondary-font: 'FreightTextBook', serif;
+$gotham: 'Gotham', sans-serif;
+
+/**
+ * Font Weights
+ */
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+
+/**
+ * Font Sizes
+ */
+
+// H1
+$size-h1: (
+	null: em(28),
+	desktop: em(36)
+);
+
+// H2
+$size-h2: (
+	null: em(33),
+	desktop: em(46)
+);
+
+// H3
+$size-h3: (
+	null: em(20),
+	desktop: em(28)
+);
+
+// H4
+$size-h4: (
+	null: em(16)
+);
+
+// Paragraph
+$size-p: (
+	null: em(16)
+);
+
+// Inputs
+$size-input: (
+	null: em(15)
+);
+
+// Section header
+$size-section-header-hdg: (
+	null: em(24)
+);
+
+/**
+ * Line Heights
+ */
+
+// Paragraph
+$lineheight-p: (
+	null: em(23, 15),
+	tablet: em(30, 21)
+);

@@ -1,0 +1,71 @@
+{% if section.settings.show_featured == 'yes' %}
+<section id="homeProductGrid" class="hpg">
+    <div class="container hpg__container">
+		{% if section.settings.show_header %}
+		<div class="hpg__header">
+			<i class="icon icon--snowflakes"></i>
+			<h2>{{ section.settings.featured_header }}</h2>
+			<i class="lib-icon lib-icon--brush"></i>
+		</div>
+		{% endif %}
+        <div id="hpgCarousel" class="hpg__grid carousel">
+            {% for product in collections[section.settings.featured_collection].products %}
+                {% include 'product-grid-item' %}
+            {% endfor %}
+        </div>
+		<div class="hpg__action">
+			<a href="{{ section.settings.cta_url }}" class="btn btn--wide">
+				<span class="btn__bg"></span>
+				<span class="btn__border"></span>
+				<span class="btn__label">{{ section.settings.cta_text }}</span>
+			</a>
+		</div>
+    </div>
+</section>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Featured Products",
+	"class": "featured-products",
+	"settings": [
+		{
+			"type": "radio",
+			"id": "show_featured",
+			"options": [
+				{ "value": "yes", "label": "Yes" },
+				{ "value": "no", "label": "No" }
+			],
+			"label": "Show Featured Products?"
+		},
+		{
+		   "type": "collection",
+		   "id": "featured_collection",
+		   "label": "Select Category"
+	   	},
+	   	{
+		   	"type": "checkbox",
+			"id": "show_header",
+			"label": "Show Header?",
+			"default": true
+	   	},
+	   	{
+			"type": "text",
+			"id": "featured_header",
+			"label": "Header Text",
+			"default": "Product Squad"
+	   	},
+		{
+			"type": "text",
+			"id": "cta_text",
+			"label": "CTA Link Text",
+			"default": "Shop All"
+		},
+		{
+			"type": "url",
+			"id": "cta_url",
+			"label": "CTA Link"
+		}
+	]
+}
+{% endschema %}

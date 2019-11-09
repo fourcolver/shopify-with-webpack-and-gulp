@@ -1,0 +1,104 @@
+/*
+///////////////////////////////////////////////////////////
+Incrementer - Input with add and subtract quantity buttons
+///////////////////////////////////////////////////////////
+*/
+.increment {
+	border:2px solid $white;
+	padding:0 em(33);
+	position:relative;
+	width:em(141);
+
+	@include apply-to(small-phone) {
+		width: 65%;
+	}
+
+	&--dark {
+		border:2px solid $black;
+	}
+
+	&__input[type="number"] {
+		background:transparent;
+		border:0;
+		height:rem(33);
+		margin:0;
+		padding:0;
+		text-align:center;
+		width:100%;
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+			display:none;
+		}
+
+		&:hover {
+			&::-webkit-inner-spin-button,
+			&::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+				display:none;
+			}
+		}
+	}
+
+	&__input--dark[type="number"] {
+		color:$black;
+	}
+
+	&__btn {
+		background:transparent;
+		border:0;
+		height:em(33);
+		overflow:hidden;
+		position:absolute;
+		// text-indent:calc(100% + 56px);
+		top:0;
+		width:em(40);
+
+		span {
+			display:block;
+
+			&:before,
+			&:after {
+				background:$white;
+				content:' ';
+				display:block;
+				left:50%;
+				position:absolute;
+				top:50%;
+			}
+
+			&:before {
+				height:em(2);
+				margin:em(-1) 0 0 em(-5);
+				width:em(10);
+			}
+		}
+
+		&--dark span {
+
+			&:before,
+			&:after {
+				background-color:$black;
+			}
+		}
+	}
+
+	&__add {
+		right:0;
+
+		span:after {
+			height:em(10);
+			margin:em(-5) 0 0 em(-1);
+			width:em(2);
+		}
+	}
+
+	&__subtr {
+		left:0;
+	}
+
+}

@@ -1,0 +1,23 @@
+<section id="collection" class="collection">
+    <div class="container collection__container">
+		{%- if collection.title -%}
+		<div class="collection__hdr">
+			<i class="icon icon--3-stars-reverse"></i>
+			<h2>{{ collection.title }}</h2>
+			<i class="lib-icon lib-icon--brush"></i>
+		</div>
+		{%- endif -%}
+
+		{%- if collection.description -%}
+			<div class="collection__desc">
+				{{ collection.description }}
+			</div>
+		{%- endif -%}
+
+		<div class="collection__products products">
+			{% for product in collection.products %}
+				{% include 'product-grid-item' %}
+			{% endfor %}
+		</div>
+	</div>
+</section>

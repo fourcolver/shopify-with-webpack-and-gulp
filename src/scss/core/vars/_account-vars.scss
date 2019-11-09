@@ -1,0 +1,34 @@
+/**
+ * account vars (settings)
+ */
+
+// gutter
+$ac-gutter: (
+	null: em(20)
+);
+
+// heading
+$ac-heading-font-size: (
+	null: em(16)
+);
+
+// content
+$ac-content-border-color: $gray-1;
+
+// section header heading
+$ac-section-header-heading-font-size: (
+	null: em(18)
+);
+
+// section header back button
+$ac-section-header-back-button-font: $primary-font;
+
+// nav button
+$ac-nav-button-color: $gray-1;
+$ac-nav-button-background-color: $white;
+$ac-nav-button-font: $primary-font;
+$ac-nav-button-font-size: em(14);
+$ac-nav-button-font-weight: $medium;
+
+// nav button active
+$ac-nav-button-active-background-color: $pink-2;

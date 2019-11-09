@@ -1,0 +1,65 @@
+{% comment %}
+Set the extension of your color files below. Use 'png', 'jpeg', 'jpg' or 'gif'.
+{% endcomment %}
+
+{% assign file_extension = 'jpg' %}
+{% assign found_option = false %}
+{% assign is_color = false %}
+{% assign option_index = 0 %}
+
+
+{% for option in product.options %}
+	{% if option == swatch %}
+		{% assign found_option = true %}
+		{% assign option_index = forloop.index0 %}
+
+		{% assign downcased_option = swatch | downcase %}
+		{% if downcased_option contains 'color' %}
+			{% assign is_color = true %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% assign option_index_more = 0 %}
+{% for option in product.options %}
+	{% if product.title contains 'Duo' and template contains 'collection' %}
+		{% break %}
+	{% endif %}
+	{% capture downcased_option %}{{ option | downcase }}{% endcapture %}
+	{% assign option_index_more = forloop.index0 %}
+	{% assign how_many_options = 0 %}
+	{% assign current_options = '' %}
+	{% for variant in product.variants %}
+		{% assign current_option = variant.options[option_index_more] %}
+		{% unless current_options contains current_option %}
+			{% if how_many_options > 0 %}
+				{% assign current_options = current_options | join: '|' | append: '|' %}
+			{% endif %}
+			{% assign current_options = current_options | append: current_option %}
+			{% assign current_options = current_options | split: '|' | sort %}
+			{% assign how_many_options = current_options | size %}
+			{% assign values = '' %}
+			{% assign variantImg = variant.image.src %}
+			{% assign values = values | join: ',' %}
+			{% assign values = values | append: ',' | append: current_option %}
+			{% assign values = values | split: ',' %}
+			{% if downcased_option contains "color"%}
+				<li data-value="{{ current_option | escape }}" data-img="{{ variantImg | img_url: '622x692' }}" class="swatch-element {% if is_color %}color {% endif %}{{ current_option | handle }} available" data-variant-id="{{variant.id}}" data-handle="{{product.handle}}">
+					<label for="swatch-{{ option_index }}-{{ current_option | handle }}">
+						<img class="pi__swatch swatch-image lazyload" data-src="{{ current_option | handle | prepend: 'swatch-' | append: '.' | append: file_extension | asset_url }}" />
+					</label>
+					<span class="pi__swatch-border"></span>
+				</li>
+			{% endif %}
+			{%- if current_options.size > 5 -%}
+				{%- break -%}
+			{%- endif -%}
+		{% endunless %}
+	{% endfor %}
+
+	{% unless option == "Title" %}
+		{% if current_options.size > 3 and downcased_option contains "color"%}
+			<!--<li class="pi__swatches-more">more</li>-->
+		{% endif %}
+	{% endunless %}
+{% endfor %}

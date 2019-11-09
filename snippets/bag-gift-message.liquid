@@ -1,0 +1,23 @@
+<div id="giftMessage" class="bag-message">
+	<div class="bag-message__cb-wrap">
+		<div class="checkbox">
+			<input type="hidden" name="attributes[add-gift-message]" value="no" />
+			<input type="checkbox" name="attributes[add-gift-message]" value="yes" id="giftMessageCheckbox" class="bag-message__checkbox" {% if cart.attributes['add-gift-message'] == 'yes' %}checked{% endif %} />
+			<label class="bag-message__label" for="giftMessageCheckbox" id="giftMessageLabel"><span class="bag-message__pink">Sending as a gift?</span><br />Include a personalized message.</label>
+		</div>
+	</div>
+	<div id="giftMessageTextWrapper" class="bag-message__text-wrap{% if cart.attributes['add-gift-message'] == 'yes' %} is-active{% endif %}">
+		<div class="input-placeholder{% if cart.attributes.gift-to != blank %} has-value{% endif %}">
+			<label for="gmTo">To</label>
+			<input id="gmTo" class="input" type="text" name="attributes[gift-to]" value="{% if cart.attributes.gift-to != blank %}{{ cart.attributes.gift-to }}{% endif %}" maxlength="50" />
+		</div>
+		<div class="input-placeholder{% if cart.attributes.gift-from != blank %} has-value{% endif %}">
+			<label for="gmFrom">From</label>
+			<input id="gmFrom" class="input" type="text" name="attributes[gift-from]" value="{% if cart.attributes.gift-from != blank %}{{ cart.attributes.gift-from }}{% endif %}" maxlength="50" />
+		</div>
+		<div class="input-placeholder{% if cart.attributes.gift-message != blank %} has-value{% endif %}">
+			<label for="giftMessageTextarea">your message..</label>
+			<textarea maxlength="1000" name="attributes[gift-message]" id="giftMessageTextarea" class="bag-message__textarea input{% if cart.attributes.gift-message != blank %} has-text{% endif %}">{% if cart.attributes.gift-message != blank %}{{ cart.attributes.gift-message }}{% endif %}</textarea>
+		</div>
+	</div>
+</div>

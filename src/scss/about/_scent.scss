@@ -1,0 +1,147 @@
+/**
+ * About Scent Section
+ */
+
+.scent {
+	@include apply-to(desktop) {
+		margin-right: em(105);
+		max-width: percentage(650/700);
+		padding-top: em(80);
+	}
+
+	&.bg-set * {
+		opacity: 1;
+		/*transition: opacity $general-timer $ease-1;*/
+		transition: all 1s;
+		transition: opacity 1.7s;
+	}
+
+	&__img,
+	&__text * {
+		opacity: 0;
+	}
+
+	&__content {
+		margin-bottom: em(-46);
+		margin-top: em(-9);
+		position: relative;
+
+		@include apply-to(tablet) {
+			margin-bottom: em(-44);
+			margin-top: em(-21);
+		}
+
+		@include apply-to(desktop) {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+
+	&__bg {
+		bottom: 0;
+		opacity: 1;
+		position: absolute;
+		transform: translate3d(-100%,0,0);
+		width: 100%;
+		z-index: z(behind);
+
+		@include apply-to(tablet) {
+			top: em(27);
+		}
+
+		@include apply-to(desktop) {
+			bottom: em(64);
+			top: em(36);
+		}
+
+		&.is-visible {
+			transform: translate3d(0,0,0);
+			/*transition: transform $general-timer $ease-2;*/
+			transition: all 1s;
+		}
+	}
+
+	&__text {
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		opacity: 0;
+		position: absolute;
+		top: em(36);
+		width: 100%;
+		max-width: 100%;
+
+		@include apply-to(tablet) {
+			bottom: em(64);
+			padding-left: percentage(150/700);
+		}
+		@include apply-to(tablet-landscape) {
+			max-width: 100%;
+		}
+		@include apply-to(desktop-large) {
+			max-width: 90%;
+		}
+		@include apply-to(desktop-huge) {
+			max-width: 80%;
+		}
+
+	}
+
+	&__text-inner {
+		color: $white;
+		font-family: $secondary-font;
+		margin: 0 auto;
+		max-width: 90%;
+
+		@include apply-to(smaller-phone) {
+			font-size: em(28);
+			line-height: em(19);
+		}
+		@include apply-to(tablet) {
+			font-size: em(28);
+			padding-left: em(20);
+			padding-right: em(15);
+			padding-bottom: em(20);
+		}
+		@include media-min(800px) {
+			font-size: em(31);
+		}
+		@include apply-to(tablet-landscape) {
+			font-size: em(34);
+			padding-bottom: em(0);
+		}
+		@include media-min(920px) {
+			font-size: em(35);
+		}
+		@include apply-to(desktop) {
+			font-size: em(37);
+			padding-right: em(20);
+		}
+		@include media-min(1076px) {
+			font-size: em(39);
+		}
+		@include apply-to(desktop-large) {
+			font-size: em(40);
+		}
+		@include apply-to(desktop-huge) {
+			font-size: em(44);
+		}
+	}
+
+	.lib-icon,
+	.icon {
+		vertical-align: sub;
+		font-size: 2.2px;
+
+		@include apply-to(tablet-landscape) {
+			font-size: 2px;
+		}
+		@include apply-to(desktop) {
+			font-size: 2.5px;
+		}
+		@include apply-to(desktop-large) {
+			font-size: 3px;
+		}
+	}
+}

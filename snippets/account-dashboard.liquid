@@ -1,0 +1,15 @@
+{% comment %}
+This view is handled by Vue
+@see > src/js/build/account-dashboard.js
+@see > src/js/lib/account-dashboard.js
+@see > src/js/components/AccountDashboard.vue
+{% endcomment %}
+<!-- BEN // -->
+<section id="acDashboard" class="ac-dashboard container container--account is-loading">
+</section>
+
+{%- capture accountScripts -%}
+	{% include 'account-data' %}
+{%- endcapture -%}
+
+{% include 'h-minify', variable: accountScripts %}

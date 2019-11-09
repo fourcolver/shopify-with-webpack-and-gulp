@@ -1,0 +1,69 @@
+{% assign s = section.settings %}
+
+{% if s.brand_img != blank and s.brand_title != blank %}
+	<div id="redefiningPretty" class="redefining-pretty__container container pull-top-phone">
+		<div class="redefining-pretty__text js-text-animate animate animate-up">
+			<div class="redefining-pretty__header">
+				<h1 class="multicolor-title redefining-pretty__title">{{ s.brand_title }}</h1>
+			</div>
+
+			{% if s.brand_text contains '<p>' %}
+				<div class="redefining-pretty__desc">
+					{{ s.brand_text }}
+				</div>
+			{% else %}
+				<p class="redefining-pretty__desc">
+					{{ s.brand_text }}
+				</p>
+			{% endif %}
+
+			<div class="redefining-pretty__quote">
+				<p class="redefining-pretty__quote-text">{{ s.brand_btn_text }}</p>
+			</div>
+		</div>
+
+		<div class="redefining-pretty__img-content">
+			<div class="redefining-pretty__img-wrap is-loading ir js-rellax" {% include 'h-intrinsic-ratio', image: s.brand_img %} data-rellax-speed="0.5">
+				<img data-srcset="{{ s.brand_img | img_url: '555x' }} 1x, {{ s.brand_img | img_url: 'master' }} 2x" class="redefining-pretty__img lazyload" alt="{{ s.brand_img_alt }}" />
+			</div>
+			<div class="redefining-pretty__img-bg desktop-only js-rellax" data-rellax-speed="0"></div>
+			<div class="redefining-pretty__img-bg hide-desktop"></div>
+		</div>
+	</div>
+
+{% endif %}
+
+{% schema %}
+{
+	"name": "Redefining Pretty",
+	"class": "redefining-pretty",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "brand_img",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "text",
+			"id": "brand_title",
+			"label": "Title",
+			"default": "Redefining Pretty!"
+		},
+		{
+			"type": "textarea",
+			"id": "brand_text",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "brand_btn_text",
+			"label": "Slogan Text"
+		}
+	]
+}
+{% endschema %}

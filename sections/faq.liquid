@@ -1,0 +1,224 @@
+<aside class="faq__sidebar hide-mobile">
+	<div id="sticky" class="faq__sidebar-inner">
+		<a class="faq__link" href="#{{ section.settings.title }}">
+			{{ section.settings.title }}
+		</a>
+		<a class="faq__link" href="#{{ section.settings.title_2 }}">
+			{{ section.settings.title_2 }}
+		</a>
+		<a class="faq__link" href="#{{ section.settings.title_3 }}">
+			{{ section.settings.title_3 }}
+		</a>
+		<a class="faq__link" href="#{{ section.settings.title_4 }}">
+			{{ section.settings.title_4 }}
+		</a>
+		<a class="faq__link" href="#{{ section.settings.title_5 }}">
+			{{ section.settings.title_5 }}
+		</a>
+	</div>
+</aside>
+<section id="faqAccordion" class="faq__acc">
+
+		{% comment %} Icons {% endcomment %}
+		<div class="faq__element faq__element--peace desktop-only">
+			<span class="lib-icon lib-icon--peace"></span>
+		</div>
+		<div class="faq__element faq__element--3-stars-flipped desktop-only">
+			<span class="icon icon--3-stars"></span>
+		</div>
+
+		{% comment %}
+			First accordion Block
+		{% endcomment %}
+		<div id="{{ section.settings.title }}" class="faq__heading js-acc-btn">
+			<h2 class="faq__group-title">{{ section.settings.title }}</h2>
+			<i class="icon icon--down-carrot-gray faq__icon"></i>
+		</div>
+		<div class="faq__menu acc__menu">
+			{% for block in section.blocks %}
+				{% if block.type == 'block-1' %}
+					<div class="faq__item">
+						<h3 class="faq__question">{{ block.settings.question }}</h3>
+						<p class="faq__answer">{{ block.settings.answer }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		{% comment %}
+			Second Accordion Block
+		{% endcomment %}
+		<div  id="{{ section.settings.title_2 }}" class="faq__heading js-acc-btn">
+			<h2 class="faq__group-title">{{ section.settings.title_2 }}</h2>
+			<i class="icon icon--down-carrot-gray faq__icon"></i>
+			<div class="faq__element faq__element--3-stars desktop-only">
+				<span class="icon icon--3-stars"></span>
+			</div>
+		</div>
+		<div class="faq__menu acc__menu">
+			{% for block in section.blocks %}
+				{% if block.type == 'block-2' %}
+					<div class="faq__item">
+						<h3 class="faq__question">{{ block.settings.question }}</h3>
+						<p class="faq__answer">{{ block.settings.answer }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		{% comment %}
+			Third accordion Block
+		{% endcomment %}
+		<div id="{{ section.settings.title_3 }}" class="faq__heading js-acc-btn">
+			<h2 class="faq__group-title">{{ section.settings.title_3 }}</h2>
+			<i class="icon icon--down-carrot-gray faq__icon"></i>
+		</div>
+		<div class="faq__menu acc__menu">
+			{% for block in section.blocks %}
+				{% if block.type == 'block-3' %}
+					<div class="faq__item">
+						<h3 class="faq__question">{{ block.settings.question }}</h3>
+						<p class="faq__answer">{{ block.settings.answer }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		{% comment %}
+			Fourth accordion Block
+		{% endcomment %}
+		<div id="{{ section.settings.title_4 }}" class="faq__heading js-acc-btn">
+			<h2 class="faq__group-title">{{ section.settings.title_4 }}</h2>
+			<i class="icon icon--down-carrot-gray faq__icon"></i>
+			<div class="faq__element faq__element--license-plate desktop-only">
+				<span class="lib-icon lib-icon--license-plate"></span>
+			</div>
+		</div>
+		<div class="faq__menu acc__menu">
+			{% for block in section.blocks %}
+				{% if block.type == 'block-4' %}
+					<div class="faq__item">
+						<h3 class="faq__question">{{ block.settings.question }}</h3>
+						<p class="faq__answer">{{ block.settings.answer }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+		{% comment %}
+			Fifth accordion Block
+		<div id="{{ section.settings.title_5 }}" class="faq__heading js-acc-btn">
+			<h2 class="faq__group-title">{{ section.settings.title_5 }}</h2>
+			<i class="icon icon--down-carrot-gray faq__icon"></i>
+		</div>
+		<div class="faq__menu acc__menu">
+			{% for block in section.blocks %}
+				{% if block.type == 'block-5' %}
+					<div class="faq__item">
+						<h3 class="faq__question">{{ block.settings.question }}</h3>
+						<p class="faq__answer">{{ block.settings.answer }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		{% endcomment %}
+
+</section>
+{% schema %}
+{
+	"name": "FAQs",
+	"class": "faq__content",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+			"default": "Order Info"
+		},
+		{
+			"type": "text",
+			"id": "title_2",
+			"label": "Title",
+			"default": "Ingredients & Formula Questions"
+		},
+		{
+			"type": "text",
+			"id": "title_3",
+			"label": "Title",
+			"default": "Medical Questions"
+		},
+		{
+			"type": "text",
+			"id": "title_4",
+			"label": "Title",
+			"default": "Other"
+		}
+	],
+	"blocks": [
+		{
+			"type": "block-1",
+			"name": "Order Info",
+			"settings": [
+				{
+					"type": "text",
+					"id": "question",
+					"label": "Question"
+				},
+				{
+					"type": "textarea",
+					"id": "answer",
+					"label": "Answer"
+				}
+			]
+		},
+		{
+			"type": "block-2",
+			"name": "Ingredients & Formula",
+			"settings": [
+				{
+					"type": "text",
+					"id": "question",
+					"label": "Question"
+				},
+				{
+					"type": "textarea",
+					"id": "answer",
+					"label": "Answer"
+				}
+			]
+		},
+		{
+			"type": "block-3",
+			"name": "Medical Questions",
+			"settings": [
+				{
+					"type": "text",
+					"id": "question",
+					"label": "Question"
+				},
+				{
+					"type": "textarea",
+					"id": "answer",
+					"label": "Answer"
+				}
+			]
+		},
+		{
+			"type": "block-4",
+			"name": "Other",
+			"settings": [
+				{
+					"type": "text",
+					"id": "question",
+					"label": "Question"
+				},
+				{
+					"type": "textarea",
+					"id": "answer",
+					"label": "Answer"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

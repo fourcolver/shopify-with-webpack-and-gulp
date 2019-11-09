@@ -1,0 +1,145 @@
+/**
+ * button placeholder
+ * (currently not in use)
+ *
+ * btn
+ * btn secondary 
+ * btn tertiary
+ */
+
+/**
+ * btn
+ */
+%btn {
+	border: 0;
+	border-radius: 0;
+	color: $white;
+	cursor: pointer;
+	font-family: $primary-font;
+	font-size: em(16);
+	font-weight: $bold;
+	letter-spacing: 0.1em;
+	line-height: em(18);
+	margin: 0 rem(8) rem(8) 0;
+	padding: em(13) em(60);
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	transition: color $faster-timer $easeOutQuad,
+				font-size $faster-timer $easeOutQuad, 
+				padding $faster-timer $easeOutQuad;
+
+	&:hover {
+		color: $gray-4;
+	}
+}
+
+%btn-bg {
+	background-color: $pink-1;
+	border: 1px solid $pink-1;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: z(forward);
+	
+	&::after {
+		background-color: $white;
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		transform: translate3d(#{calc(100% + 1px)}, 0, 0);
+		transition: transform $faster-timer $easeOutQuad;
+		width: 100%;
+
+		.btn:hover & {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+%btn-border {
+	background-color: $white;
+	border: 1px solid $pink-1;
+	height: 100%;
+	left: rem(8);
+	overflow: hidden;
+	position: absolute;
+	top: rem(8);
+	width: 100%;
+	z-index: z(backward);
+
+	&::after {
+		background-color: $pink-1;
+		bottom: 0;
+		content: '';
+		display: block;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate3d(#{calc(-100% - 1px)}, 0, 0);
+		transition: transform $faster-timer $easeOutQuad;
+
+		.btn:hover & {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+/**
+ * btn secondary
+ */
+%btn-secondary {
+	color: $pink-1;
+	letter-spacing: 0;
+	margin: 0 rem(8) rem(8) 0;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+%btn-secondary-bg {
+	background-color: $white;
+	border-color: $pink-1;
+
+	&::after {
+		background-color: $pink-1;
+	}
+}
+
+%btn-secondary-border {
+	background-color: $pink-1;
+	border-color: 1px solid $white;
+
+	&::after {
+		background-color: $white;
+	}
+}
+
+/**
+ * btn tertiary
+ */
+%btn-tertiary {
+	background-color: transparent;
+	color: $pink-1;
+	padding-left: rem(15);
+	padding-right: rem(15);
+
+	&:hover {
+		color: $white;
+	}
+}
+
+%btn-tertiary-bg {
+	background-color: transparent;
+	border-color: $pink-1;
+
+	&::after {
+		background-color: $pink-1;
+	}
+}

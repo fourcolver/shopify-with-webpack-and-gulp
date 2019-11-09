@@ -1,0 +1,90 @@
+<section class="blogs">
+   <div class="container blogs__container container--narrow">
+	   <header class="blogs__heading">
+		   <a href="{{ page.url }}"><h1>{{ page.title }}</h1></a>
+	   </header>
+	   <div class="blogs__featured">
+		   {% for link in linklists.blogs.links limit: 1 %}
+			   {% assign blog = link.object %}
+			   {% for article in blog.articles limit: 1 %}
+				   <a href="{{ article.url }}">
+					   <div class="blogs__featured-img ir" {% include 'h-intrinsic-ratio', image: article.image.src %}>
+						   <img data-srcset="{{ article.image.src | img_url: 'master' }} 1x, {{ article.image.src | img_url: 'master' }} 2x" alt="{{ article.image.alt }}" class="lazyload" />
+						   <div class="blogs__featured-caption">
+							   <div class="blogs__featured-text">
+								   <p> {{ article.title }} </p>
+							   </div>
+						   </div>
+					   </div>
+				   </a>
+			   {% endfor %}
+		   {% endfor %}
+	   </div>
+	   <div class="blogs__nav">
+		   <a href="{{ blog.url }}" class="blogs__nav-title">Browse our Stories</a>
+		   <div class="blogs__nav-container">
+			   {% assign blogs = linklists.blogs %}
+			   {% for link in blogs.links %}
+				   <a class="blogs__nav-link{% if forloop.index > 4 %} hide-tablet {% endif %}{% if link.active %} active{% endif %}" href="{{ link.url }}"> {{ link.title }} </a>
+			   {% endfor %}
+		   </div>
+	   </div>
+	   <div class="blogs__main">
+		   {% for link in linklists.blogs.links %}
+			   {% assign blog = link.object %}
+			   <!-- start blog code here -->
+			   {% if forloop.index == 1 %}
+				   {% continue %}
+			   {% endif %}
+			   {% for article in blog.articles limit: 1 %}
+
+				   {% if article.image %}
+					   <div class="article">
+							   {%- capture img_id -%}ArticleImage-{{ article.image.id }} {%- endcapture -%}
+							   {%- capture img_wrapper_id -%} ArticleImageWrapper-{{ article.image.id }}{%- endcapture -%}
+							   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+							   <a href="{{ article.url }}" id="{{ img_wrapper_id }}" class="article__img js">
+									<div class="article__list-image-container ir" {% include 'h-intrinsic-ratio', image: article.image.src %}>
+									   <img data-srcset="{{ article.image.src | img_url: '610x' }} 1x, {{ article.image.src | img_url: 'master' }} 2x" alt="{{ article.image.alt }}" class="lazyload" />
+								   </div>
+							   </a>
+
+
+						   <!-- main article content -->
+						   <div class="article__content">
+							   <h3 class="article__title">
+								   {{ article.title }}
+							   </h3>
+
+							   {% if article.excerpt.size > 0 %}
+							   <p class="article__text">
+								   {{ article.excerpt }}
+							   </p>
+							   {% else %}
+							   <p class="article__text">
+								   {{ article.content | strip_html | truncate: 150 }}
+							   </p>
+							   {% endif %}
+
+							   <a href="{{ article.url }}" class="btn btn--secondary article__readmore">
+								   <span class="btn__bg"></span>
+								   <span class="btn__border"></span>
+								   <span class="btn__label">Read More</span>
+							   </a>
+						   </div>
+
+					   </div>
+					   <!-- end article content -->
+
+					   {% if paginate.pages > 1 %}
+						   {% include 'pagination' %}
+					   {% endif %}
+				   {% endif %}
+			   {% endfor %}
+		   {% endfor %}
+
+		   <!-- end blog code here -->
+	   </div>
+   </div>
+</section>

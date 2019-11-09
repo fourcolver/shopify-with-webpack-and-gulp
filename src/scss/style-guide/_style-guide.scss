@@ -1,0 +1,23 @@
+/*
+///////////////////////////////////////////////////////////
+Style Guide
+///////////////////////////////////////////////////////////
+*/
+
+// Global styles
+.page--style-guide {
+}
+
+.testing-freight {
+	font-family: $secondary-font;
+}
+
+.container {
+	margin-bottom: rem(30);
+
+	&__inner {
+		background-color: $pink-1;
+		color: $white;
+		min-height: rem(300);
+	}
+}

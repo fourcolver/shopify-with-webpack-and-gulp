@@ -1,0 +1,110 @@
+{% assign s = section.settings %}
+{% if s.show_hero == 'yes' %}
+	<div class="home-hero pull-top-mobile">
+		<a href="{{ s.hero_link }}">
+		<!-- Images -->
+		{% if s.hero_desktop != blank %}
+			<div class="home-hero__img-wrap desktop-only is-loading" {% include 'h-intrinsic-ratio', image: s.hero_desktop %}>
+				<img data-srcset="{{ s.hero_desktop | img_url: '1400x' }} 1x, {{ s.hero_desktop | img_url: 'master' }} 2x" class="lazyload home-hero__img" alt="{{ s.hero_title }} Desktop"/>
+			</div>
+		{% endif %}
+		{% if s.hero_tablet != blank %}
+			<div class="home-hero__img-wrap tablet-only is-loading" {% include 'h-intrinsic-ratio', image: s.hero_tablet %}>
+				<img data-srcset="{{ s.hero_tablet | img_url: '768x' }} 1x, {{ s.hero_tablet | img_url: 'master' }} 2x" class="lazyload home-hero__img" alt="{{ s.hero_title }} Tablet"/>
+			</div>
+		{% endif %}
+		{% if s.hero_phone != blank %}
+			<div class="home-hero__img-wrap phone-only is-loading" {% include 'h-intrinsic-ratio', image: s.hero_phone %}>
+				<img data-srcset="{{ s.hero_phone | img_url: '414x' }} 1x, {{ s.hero_phone | img_url: 'master' }} 2x" class="lazyload home-hero__img" alt="{{ s.hero_title }} Phone" />
+			</div>
+		{% endif %}
+
+		<!-- svg text and button -->
+		<div class="home-hero__text">
+
+			{%- comment %}
+			<div class="home-hero__title-text">
+				{{ s.hero_title }}
+			</div>
+
+
+			<div class="home-hero__text-image">
+				<div class="ir ir--home-hero-text">
+					<div class="home-hero__svg">
+						{% include 'home-hero-text-ripretty' %}
+					</div>
+				</div>
+			</div>
+
+
+			<div class="home-hero__sub-text">
+				{{ s.hero_subtitle }}
+			</div>
+			<div class="home-hero__actions">
+				<a href="{{ s.hero_link }}" class="home-hero__btn btn btn--secondary">
+					<span class="btn__bg"></span>
+					<span class="btn__border"></span>
+					<span class="btn__label">
+						{{ s.hero_btn_text }}
+					</span>
+				</a>
+			</div>
+			{% endcomment -%}
+
+		</div>
+		</a>
+	</div>
+{% endif %}
+{% schema %}
+{
+	"name": "Hero",
+	"settings": [
+		{
+			"type": "select",
+			"id": "show_hero",
+			"label": "Show Hero?",
+			"options": [
+				{"label": "Yes", "value": "yes"},
+				{"label": "No", "value": "no"}
+			],
+			"default": "yes"
+		},
+		{
+			"type": "image_picker",
+			"id": "hero_desktop",
+			"label": "Desktop Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "hero_tablet",
+			"label": "Tablet Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "hero_phone",
+			"label": "Phone Image"
+		},
+		{
+			"type": "text",
+			"id": "hero_title",
+			"label": "Title"
+		},
+		{
+			"type": "text",
+			"id": "hero_subtitle",
+			"label": "Subtitle"
+		},
+		{
+			"type": "text",
+			"id": "hero_btn_text",
+			"label": "Button Text"
+		},
+		{
+			"type": "url",
+			"id": "hero_link",
+			"label": "Url"
+		}
+
+	]
+}
+{% endschema %}

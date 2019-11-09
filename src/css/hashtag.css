@@ -1,0 +1,239 @@
+/**
+ * core
+ */
+/**
+ * Functions
+ */
+/**
+ * pixels to em
+ */
+/**
+ * pixels to rem
+ */
+/**
+ * Asset Url
+ */
+/**
+ * z-index sass map
+ */
+/**
+ * Vars
+ */
+/**
+ * Breakpoints
+ * @description		Used for media queries
+ */
+/**
+ * Color Variables
+ */
+/**
+ * Color Samples
+ * @description 	Used in variable-menu/_colors.scss to generate class names
+ */
+/**
+ * Form Variables
+ */
+/**
+ * header height
+ */
+/**
+ * header height
+ */
+/**
+ * footer height
+ */
+/**
+ * Page Gutters
+ */
+/**
+ * intrinsic ratios
+ */
+/**
+ * Font Families
+ */
+/**
+ * Font Weights
+ */
+/**
+ * Font Sizes
+ */
+/**
+ * Line Heights
+ */
+/**
+ * Timers
+ */
+/**
+ * easing
+ */
+/**
+ * z-index
+ */
+/**
+ * account vars (settings)
+ */
+/**
+ * Mixins
+ */
+/**
+ * Apply To
+ * @param {string} $device
+ */
+/**
+ * Max width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Min width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Set Default Query Order
+ * Needed for the mqpacker gulp task to ensure the correct order is always in place.
+ */
+
+/**
+ * Clearfix
+ */
+/**
+ * Remove Clearfix
+ */
+/**
+ * Placeholder
+ */
+/**
+ * Intrinsic Ratio Full
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Intrinsic Ratio Base
+ */
+/**
+ * Intrinsic ratio padding
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Letter Spacing
+ * @param {number} $tracking 	Based on Photoshop's tracking value.
+ * @param {number} $font-size
+ */
+/**
+ * Gutters
+ * @description - Used to add padding left and right to a container.
+ */
+/**
+ * Media Query Style
+ */
+/**
+ * white theme
+ */
+/**
+ * Placeholders
+ */
+/**
+ * Loading
+ */
+/**
+ * Text Replacement
+ */
+/**
+ * components
+ */
+/*
+ * #petitenpretty
+ */
+.hashtag {
+  padding-top: 1.875em;
+  padding-bottom: 1.875em;
+}
+
+.hashtag__hdr {
+  max-width: 16.6875em;
+  margin: 0 auto;
+}
+
+.hashtag__social {
+  text-align: center;
+}
+
+.hashtag__social .social-links li {
+  vertical-align: initial;
+  padding: 0 0.625em;
+}
+
+.hashtag__yotpo {
+  min-height: 62.5em;
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+@media only screen and (max-width: 554px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+
+@media only screen and (min-width: smaller-phone) {
+
+}
+
+@media only screen and (max-width: 374px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .hashtag__hdr {
+    max-width: 25.9375em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media only screen and (min-width: 980px) {
+
+}
+
+@media only screen and (min-width: 1025px) {
+
+  .hashtag {
+    padding-top: 3.125em;
+  }
+  .hashtag__social {
+    text-align: right;
+  }
+}
+
+@media only screen and (min-width: 1281px) {
+
+}
+
+@media only screen and (min-width: 1401px) {
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+}
+
+/*# sourceMappingURL=hashtag.css.map */

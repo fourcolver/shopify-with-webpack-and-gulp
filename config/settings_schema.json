@@ -1,0 +1,207 @@
+[
+	{
+		"name": "theme_info",
+		"theme_name": "SDG Shopify Skeleton",
+		"theme_author": "Shopify",
+		"theme_version": "1.10.0",
+		"theme_documentation_url": "https://sdg.la",
+		"theme_support_url": "https:\/\/support.shopify.com\/"
+	},
+	{
+		"name": "Development Environment",
+		"settings": [
+			{
+			  "type": "header",
+			  "content": "Choose an environment"
+			},
+			{
+				"type": "select",
+				"id": "env",
+				"label": "Development Environment",
+				"options": [
+						{
+							"value": "staging",
+							"label": "Development"
+						},
+						{
+							"value": "production",
+							"label": "Production"
+						}
+					]
+				}
+		]
+	},
+	{
+		"name": "Product Giveaway",
+		"settings": [
+			{
+				"type": "checkbox",
+				"id": "enable_giveaway",
+				"label": "Enable Giveaway?"
+			},
+			{
+				"type": "url",
+				"id": "giveaway_product",
+				"label": "Product"
+			},
+			{
+				"type": "text",
+				"id": "giveaway_price_limit",
+				"label": "Price Limit",
+				"default": "0"
+			}
+		]
+	},
+	{
+		"name": "Google Tag Manager",
+		"settings": [
+			{
+				"type": "checkbox",
+				"id": "gtm_enable",
+				"label": "Enable",
+				"default": false
+			},
+			{
+				"type": "text",
+				"id": "gtm_id",
+				"label": "ID",
+				"info": "The characters following \"GTM-\""
+			}
+		]
+	},
+	{
+		"name": "Header",
+		"settings": [
+			{
+			  "type": "header",
+			  "content": "Header Promo"
+			},
+			{
+				"type": "checkbox",
+				"id": "header_promo_enable",
+				"label": "Enable Header Promo?",
+				"default": true
+			},
+			{
+				"type": "textarea",
+				"id": "header_promo_text",
+				"label": "Text",
+				"default": "Free shipping on all orders over $75"
+			},
+			{
+				"type": "url",
+				"id": "header_promo_url",
+				"label": "URL"
+			}
+		]
+	},
+	{
+		"name": "Cart",
+		"settings": [
+			{
+			  "type": "header",
+			  "content": "Product Add On"
+			},
+			{
+				"type": "checkbox",
+				"id": "cart_product_add_on_enable",
+				"label": "Enable Product Add On?",
+				"default": true
+			},
+			{
+				"type": "product",
+				"id": "cart_product_add_on_product",
+				"label": "Select Product"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_product_add_on_title",
+				"label": "Product Add On Title",
+				"default": "Add our Limited Edition [Lip Gloss]"
+			}
+		]
+	},
+	{
+		"name": "Newsletter",
+		"settings": [
+			{
+				"type": "text",
+				"id": "newsletter_message",
+				"label": "Message",
+				"default": "Sign up for Fun Stuff & Surprises!"
+			}
+		]
+	},
+	{
+		"name": "Password Page",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Design"
+			},
+			{
+				"type": "image_picker",
+				"id": "logo",
+				"label": "Logo"
+			},
+			{
+				"type": "color",
+				"id": "bgcolor",
+				"label": "Background Color",
+				"default": "#ffffff"
+			},
+			{
+				"type": "color",
+				"id": "text_color",
+				"label": "Text Color",
+				"default": "#000000"
+			},
+			{
+				"type": "color",
+				"id": "input_bgcolor",
+				"label": "Input Background Color",
+				"default": "#ffffff"
+			},
+			{
+				"type": "color",
+				"id": "input_border_color",
+				"label": "Input Border Color",
+				"default": "#000000"
+			},
+			{
+				"type": "color",
+				"id": "input_text_color",
+				"label": "Input Text Color",
+				"default": "#000000"
+			}
+		]
+	},
+	{
+		"name": "Free Shipping CTA",
+		"settings": [
+			{
+				"type": "checkbox",
+				"id": "free_shipping_enable",
+				"label": "Enable",
+				"default": false
+			},
+			{
+				"type": "text",
+				"id": "free_shipping_value",
+				"label": "Value",
+				"info": "Numbers only"
+			},
+			{
+				"type": "textarea",
+				"id": "free_shipping_message",
+				"label": "Message Before Free Shipping"
+			},
+			{
+				"type": "textarea",
+				"id": "free_shipping_message_success",
+				"label": "Message After Free Shipping",
+				"default": "Way to go. You got Free Shipping."
+			}
+		]
+	}
+]

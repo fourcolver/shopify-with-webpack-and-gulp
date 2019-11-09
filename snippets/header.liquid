@@ -1,0 +1,93 @@
+<header id="hdr" class="hdr">
+	{%- include 'header-promo' -%}
+	<div class="container container--header">
+		<div class="hdr__wrap">
+			<div class="hdr__left desktop-only">
+				<ul class="hdr__list list-reset">
+					{% assign menu = linklists.main-menu-left-dropdown %}
+					{% for link in menu.links %}
+						{%- if link.links.size > 0 -%}
+							<li class="hdr__list-item js-nav-menu" data-menu="{{ link.title | handleize }}">
+								<a class="hdr__link" href="{{ link.url }}">{{ link.title }}</a>
+								<div class="hdr__subnav js-subnav" data-target="{{ link.title | handleize }}">
+									<ul id="subnav" class="list-reset ul-headers"><!-- 2nd level ul underlined headers-->
+										{% for sub_link in link.links %}
+											<li class="hdr__kitten hdr__kiten--{{ sub_link.handle }}">
+												{%- if sub_link.links.size < 1 -%}
+												<a class="mga" href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+												{%- endif -%}
+												{%- if sub_link.links.size > 0 -%}
+												<div class="mga hdr__kitten-title desktop-only">{{ sub_link.title }}</div>
+												{%- endif -%}
+												<ul class="sub-sub-hdr list-reset js-subnav"><!--3rd level ul -->
+													{% for sub_sub_link in sub_link.links %}
+													<li class="hdr__kitten hdr__kiten--{{ sub_sub_link.handle }}">
+														<a class="mga" href="{{ sub_sub_link.url }}">{{ sub_sub_link.title }}</a>
+													</li>
+													{% endfor %}
+												</ul><!-- end 3rd level ul -->
+											</li>
+										{% endfor %}
+									</ul><!-- end 2nd level ul -->
+								</div><!--end subnav hdr container-->
+							</li>
+						{% else %}
+							<li class="hdr__list-item"><a class="hdr__link" href="{{ link.url }}">{{ link.title }}</a></li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+				{% for link in menu.links %}
+					{%- if link.links.size > 0 -%}
+					{%- endif -%}
+				{% endfor %}
+			</div>
+			<div class="hdr__logo">
+				<div class="hdr__logo-wrap">
+					{% if template != 'index' %}<a href="{{ shop.url }}" class="hdr__logo-link">{% endif %}
+						<i class="hdr__icon hdr__icon--white icon icon--logo-white"><span class="screenreader">{{ shop.name }}</span></i>
+						<i class="hdr__icon hdr__icon--pink icon icon--logo"><span class="screenreader">{{ shop.name }}</span></i>
+
+						<i class="hdr__icon hdr__icon--pink-nonfixed icon icon--logo"><span class="screenreader">{{ shop.name }}</span></i>
+					{% if template != 'index' %}</a>{% endif %}
+				</div>
+
+			</div>
+			<div class="hdr__right">
+
+				<ul class="hdr__list list-reset">
+					{% assign menu = linklists.main-menu-right %}
+					{% for link in menu.links %}
+						<li class="desktop-only"><a class="hdr__link" href="{{ link.url }}">{{ link.title }}</a></li>
+						{% for sub_link in link.links %}
+							<a href="{{ sub_link.url }}">{{ sub_link.title }}</a>
+						{% endfor %}
+					{% endfor %}
+
+					<li class="desktop-only">
+						{% if customer %}
+							<a class="hdr__link" href="/account" class="hdr__item">
+								Account
+							</a>
+						{% else %}
+							<a class="hdr__link" href="/account/login" class="hdr__item">
+								Sign In
+							</a>
+						{% endif %}
+					</li>
+
+					<li class="hdr__cart">
+						<button type="button" class="btn-icon hdr__cart-btn" id="bagBtn">
+							<i class="icon hdr__cart-icon hdr__cart-white icon--cart-white"></i>
+							<i class="icon hdr__cart-icon hdr__cart-pink icon--cart-pink"></i>
+							<span class="screenreader">Toggle Cart</span>
+						</button>
+						<span class="hdr__count" >(<span id="bagBtnCount">0</span>)</span>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+</header>
+
+{% include 'nav-mobile' %}

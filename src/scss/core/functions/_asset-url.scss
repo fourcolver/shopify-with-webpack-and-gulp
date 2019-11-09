@@ -1,0 +1,6 @@
+/**
+ * Asset Url
+ */
+@function asset($path) {
+    @return ' {{ "#{$path}" | asset_url }} ';
+}

@@ -1,0 +1,43 @@
+/**
+ * Page Gutters
+ */
+
+// base
+// 1184 max content width
+$gutter-base: (
+	null : em(21),
+	'tablet' : em(56),
+	'desktop' : percentage(78/1400),
+	'desktop-huge' : em(108)
+);
+
+// wide
+// 1270 max content width
+$gutter-wide: (
+	null : em(21),
+	'desktop' : percentage(35/1400),
+	'desktop-huge' : em(65)
+);
+
+// narrow
+// 1142 max content width
+$gutter-narrow: (
+	null : em(21),
+	'desktop' : percentage(100/1400),
+	'desktop-huge' : em(129)
+);
+
+// header
+// 1220 max content width
+$gutter-header: (
+	null : em(15),
+	'tablet': em(20),
+	'desktop' : percentage(60/1400),
+	'desktop-huge' : em(90)
+);
+
+// account page
+// 940 max content width
+$gutter-account: (
+	null : em(33)
+);

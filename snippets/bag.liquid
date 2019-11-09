@@ -1,0 +1,112 @@
+{% if template == 'cart' %}
+ 	{% assign template_cart = true %}
+{% else %}
+	{% assign template_cart = false %}
+{% endif %}
+
+<section id="bag" class="bag{% if modifier %} bag--{{ modifier }}{% endif %} is-empty">
+
+	{% comment %} capture and output bagData {% endcomment %}
+	{%- capture bagData -%}
+		<script>
+			var bagItems = [];
+
+			{% for item in cart.items %}
+
+				bagItems.push({
+					id: {{ item.variant.id }},
+					inventory_quantity: {{ item.variant.inventory_quantity }},
+					price: '{{ item.variant.price | money_without_currency }}',
+					quantity: {{ item.quantity }},
+					sku: '{{ item.variant.sku }}',
+					template_cart: {{ template_cart }}
+				});
+
+			{% endfor %}
+		</script>
+	{%- endcapture -%}
+	{% include 'h-minify', variable: bagData %}
+
+	{% if template != 'cart' %}
+		<canvas id="bagConfetti" class="bag__confetti is-hidden"></canvas>
+	{% endif %}
+
+	<form id="bagForm" action="/cart" method="post" class="bag__form{% if template == 'cart' %} container is-hidden{% endif %}">
+
+		{% if template_cart %}
+			<header class="bag__header">
+				<h2 class="bag__header-hdg">Your Shopping Cart</h2>
+			</header>
+		{% else %}
+			<header class="bag__header">
+				<button type="button" id="bagClose" class="bag__close btn-icon icon icon--x">
+					<span class="screenreader">Close</span>
+				</button>
+				<i class="icon icon--cart-pink">
+					<span class="screenreader">Cart</span>
+				</i>
+
+				{% if settings.free_shipping_enable %}
+				<p id="freeShippingMsg" class="bag__msg bag__offer">
+					&#40;&#36;<span id="freeShippingVal">{{ settings.free_shipping_value }}</span>&nbsp;
+					{{- settings.free_shipping_message -}}&#41;
+				</p>
+				<p id="freeShippingMsgSuccess" class="bag__msg bag__offer" style="display: none;">
+					{{- settings.free_shipping_message_success -}}
+				</p>
+				{% endif %}
+
+			</header>
+		{% endif %}
+
+		<div class="bag__content">
+			<div id="bagItems" class="bag__items"></div>
+
+			{% if settings.cart_product_add_on_enable and template_cart == false %}
+				<div id="bagAddOn" class="bag__add-on">
+					{% include 'cart-product-add-on' %}
+				</div>
+			{% endif %}
+
+			{% if template_cart == false %}
+				{% include 'bag-gift-message' %}
+			{% endif %}
+
+			<div id="bagEmpty" class="bag__empty">
+				<p>You have no items in your shopping cart.</p>
+			</div>
+
+			<div class="bag__summary">
+				<div id="bagTotals" class="bag__totals">
+					<p class="bag__total">
+						<span class="bag__total-label">
+							Subtotal:
+						</span>
+						<span id="bagSubtotal" class="bag__total-value">
+							{{- cart.total_price | money | remove: '.00' -}}
+						</span>
+					</p>
+				</div>
+
+				<button id="checkoutBtn" class="bag__action bag__checkout btn btn--full" type="submit" name="checkout" title="Checkout">
+					<span class="btn__bg"></span>
+					<span class="btn__border"></span>
+					<span class="btn__label">
+						Checkout
+					</span>
+				</button>
+
+				{% if template_cart %}
+					<a href="/" class="bag__back btn-back hide-phone">
+						<i class="icon icon--arrow-left btn-back__icon"></i>
+						<span class="btn-back__label">back to shopping</span>
+					</a>
+				{% endif %}
+
+			</div>
+		</div>
+		{% if template_cart %}
+			{% include 'bag-gift-message' %}
+		{% endif %}
+	</form>
+</section>

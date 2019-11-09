@@ -1,0 +1,17 @@
+<section id="essential" class="pv-essential">
+
+<div class="container">
+	<div class="pv-wrap">
+		{% include 'product-gallery' %}
+
+		<div class="pv-details">
+			{% include 'product-details' %}
+			{% include 'product-configurable', tags: tags %}
+			<div class="pv-links desktop-only">
+				{% include 'product-links' %}
+			</div>
+		</div>
+	</div>
+</div>
+
+</section>

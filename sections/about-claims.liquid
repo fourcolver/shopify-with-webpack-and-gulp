@@ -1,0 +1,217 @@
+<div class="claims container">
+	<section class="claims__box">
+		<div class="claims__img-wrap desktop-only ir" {% include 'h-intrinsic-ratio', image: section.settings.bg_image %}>
+			<img data-srcset="{{ section.settings.bg_image | img_url: '1184x' }} 1x, {{ section.settings.bg_image | img_url: 'master' }} 2x" class="lazyload claims__img" alt="{{ section.settings.hdg_title }} Desktop"/>
+		</div>
+		<div class="claims__img-wrap tablet-only ir" {% include 'h-intrinsic-ratio', image: section.settings.bg_image %}>
+			<img data-srcset="{{ section.settings.bg_image | img_url: '1184x' }} 1x, {{ section.settings.bg_image | img_url: 'master' }} 2x" class="lazyload claims__img" alt="" />
+		</div>
+		<div class="claims__img-wrap phone-only ir" {% include 'h-intrinsic-ratio', image: section.settings.bg_image_phone %}>
+			<img data-srcset="{{ section.settings.bg_image_phone | img_url: '414x' }} 1x, {{ section.settings.bg_image_phone | img_url: 'master' }} 2x" class="lazyload claims__img" alt="" />
+		</div>
+		<div class="claims__hdg">
+			<div class="claims__hdg-title">
+				{{ section.settings.hdg_title }}
+			</div>
+			<div class="claims__hdg-desc">
+				{{ section.settings.hdg_desc }}
+			</div>
+		</div>
+	</section>
+	<section class="safety">
+		<div class="safety__tabs" id="safetyTabs">
+			<button type="button" class="safety__tab is-active safety__tab-left">Safety Claims</button>
+			<button type="button" class="safety__tab">Why It's Safe</button>
+		</div>
+		<div class="safety__grid" id="gridTab">
+			{% for block in section.blocks %}
+				{% assign b = block.settings %}
+				{% if block.type == 'claim-block' %}
+					<div class="safety__grid-item">
+						<div class="safety__grid-image">
+							<i class="lib-icon lib-icon--small lib-icon--{{ b.claim_image_name }}"></i>
+						</div>
+						<h3 class="safety__grid-title">
+							{{ b.claim_title }}
+						</h3>
+						<p class="safety__grid-desc">
+							{{ b.claim_description }}
+						</p>
+						{%- if b.claim_details != blank -%}
+							<button type="button" class="btn-link safety__grid-learn js-claims-btn" data-claims-btn="{{ b.claim_title | handleize }}">Learn More</button>
+						{%- endif -%}
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="safety-why" id="safetyWhyTab">
+			<div class="safety-why__column safety-why__column--large">
+
+				<div class="safety-why__row">
+					<h3 class="safety-why__title">
+						{{ section.settings.safety_why_title }}
+					</h3>
+					{% for block in section.blocks %}
+						{% if block.type == 'safety-why-block' %}
+							<div class="safety-why__row-item">
+								<h3 class="safety-why__row-title">
+									{{ block.settings.safety_why_title }}
+								</h3>
+								<div class="safety-why__row-desc">
+									{{ block.settings.safety_why_description }}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			<div class="safety-why__column">
+				<h3 class="safety-why__title safety-why__title--pink">
+					{{ section.settings.board_title }}
+				</h3>
+				<div class="safety-why__icon">
+					<i class="lib-icon lib-icon--small lib-icon--stethoscope"></i>
+				</div>
+				<div class="safety-why__row safety-why__row--board">
+					{% for block in section.blocks %}
+						{% if block.type == 'board-block' %}
+							<div class="safety-why__row-item safety-why__row-item--board">
+								<h3 class="safety-why__row-title safety-why__row-title--board">
+									{{ block.settings.board_title }}
+								</h3>
+								<div class="safety-why__row-desc safety-why__row-desc--board">
+									{{ block.settings.board_description }}
+								</div>
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<aside id="aboutClaimsModal" class="modal modal-secondary js-modal">
+	<div class="modal__inner">
+		<button type="button" class="modal__close btn-icon js-modal-close">
+			<span class="screenreader">Close</span>
+			<i class="icon icon--x"></i>
+		</button>
+
+		{% for block in section.blocks %}
+			{% assign b = block.settings %}
+			{% if block.type == 'claim-block' %}
+				{% if b.claim_details != blank %}
+					<div class="modal__wrap hide" data-claims-modal="{{ b.claim_title | handleize }}">
+						<header class="modal__header">
+							<h3>{{ b.claim_title }}</h3>
+						</header>
+						<div class="modal__content">
+							{{ b.claim_details }}
+						</div>
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+	</div>
+</aside>
+<div id="aboutClaimsModalOverlay" class="modal-overlay"></div>
+
+{% schema %}
+{
+	"name": "Safety Claims",
+	"settings": [
+		{
+			"type": "text",
+			"id": "hdg_title",
+			"label": "Title"
+		},
+		{
+			"type": "textarea",
+			"id": "hdg_desc",
+			"label": "Description"
+		},
+		{
+			"type": "image_picker",
+			"id": "bg_image",
+			"label": "Photo"
+		},
+		{
+			"type": "image_picker",
+			"id": "bg_image_phone",
+			"label": "Phone Image"
+		},
+		{
+			"type": "text",
+			"id": "safety_why_title",
+			"label": "Title Why"
+		},
+		{
+			"type": "text",
+			"id": "board_title",
+			"label": "Board Title"
+		}
+	],
+	"blocks": [
+		{
+			"type": "claim-block",
+			"name": "Safety Claim",
+			"settings": [
+				{
+					"type": "text",
+					"id": "claim_image_name",
+					"label": "Image Name"
+				},
+				{
+					"type": "text",
+					"id": "claim_title",
+					"label": "Title"
+				},
+				{
+					"type": "textarea",
+					"id": "claim_description",
+					"label": "Description"
+				},
+				{
+					"type": "textarea",
+					"id": "claim_details",
+					"label": "Learn More Modal Content"
+				}
+			]
+		},
+		{
+			"type": "safety-why-block",
+			"name": "Reason Why",
+			"settings": [
+				{
+					"type": "text",
+					"id": "safety_why_title",
+					"label": "Title",
+					"default": "Title"
+				},
+				{
+					"type": "textarea",
+					"id": "safety_why_description",
+					"label": "Description"
+				}
+			]
+		},
+		{
+			"type": "board-block",
+			"name": "Board Member",
+			"settings": [
+				{
+					"type": "text",
+					"id": "board_title",
+					"label": "Board Member Name"
+				},
+				{
+					"type": "textarea",
+					"id": "board_description",
+					"label": "Description"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

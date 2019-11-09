@@ -1,0 +1,24 @@
+<script>
+	var accountAddress = {};
+	var accountAddresses = [];
+	var accountCountryOptionTags = '{{ country_option_tags }}';
+	var accountOrders = [];
+	var customerEmail = '{{ customer.email }}';
+	var customerName = '{{ customer.name }}';
+
+	{% for address in customer.addresses %}
+		accountAddress = {{ address | json }};
+		accountAddress.displayIndex = {{ forloop.index }};
+		accountAddresses.push(accountAddress);
+	{% endfor %}
+
+	{% for order in customer.orders %}
+		accountOrders.push({
+			created_at: '{{ order.created_at | date: format: "month_day_year_time" }}',
+			fulfillment_status_label: '{{ order.fulfillment_status_label }}',
+			name: '{{ order.name }}',
+			order_number: '{{ order.order_number }}',
+			order_status_url: '{{ order.order_status_url }}'
+		});
+	{% endfor %}
+</script>

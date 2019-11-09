@@ -1,0 +1,166 @@
+/*
+////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------
+
+Toggle
+Overlay
+Open / Close
+Mobile Navigation
+Desktop Navigation
+Navigation Tout
+
+////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+Toggle
+///////////////////////////////////////////////////////////
+*/
+.nav-toggle {
+
+
+	&__icon,
+	&__icon:before,
+	&__icon:after {
+
+	}
+
+	&__icon {
+
+		&:before,
+		&:after {
+
+		}
+
+		&:before {
+
+		}
+
+		&:after {
+
+		}
+	}
+}
+
+/*
+///////////////////////////////////////////////////////////
+Overlay
+///////////////////////////////////////////////////////////
+*/
+.nav__overlay {
+	bottom:0;
+	display:none;
+	left:0;
+	position:fixed;
+	right:0;
+	top:0;
+	transform:translate3d(0,0,0);
+	transition:all $normal-timer $ease-1;
+	z-index:z(nav-overlay);
+}
+
+/*
+///////////////////////////////////////////////////////////
+Open / Close
+///////////////////////////////////////////////////////////
+*/
+.footer,
+.header,
+.nav,
+.nav__content,
+.page-wrap {
+	transition:all $normal-timer $ease-1;
+	backface-visibility:hidden;
+}
+
+.footer__sub--logo-container{
+	display: flex;
+	justify-content: center;
+}
+
+.footer__sub {
+	width: 33%;
+}
+
+.footer__sub-nav-item {
+	text-align: center;
+}
+
+.page-wrap,
+.footer {
+	position:relative;
+	z-index:z(base);
+}
+
+.footer__line-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.nav {
+
+}
+
+.header {
+	transform:translate3d(0,0,0);
+}
+
+.nav--exposed {
+
+	.nav {
+
+		&__overlay {
+			display:block;
+		}
+	}
+
+	.header,
+	.nav__overlay,
+	.page-wrap,
+	.footer {
+
+	}
+}
+
+.header-nav--exposed {
+
+	.nav {
+
+	}
+
+}
+
+@include apply-to(mobile) {
+	.nav--fixed {
+
+	}
+}
+
+/*
+///////////////////////////////////////////////////////////
+Desktop & Mobile shared styles.
+///////////////////////////////////////////////////////////
+*/
+.nav {
+
+}
+
+/*
+///////////////////////////////////////////////////////////
+Mobile Navigation
+///////////////////////////////////////////////////////////
+*/
+.nav {
+
+}
+
+/*
+///////////////////////////////////////////////////////////
+Desktop
+///////////////////////////////////////////////////////////
+*/
+.nav {
+	@include apply-to(desktop) {
+
+	}
+}

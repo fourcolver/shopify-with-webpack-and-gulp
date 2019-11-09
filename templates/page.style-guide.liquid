@@ -1,0 +1,408 @@
+{{ 'style-guide.scss.css' | asset_url | stylesheet_tag }}
+<section id="page_{{ page.handle | replace : '-','_' }}" class="page page--{{ page.handle }}">
+	<div class="container">
+
+		{% comment %} Header {% endcomment %}
+		<div class="page__header">
+			<h1 class="page__title">
+				{{ page.title }}
+			</h1>
+		</div>
+
+		<div class="docs">
+
+			{% comment %} Sidebar {% endcomment %}
+			<aside class="docs-sidebar">
+				<nav class="docs-nav">
+
+					<ul class="docs-nav__list list-reset">
+						<li class="docs-nav__item docs-nav__item--group-name">
+							<a class="docs-nav__link" href="#elements">
+								Elements
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#headings">
+								Headings
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#listTypes">
+								List Types
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#tables">
+								Tables
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#textElements">
+								Text Elements
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#formElements">
+								Form Elements
+							</a>
+						</li>
+
+						<li class="docs-nav__item docs-nav__item--group-name">
+							<a class="docs-nav__link" href="#components">
+								Components
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#buttons">
+								Buttons
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#icons">
+								Icons
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#accordion">
+								Accordion
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#modals">
+								Modals
+							</a>
+						</li>
+						<li class="docs-nav__item">
+							<a class="docs-nav__link" href="#containers">
+								Containers
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			{% comment %} Content {% endcomment %}
+			<div class="docs-content">
+				<div class="page__rte rte">
+					{{ page.content }}
+
+					<div class="docs-group">
+						<h2 id="elements" class="docs-group__hdg">
+							Elements
+						</h2>
+
+
+						<div class="docs-group__content">
+							<section id="headings" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Fonts
+								</h3>
+								<div class="testing-freight">Testing Freight style</div>
+
+							</section>
+
+							<section id="headings" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Headings
+								</h3>
+								<h1>H1 The quick brown fox jumps over the lazy dog</h1>
+								<h1 class="multicolor-title">Redefining Pretty!</h1>
+								<h1 class="pink-header">Redefining Pretty!</h1>
+								<h2>H2 The quick brown fox jumps over the lazy dog</h2>
+								<h3>H3 The quick brown fox jumps over the lazy dog</h3>
+								<h4>H4 The quick brown fox jumps over the lazy dog</h4>
+
+								<h5>H5 The quick brown fox jumps over the lazy dog</h5>
+								<h6>H6 The quick brown fox jumps over the lazy dog</h6>
+							</section>
+
+							<section id="headings-dark" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Headings
+								</h3>
+								<h1 class="secondary-header">Redefining Pretty!</h1>
+							</section>
+
+							<section id="listTypes" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									List Types
+								</h2>
+
+								<h3>Ordered List</h3>
+								<ol>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3
+										<ol>
+											<li>List Item 3.1</li>
+											<li>List Item 3.2
+												<ol>
+													<li>List Item 3.2.1</li>
+													<li>List Item 3.2.2</li>
+												</ol>
+											</li>
+											<li>List Item 3.3</li>
+										</ol>
+									</li>
+									<li>List Item 4</li>
+								</ol>
+
+								<h3>Unordered List</h3>
+								<ul>
+									<li>List Item 1</li>
+									<li>List Item 2</li>
+									<li>List Item 3
+										<ul>
+											<li>List Item 3.1</li>
+											<li>List Item 3.2
+												<ul>
+													<li>List Item 3.2.1</li>
+													<li>List Item 3.2.2</li>
+												</ul>
+											</li>
+											<li>List Item 3.3</li>
+										</ul>
+									</li>
+									<li>List Item 4</li>
+								</ul>
+
+								<h3>Definition List</h3>
+								<dl>
+									<dt>Definition Term 1</dt>
+									<dd>Definition Description 1</dd>
+									<dt>Definition Term 2</dt>
+									<dd>Definition Description 2</dd>
+								</dl>
+							</section>
+
+							<section id="tables" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Tables
+								</h2>
+								<table cellspacing="0" cellpadding="0">
+									<thead>
+										<tr>
+											<th>Table Header 1</th><th>Table Header 2</th><th>Table Header 3</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>Division 1</td><td>Division 2</td><td>Division 3</td>
+										</tr>
+										<tr>
+											<td>Division 1</td><td>Division 2</td><td>Division 3</td>
+										</tr>
+										<tr>
+											<td>Division 1</td><td>Division 2</td><td>Division 3</td>
+										</tr>
+										<tr>
+											<td colspan="3">A row with a cell spanning all 3 columns</td>
+										</tr>
+									</tbody>
+									<tfoot>
+										<tr>
+											<td>Table Footer 1</td>
+											<td>Table Footer 2</td>
+											<td>Table Footer 3</td>
+										</tr>
+									</tfoot>
+								</table>
+							</section>
+
+							<section id="textElements" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Text Elements
+								</h3>
+								<p>The <a href="#">a element</a> and <a href="http://example.com" target="_blank">external a element</a> examples</p>
+								<p>The <abbr>abbr element</abbr> and an <abbr title="Abbreviation">abbr</abbr> element with title examples</p>
+								<p>The <acronym title="A Cowboy Ran One New York Marathon">ACRONYM</acronym> element example</p>
+								<p>The <b>b element</b> example</p>
+								<p>The <cite>cite element</cite> example</p>
+								<p>The <code>code element</code> example</p>
+								<p>The <data value="3967381398">data element</data> example</p>
+								<p>The <del>del element</del> example</p>
+								<p>The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn> examples</p>
+								<p>The <em>em element</em> example</p>
+								<p>The <i>i element</i> example</p>
+								<p>The <ins>ins element</ins> example</p>
+								<p>The <kbd>kbd element</kbd> example</p>
+								<p>The <mark>mark element</mark> example</p>
+								<p>The <q>q element</q> example</p>
+								<p>The <q>q element <q>inside</q> a q element</q> example</p>
+								<p>The <s>s element</s> example</p>
+								<p>The <samp>samp element</samp> example</p>
+								<p>The <small>small element</small> example</p>
+								<p>The <span>span element</span> example</p>
+								<p>The <strong>strong element</strong> example</p>
+								<p>The <sub>sub element</sub> example</p>
+								<p>The <sup>sup element</sup> example</p>
+								<p>The <time datetime="2005-05-15 19:00">time element</time> example</p>
+								<p>The <u>u element</u> example</p>
+								<p>The <var>var element</var> example</p>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula, turpis et hendrerit commodo, massa purus pellentesque orci, vulputate blandit ipsum velit nec libero. Nam tristique eleifend enim, a suscipit sem maximus nec. Proin lobortis tortor vel sem suscipit euismod. Cras laoreet mattis libero, in viverra erat volutpat ac. Cras porttitor luctus fringilla. Nullam elementum tortor sed velit luctus, quis egestas urna pretium. Curabitur convallis arcu augue, ut feugiat mi vehicula ac. Nam ac tincidunt diam. Vivamus eu neque commodo metus congue luctus. Vivamus tempor molestie ex, eu mollis metus eleifend id. Sed vel condimentum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer metus urna, rutrum a mauris a, luctus pulvinar odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam eu scelerisque elit.
+								</p>
+								<p>
+									Quisque vel fringilla libero, sed ornare nulla. Nulla ac condimentum nisl. Aliquam ac risus ac mauris mattis semper suscipit sit amet nisi. Duis vitae augue ut arcu varius ullamcorper sed a erat. Sed vel ligula at augue maximus dignissim vel ut risus. Sed quis felis pharetra, porta ante ut, malesuada nisi. Pellentesque lacinia turpis ultricies metus bibendum interdum. Mauris vel iaculis quam, eget tincidunt leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque viverra justo ut auctor mattis. Morbi nec est fermentum, interdum velit id, varius tellus. Praesent et tempor ligula. Mauris nulla felis, viverra fermentum magna nec, egestas condimentum felis. Donec imperdiet ipsum ac urna iaculis molestie. Nam malesuada quis justo vitae tincidunt.
+								</p>
+								<p class="product-description">
+									This is the product description font..Quisque vel fringilla libero, sed ornare nulla. Nulla ac condimentum nisl. Aliquam ac risus ac mauris mattis semper suscipit sit amet nisi. Duis vitae augue ut arcu varius ullamcorper sed a erat. Sed vel ligula at augue maximus dignissim vel ut risus. Sed quis felis pharetra, porta ante ut, malesuada nisi. Pellentesque lacinia turpis ultricies metus bibendum interdum. Mauris vel iaculis quam, eget tincidunt leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque viverra justo ut auctor mattis. Morbi nec est fermentum, interdum velit id, varius tellus. Praesent et tempor ligula. Mauris nulla felis, viverra fermentum magna nec, egestas condimentum felis. Donec imperdiet ipsum ac urna iaculis molestie. Nam malesuada quis justo vitae tincidunt.
+								</p>
+							</section>
+
+							<section id="formElements" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Form Elements
+								</h3>
+								{% include 'style-guide-form-elements' %}
+							</section>
+
+						</div>
+					</div><!-- .docs-group -->
+
+					<div class="docs-group">
+						<h2 id="components" class="docs-group__hdg">
+							Components
+						</h2>
+						<div class="docs-group__content">
+							<section id="buttons" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Buttons
+								</h3>
+
+								<p>
+									<button type="button" class="btn">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											button
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--full">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											button full
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn is-loading">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											button loading
+										</span>
+									</button>
+								</p>
+
+								{% comment %}
+								<div class="btn-layered-container">
+									<div class="btn-layered-wrap">
+										<button type="button" class="btn btn-layered">
+											<span class="btn__bg"></span>
+											<span class="btn__border"></span>
+											<span class="btn__label">
+												Layered Button
+											</span>
+										</button>
+									</div>
+								</div>
+								{% endcomment %}
+
+								<p>
+									<button type="button" class="btn btn--secondary">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											btn secondary
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--secondary is-loading is-loading--pink">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											btn secondary loading
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--full btn--secondary">
+										<span class="btn__bg"></span>
+										<span class="btn__border"></span>
+										<span class="btn__label">
+											btn secondary full
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--tertiary">
+										<span class="btn__bg"></span>
+										<span class="btn__label">
+											btn tertiary
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--tertiary is-loading is-loading--pink">
+										<span class="btn__bg"></span>
+										<span class="btn__label">
+											btn tertiary loading
+										</span>
+									</button>
+								</p>
+
+								<p>
+									<button type="button" class="btn btn--full btn--tertiary">
+										<span class="btn__bg"></span>
+										<span class="btn__label">
+											btn tertiary full
+										</span>
+									</button>
+								</p>
+							</section>
+							<section id="icons" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Icons
+								</h3>
+								{% include 'style-guide-icons' %}
+							</section>
+
+							<section id="accordion" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Accordion
+								</h3>
+								{% include 'style-guide-accordion' %}
+							</section>
+
+							<section id="modals" class="docs-sec">
+								<h3 class="docs-sec__hdg">
+									Modals
+								</h3>
+								<button type="button" class="btn js-modal-trigger" id="modalSampleTrigger">Open Modal Already in DOM</button>
+							</section>
+						</div>
+					</div><!-- .docs-group -->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="containers">
+	<h3 class="docs-sec__hdg">Containers</h3>
+	{% include 'style-guide-containers' %}
+</section>
+
+{% include 'style-guide-modal' %}

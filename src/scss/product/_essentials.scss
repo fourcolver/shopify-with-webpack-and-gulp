@@ -1,0 +1,84 @@
+/*
+///////////////////////////////////////////////////////////
+Essentials
+///////////////////////////////////////////////////////////
+*/
+.pv-wrap {
+	@include apply-to(desktop) {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		padding: rem(30) 0 rem(80);
+	}
+
+	@include apply-to(mobile) {
+		padding: 0 rem(64) rem(36);
+	}
+
+	@include apply-to(phone) {
+		padding: 0 rem(10) rem(36);
+	}
+}
+
+.pv-essentials { // .pv-essentials
+	padding-top: em(15);
+	position: relative;
+
+	@include apply-to(desktop) {
+		padding-top: 0;
+	}
+}
+
+.pv-photos { // .pv-photos
+	z-index:z(base);
+
+	@include apply-to(mobile) {
+		.ir__fill--top {
+			align-items: center;
+		}
+	}
+}
+
+@include apply-to(desktop) {
+
+	.pv-gallery {
+		width: 56.6%;
+	}
+
+	.pv-details {
+		width: 43.4%;
+		padding: 0 em(44);
+		transition: padding $normal-timer $ease-1;
+	}
+}
+
+.pv-actions {
+	padding-top: rem(10);
+
+	@include apply-to(small-phone) {
+		padding-top: rem(0);
+	}
+
+
+}
+
+.p-share {
+	padding-top: rem(15);
+}
+
+.pv-links {
+	margin-top: rem(50);
+
+	a {
+		border-bottom: 1px solid $gray-8;
+	}
+}
+
+.pv-add-btn {
+	font-size: rem(12);
+	padding: rem(17) rem(10) rem(16);
+
+	@include apply-to(tablet) {
+		font-size: rem(14);
+	}
+}

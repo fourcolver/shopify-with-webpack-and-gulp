@@ -1,0 +1,75 @@
+/**
+ * tables
+ *
+ * table
+ * responsive table
+ */
+
+/**
+ * table
+ */
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+	text-align: center;
+	width: 100%;
+}
+
+th {
+	border-bottom: 1px solid $gray-1;
+	font-size: em(16);
+	font-weight: $bold;
+	padding: em(14) em(10) em(14);
+}
+
+td {
+	font-size: em(13);
+	padding: em(21, 13) em(10, 13) em(21, 13);
+}
+
+tbody {
+
+	tr {
+
+		&:first-child td {
+			padding-top: em(42, 13);
+		}
+
+		&:last-child td {
+			padding-bottom: em(42, 13);
+		}
+	}
+}
+
+tfoot {
+
+	tr {
+
+		&:first-child td {
+			border-top: 1px solid $gray-1;
+			padding-top: em(42, 13);
+		}
+	}
+
+	td {
+
+		&:first-child {
+			text-align: right;
+		}
+	}
+}
+
+table + table {
+	margin-top: em(20);
+
+	@include apply-to(tablet) {
+		margin-top: em(25);
+	}
+}
+
+/**
+ * responsive table
+ */
+.responsive-table {
+	overflow-x: auto;
+}

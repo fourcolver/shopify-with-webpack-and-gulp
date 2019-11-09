@@ -1,0 +1,528 @@
+/* Core */
+/**
+ * Functions
+ */
+/**
+ * pixels to em
+ */
+/**
+ * pixels to rem
+ */
+/**
+ * Asset Url
+ */
+/**
+ * z-index sass map
+ */
+/**
+ * Vars
+ */
+/**
+ * Breakpoints
+ * @description		Used for media queries
+ */
+/**
+ * Color Variables
+ */
+/**
+ * Color Samples
+ * @description 	Used in variable-menu/_colors.scss to generate class names
+ */
+/**
+ * Form Variables
+ */
+/**
+ * header height
+ */
+/**
+ * header height
+ */
+/**
+ * footer height
+ */
+/**
+ * Page Gutters
+ */
+/**
+ * intrinsic ratios
+ */
+/**
+ * Font Families
+ */
+/**
+ * Font Weights
+ */
+/**
+ * Font Sizes
+ */
+/**
+ * Line Heights
+ */
+/**
+ * Timers
+ */
+/**
+ * easing
+ */
+/**
+ * z-index
+ */
+/**
+ * account vars (settings)
+ */
+/**
+ * Mixins
+ */
+/**
+ * Apply To
+ * @param {string} $device
+ */
+/**
+ * Max width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Min width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Set Default Query Order
+ * Needed for the mqpacker gulp task to ensure the correct order is always in place.
+ */
+
+/**
+ * Clearfix
+ */
+/**
+ * Remove Clearfix
+ */
+/**
+ * Placeholder
+ */
+/**
+ * Intrinsic Ratio Full
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Intrinsic Ratio Base
+ */
+/**
+ * Intrinsic ratio padding
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Letter Spacing
+ * @param {number} $tracking 	Based on Photoshop's tracking value.
+ * @param {number} $font-size
+ */
+/**
+ * Gutters
+ * @description - Used to add padding left and right to a container.
+ */
+/**
+ * Media Query Style
+ */
+/**
+ * white theme
+ */
+/**
+ * Placeholders
+ */
+/**
+ * Loading
+ */
+/**
+ * Text Replacement
+ */
+/* Components */
+/**
+ * variable-menu
+ * general style
+ * hide / show animations
+ * vars
+ * dark samples
+ */
+/**
+ * general styling
+ */
+.vm {
+  background: #fff;
+  border-left: 1px solid #464545;
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 110;
+}
+
+.vm__content {
+  padding: 2.5em 1.25em 1.25em;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.vm__title {
+  margin: 0;
+}
+
+.vm pre {
+  background: #272822;
+  border-radius: 0.25em;
+}
+
+.vm code,
+.vm pre {
+  border: 0;
+  color: #f8f8f2;
+  direction: ltr;
+  font-family: Consolas,Monaco,'Andale Mono',monospace;
+  hyphens: none;
+  line-height: 1.5;
+  max-height: 25em;
+  -moz-tab-size: 4;
+  -ms-hyphens: none;
+  overflow-y: scroll;
+  padding: 0.625em;
+  tab-size: 4;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  -webkit-hyphens: none;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+}
+
+/**
+ * hide / show animation
+ */
+.vm {
+  -webkit-transform: translate3d(100%, 0, 0);
+          transform: translate3d(100%, 0, 0);
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+}
+
+.vm.open {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+/**
+ * vars
+ */
+.vars {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.vars li {
+  padding: 0.125em;
+}
+
+.vars li:before, .vars li:after {
+  content: ' ';
+  display: table;
+}
+
+.vars li:after {
+  clear: both;
+}
+
+/**
+ * dark sample
+ */
+.dark-sample {
+  background: #000;
+  margin-bottom: 0.9375em;
+  padding: 1.25em;
+}
+
+.vm__group {
+  padding: 2.5em 0.9375em 1.25em;
+  -webkit-transition: padding 400ms ease-in-out;
+  transition: padding 400ms ease-in-out;
+}
+
+.vm__group-title {
+  background: #000;
+  color: #fff;
+  font-size: 1.375em;
+  line-height: 1.04545em;
+  margin: 0 -0.9375rem 1.25rem;
+  padding: 0.625rem 0.9375rem 0.375em;
+}
+
+/**
+ * colors
+ */
+.colors {
+  list-style-type: none;
+  margin: 0 0 0 -6%;
+  padding: 0 0 0 0.4375em;
+}
+
+.colors:before, .colors:after {
+  content: ' ';
+  display: table;
+}
+
+.colors:after {
+  clear: both;
+}
+
+.colors li {
+  display: inline-block;
+  font-size: 0.9375em;
+  margin: 0 0 1.25em -0.46667em;
+  padding: 0 0 1em 6%;
+  text-align: center;
+  width: 33.332%;
+}
+
+.colors__heading {
+  margin-top: 0;
+}
+
+.colors__sample {
+  position: relative;
+  width: 100%;
+  padding: 50% 0;
+  margin-top: 0.625em;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
+  /* Samples */
+}
+
+.colors__sample:before, .colors__sample:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 30%;
+}
+
+.colors__sample:before {
+  left: 0;
+}
+
+.colors__sample:after {
+  right: 0;
+}
+
+.colors__sample--black {
+  background: #000;
+}
+
+.colors__sample--gray-1 {
+  background: #464545;
+}
+
+.colors__sample--gray-2 {
+  background: #5e5c5c;
+}
+
+.colors__sample--green-1 {
+  background: #2e8b57;
+}
+
+.colors__sample--red-1 {
+  background: #ed3fa8;
+}
+
+.colors__sample--red-2 {
+  background: #fbe8e8;
+}
+
+.colors__sample--white {
+  background: #fff;
+}
+
+/**
+ * code
+ */
+.code,
+.code-value {
+  margin-bottom: 0.125em;
+  padding: 0.1875em 0.25em 0.125em;
+}
+
+.code--vars,
+.code-value--vars {
+  float: left;
+  width: 50%;
+}
+
+.code {
+  background: #f2f2f2;
+  cursor: pointer;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 1.125em;
+}
+
+.code--vars {
+  text-align: right;
+  padding-right: 0.625rem;
+}
+
+.code:hover + .code-value {
+  background: #f2f2f2;
+}
+
+.code-value {
+  background: transparent;
+  font-size: 0.90625em;
+  -webkit-transition: background 400ms ease-in-out;
+  transition: background 400ms ease-in-out;
+}
+
+.code-value--vars {
+  padding-left: 0.625rem;
+}
+
+.code[aria-label] {
+  position: relative;
+}
+
+.code[aria-label]:before, .code[aria-label]:after {
+  display: none;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate3d(-50%, 0, 0);
+          transform: translate3d(-50%, 0, 0);
+  pointer-events: none;
+}
+
+.code[aria-label]:before {
+  bottom: -2px;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  border-color: rgba(0, 0, 0, 0);
+  border-bottom-color: #e20000;
+  border-width: 4px;
+  margin-left: -2px;
+}
+
+.code[aria-label]:after {
+  content: attr(aria-label);
+  top: 110%;
+  z-index: 5000;
+  padding: 0.66667em 0.83333em;
+  line-height: 1.25em;
+  white-space: nowrap;
+  text-decoration: none;
+  text-indent: 0;
+  overflow: visible;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: #fff;
+  background-color: #e20000;
+  border-radius: 2px;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.code[aria-label]:hover:before, .code[aria-label]:hover:after, .code[aria-label]:focus:before, .code[aria-label]:focus:after {
+  display: block;
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+
+  .vars li {
+    zoom: 1;
+  }
+  .colors {
+    zoom: 1;
+  }
+}
+
+@media only screen and (max-width: 554px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .colors li {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: smaller-phone) {
+
+}
+
+@media only screen and (max-width: 374px) {
+
+}
+
+@media only screen and (min-width: 768px) {
+
+  .vm {
+    width: 30em;
+  }
+  .colors {
+    margin-left: -1.875em;
+  }
+  .colors li {
+    padding: 0 0 1.06667em 1.875em;
+    width: 25%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media only screen and (min-width: 980px) {
+
+}
+
+@media only screen and (min-width: 1025px) {
+
+  .vm__content {
+    padding: 3.75em 1.25em 2.5em;
+  }
+  .vm__group {
+    padding: 2.5em 1.875em 1.875em;
+  }
+  .vm__group-title {
+    margin: 0 -1.875rem 2.1875rem;
+    padding: 0.9375rem 1.875rem 0.6875em;
+  }
+}
+
+@media only screen and (min-width: 1281px) {
+
+}
+
+@media only screen and (min-width: 1401px) {
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+}
+
+/*# sourceMappingURL=variable-menu.css.map */

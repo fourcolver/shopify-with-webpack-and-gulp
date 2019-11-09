@@ -1,0 +1,80 @@
+{% assign s = section.settings %}
+
+{% if s.brand_img != blank and s.brand_title != blank %}
+	<div class="home-brand container">
+		<div class="home-brand__img-content">
+			<div
+				class="home-brand__img-wrap is-loading ir"
+				data-rellax-speed="0.3"
+				{% include 'h-intrinsic-ratio', image: s.brand_img %}
+			>
+				<img data-srcset="{{ s.brand_img | img_url: '555x' }} 1x, {{ s.brand_img | img_url: 'master' }} 2x" class="home-brand__img lazyload" alt="{{ s.brand_img_alt }}" />
+			</div>
+			<div class="home-brand__img-bg desktop-only js-rellax" data-rellax-speed="0.5"></div>
+			<div class="home-brand__img-bg hide-desktop"></div>
+		</div>
+		<div class="home-brand__text">
+			<h1 class="multicolor-title home-brand__title">{{ s.brand_title }}</h1>
+
+			{% if s.brand_text contains '<p>' %}
+				{{ s.brand_text }}
+			{% else %}
+				<p class="home-brand__desc">
+					{{ s.brand_text }}
+				</p>
+			{% endif %}
+
+			<div class="home-brand__actions">
+				<a href="{{ s.brand_btn_url }}" class="btn">
+					<span class="btn__bg"></span>
+					<span class="btn__border"></span>
+					<span class="btn__label">
+						{{ s.brand_btn_text }}
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+{% endif %}
+
+{% schema %}
+{
+	"name": "Brand Block",
+	"class": "home-brand-full",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "brand_img",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "text",
+			"id": "brand_title",
+			"label": "Title",
+			"default": "What Makes Us Glow:"
+		},
+		{
+			"type": "textarea",
+			"id": "brand_text",
+			"label": "Description"
+		},
+		{
+			"type": "text",
+			"id": "brand_btn_text",
+			"label": "Button Text"
+		},
+		{
+			"type": "url",
+			"id": "brand_btn_url",
+			"label": "Url"
+		}
+
+	]
+}
+{% endschema %}

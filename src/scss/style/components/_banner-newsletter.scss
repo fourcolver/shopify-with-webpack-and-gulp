@@ -1,0 +1,86 @@
+/**
+ * Newsletter Banner
+ */
+
+.banner-newsletter {
+	&-container {
+		background-color: $pink-9;
+		background-image: url(asset('bg-pink-light.jpg'));
+		background-size: rem(150);
+		padding-top: em(25);
+
+		@include apply-to(tablet) {
+			padding-left: em(25);
+			padding-right: em(25);
+		}
+	}
+
+	&__inner {
+		background-image: url(asset('newsletter-banner-bg.jpg'));
+		background-size: cover;
+
+		@include apply-to(retina) {
+			background-image: url(asset('newsletter-banner-bg@2x.jpg'));
+		}
+
+		@include apply-to(tablet) {
+			background-image: url(asset('newsletter-banner-bg-tablet.jpg'));
+
+			@include apply-to(retina) {
+				background-image: url(asset('newsletter-banner-bg-tablet@2x.jpg'));
+			}
+		}
+	}
+
+	&__form-wrap {
+		&.acc__menu {
+			padding: 0 !important;
+			position: relative;
+		}
+	}
+
+	&-subheader {
+		color: $white;
+		float: left;
+	}
+
+	&__btn {
+		&-toggle {
+			padding: em(15) em(50) em(15) em(22);
+			position: relative;
+			width: 100%;
+
+			&.is-active {
+				.icon {
+					transform: translateY(-50%) rotate3d(-1, 0, 0, 180deg);
+					transition: transform $general-timer $ease-1;
+				}
+			}
+		}
+
+		&-toggle-icon {
+			align-items: center;
+			bottom: 0;
+			display: flex;
+			position: absolute;
+			right: em(26);
+			top: 50%;
+			transform: translateY(-50%);
+			transition: transform $general-timer $ease-1;
+		}
+	}
+
+	&__form {
+		padding: 0 em(22) em(26);
+	}
+
+	&__messages {
+		bottom: 0;
+		left: em(22);
+		position: absolute;
+
+		&.is-visible {
+			position: static;
+		}
+	}
+}

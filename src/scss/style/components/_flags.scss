@@ -1,0 +1,210 @@
+.pv-flag {
+
+	left: rem(30);
+	position: absolute;
+	top: rem(25);
+	z-index: z(front);
+
+	&--new {
+		background: $white;
+		border: 1px solid $pink-1;
+		border-radius: 50%;
+		box-shadow: 2px 2px 0px $pink-1;
+		color: $pink-1;
+		font-size: rem(18);
+		font-style: italic;
+		font-weight: $medium;
+		height: rem(68);
+		line-height: rem(68);
+		text-align: center;
+		width: rem(68);
+	}
+
+	.pi & {
+		left: rem(20);
+		top: rem(20);
+	}
+
+	&--spooky {
+		left: rem(-5);
+		top: rem(-45);
+		transform: rotate(-10deg);
+
+		.pi & {
+			left: rem(-5);
+			top: rem(-30);
+
+			.icon {
+				font-size: 13px;
+			}
+		}
+	}
+
+	&--all-new {
+
+	}
+
+	&--deal {
+
+		.pi & {
+			@include apply-to(phone) {
+				left: rem(-30);
+			}
+
+
+			@include apply-to(desktop) {
+				top: rem(10);
+				left: rem(0);
+			}
+		}
+
+		.pv-gallery & {
+			left: rem(0);
+			top: rem(5);
+
+			@include apply-to(smaller-phone) {
+				top: rem(2);
+			}
+
+			@include apply-to(phone) {
+				top: rem(15)
+			}
+
+			@include apply-to(tablet-only) {
+				left: rem(-20);
+				top: rem(10);
+			}
+
+			@include apply-to(desktop) {
+				top: rem(10);
+			}
+		}
+
+		& .icon {
+
+			&--flag-48-value,
+			&--flag-86-value,
+			&--flag-110-value,
+			&--flag-150-value,
+			&--flag-178-value {
+				position: relative;
+
+				&::before {
+					font-size: 3px;
+				}
+			}
+
+			&--snowflakes {
+				position: absolute;
+				top: rem(-35);
+				right: rem(0);
+
+				@include apply-to(tablet) {
+					top: rem(-50);
+				}
+
+				&::before {
+					font-size: 2px;
+
+					@include apply-to(tablet) {
+						font-size: 3px;
+					}
+				}
+
+				.pv-gallery & {
+					top: rem(-25);
+
+					@include apply-to(tablet) {
+						top: rem(-40);
+						right: rem(-5);
+					}
+				}
+			}
+		}
+	}
+
+	&--limited-edition {
+
+		.pi & {
+
+			@include apply-to(phone) {
+				left: rem(-30);
+			}
+
+			@include apply-to(desktop) {
+				top: rem(10);
+			}
+		}
+
+		.pv-gallery & {
+			left: rem(0);
+			top: rem(5);
+
+			@include apply-to(smaller-phone) {
+				top: rem(0);
+			}
+
+			@include apply-to(phone) {
+				top: 1%;
+			}
+
+			@media only screen and (min-width: 500px) and (max-width: 700px) {
+				top: rem(18);
+			}
+
+			@include apply-to(tablet-only) {
+				top: rem(8);
+			}
+
+			@include apply-to(desktop) {
+				top: rem(10);
+			}
+
+			@include apply-to(desktop-large) {
+				top: rem(10);
+			}
+		}
+
+		& .icon {
+
+			&--flag-limited-edition {
+				position: relative;
+
+				&::before {
+					font-size: 3px;
+				}
+			}
+
+			&--snowflakes {
+				position: absolute;
+				top: rem(-35);
+				right: rem(0);
+
+				@include apply-to(tablet) {
+					top: rem(-50);
+				}
+
+				&::before {
+					font-size: 2px;
+
+					@include apply-to(tablet) {
+						font-size: 3px;
+					}
+				}
+
+				.pv-gallery & {
+					top: rem(-25);
+
+					@include apply-to(tablet) {
+						top: rem(-50);
+						right: rem(-5);
+					}
+
+					@include apply-to(desktop) {
+						top: rem(-40);
+					}
+				}
+			}
+		}
+	}
+}

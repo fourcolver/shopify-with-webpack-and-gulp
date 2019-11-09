@@ -1,0 +1,14 @@
+<section id="page_{{ page.handle | replace : '-','_' }}" class="page page--{{ page.handle }}">
+	<div class="page__container container">
+		{% comment %} Header {% endcomment %}
+		<div class="page__header">
+			<h1 class="page__title">
+				{{ page.title }}
+			</h1>
+		</div>
+		{% comment %} Content {% endcomment %}
+		<div class="page__rte rte">
+			{{ page.content }}
+		</div>
+	</div>
+</section>

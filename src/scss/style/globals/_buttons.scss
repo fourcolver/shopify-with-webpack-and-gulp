@@ -1,0 +1,300 @@
+/**
+ * buttons
+ *
+ * button element
+ * button
+ * link button
+ * icon button
+ */
+
+/**
+ * button element
+ */
+span.btn.btn--tertiary.btn--small {
+ display: inline-block;
+}
+button[type="button"],
+[role="button"] {
+	cursor: pointer;
+
+	&.is-disabled {
+		cursor: default;
+	}
+}
+
+/**
+ * button
+ */
+.btn {
+	border: 0;
+	border-radius: 0;
+	color: $white;
+	cursor: pointer;
+	font-family: $primary-font;
+	font-size: em(16);
+	font-weight: $bold;
+	letter-spacing: 0.1em;
+	line-height: em(18);
+	margin: 0 rem(8) rem(8) 0;
+	padding: em(13) em(60);
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	transition: color $faster-timer $easeOutQuad,
+				font-size $faster-timer $easeOutQuad,
+				padding $faster-timer $easeOutQuad;
+
+	&:hover {
+		color: $pink-1;
+	}
+
+	// .btn__bg
+	&__bg {
+		background-color: $pink-1;
+		border: 1px solid $pink-1;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: z(forward);
+
+		&::after {
+			background-color: $white;
+			content: '';
+			display: block;
+			height: 100%;
+			position: absolute;
+			transform: translate3d(#{calc(100% + 1px)}, 0, 0);
+			transition: transform $faster-timer $easeOutQuad;
+			width: 100%;
+
+			.btn:hover & {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	// .btn__border
+	&__border {
+		background-color: $white;
+		border: 1px solid $pink-1;
+		height: 100%;
+		left: rem(8);
+		overflow: hidden;
+		position: absolute;
+		top: rem(8);
+		width: 100%;
+		z-index: z(backward);
+
+		&::after {
+			background-color: $pink-1;
+			bottom: 0;
+			content: '';
+			display: block;
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transform: translate3d(#{calc(-100% - 1px)}, 0, 0);
+			transition: transform $faster-timer $easeOutQuad;
+
+			.btn:hover & {
+				transform: translate3d(0, 0, 0);
+			}
+		}
+	}
+
+	// .btn--secondary
+	&--secondary {
+		color: $pink-1;
+		letter-spacing: 0;
+		margin: 0 rem(8) rem(8) 0;
+
+		&:hover {
+			color: $white;
+		}
+
+		.btn__bg {
+			background-color: $white;
+			border-color: $pink-1;
+
+			&::after {
+				background-color: $pink-1;
+			}
+		}
+
+		.btn__border {
+			background-color: $pink-1;
+			border-color: 1px solid $white;
+
+			&::after {
+				background-color: $white;
+			}
+		}
+	}
+
+	// .btn--tertiary
+	&--tertiary {
+		background-color: transparent;
+		color: $pink-1;
+		padding-left: rem(15);
+		padding-right: rem(15);
+
+		&:hover {
+			color: $white;
+		}
+
+		.btn__bg {
+			background-color: transparent;
+			border-color: $pink-1;
+
+			&::after {
+				background-color: $pink-1;
+			}
+		}
+	}
+
+	// .btn--tertiary
+	&--quaternary {
+		background-color: $pink-7;
+		border-color: $pink-8;
+		color: $gray-4;
+		padding: rem(9) rem(15);
+
+		&:hover {
+			color: $gray-4;
+
+			.btn__bg::after {
+				background-color: $pink-8;
+			}
+
+			.btn__border::after {
+				background-color: $pink-7;
+			}
+		}
+
+		.btn__border {
+			border-color: $pink-8;
+			background-color: $pink-8;
+			z-index: z(behind);
+		}
+
+		.btn__bg {
+			background-color: transparent;
+			border-color: $pink-8;
+
+			&::after {
+				background-color: $pink-7;
+			}
+		}
+
+		.btn__label-text {
+			font-size: rem(12);
+		}
+
+		.icon {
+			vertical-align: middle;
+		}
+	}
+
+	// TODO ensure that we can't replace tertiary button with these styles
+	&--submit-contact {
+		font-size: rem(13);
+		margin: 0;
+		padding: rem(15) rem(30);
+	}
+
+	// .btn--sign-up
+	&--sign-up {
+		font-size: rem(13);
+		padding: rem(16) rem(23);
+		position: absolute;
+		right: rem(-15);
+		top: rem(17);
+	}
+
+	// .btn--full
+	&--full {
+		width: 100%;
+	}
+
+	// .btn--wide
+	&--wide {
+		font-size: em(13);
+		padding: rem(15);
+		width: 85%;
+
+		@include apply-to(tablet) {
+			font-size: em(13);
+			padding: rem(20) rem(160);
+			width: auto;
+		}
+	}
+
+	// .btn--small
+	// used on account dashboard
+	&--small {
+		font-size: em(13);
+		padding: em(13, 13);
+	}
+
+	// .btn__label
+	// button submitting styles
+	&__label {
+		display: inline-block;
+		position: relative;
+		transform: translate3d(0, 0, 0);
+		transition: opacity $fast-timer $ease-1,
+					transform $fast-timer $ease-1;
+		z-index: z(front);
+	}
+
+	// disabled
+	&.is-disabled,
+	&:disabled {
+		opacity: 0.5;
+	}
+
+	// loading
+	&.is-loading {
+		position: relative;
+
+		&::before {
+			font-size: em(9);
+		}
+
+		.btn__label {
+			opacity: 0;
+			transform: scale(0.9);
+		}
+	}
+
+	// a.btn
+	@at-root a#{&} {
+		display: inline-block;
+	}
+}
+
+/**
+ * link button
+ */
+.btn-link,
+.button-link a {
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid $pink-1;
+	color: $pink-1;
+	padding: 0;
+}
+
+/**
+ * icon button
+ */
+.btn-icon {
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+}

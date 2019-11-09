@@ -1,0 +1,19 @@
+/**
+ * account header
+ */
+.ac-header {
+
+	@include apply-to(phone) {
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		@include clearfix();
+	}
+
+	// .ac-header__section-header
+	&__section-header {
+		float: left;
+		width: 100%;
+	}
+}

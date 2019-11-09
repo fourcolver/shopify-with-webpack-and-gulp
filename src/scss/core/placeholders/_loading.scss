@@ -1,0 +1,29 @@
+/**
+ * Loading
+ */
+%loading {
+	animation:rotating $slowest-timer linear infinite;
+	backface-visibility:hidden;
+	background-image:url(asset('loading.svg'));
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:em(26);
+	content:' ';
+	display:block;
+	height:em(26);
+	left:50%;
+	margin:em(-13) 0 0 em(-13);
+	position:absolute;
+	top:50%;
+	width:em(26);
+	z-index:z(loading);
+}
+
+%reset-loading {
+	animation-name:none;
+	background-image:none;
+	height:auto;
+	margin:auto;
+	width:auto;
+	z-index:auto;
+}

@@ -1,0 +1,11 @@
+development:
+  password: a46ae7192580a5f23cd62a26f831dde4
+  theme_id: "39929872443"
+  store: petitenpretty.myshopify.com
+  timeout: 120s
+
+production:
+  password: a46ae7192580a5f23cd62a26f831dde4
+  theme_id: "4145872924"
+  store: petitenpretty.myshopify.com
+  timeout: 120s

@@ -1,0 +1,8 @@
+/**
+ * Letter Spacing
+ * @param {number} $tracking 	Based on Photoshop's tracking value.
+ * @param {number} $font-size
+ */
+@mixin letter-spacing($tracking, $font-size) {
+	letter-spacing: em($tracking*$font-size/1000, $font-size);
+}

@@ -1,0 +1,22 @@
+<aside id="largePhotosModal" class="modal modal__product-photos js-modal desktop-only">
+	<div class="modal__inner">
+		<div class="modal__content pv__photos">
+			<button id="modalClose" type="button" class="modal__close btn-icon js-modal-close">
+				<span class="screenreader">Close</span>
+				<i class="icon icon--x-large"></i>
+			</button>
+			<div id="largePhotos" class="pv-large-photos">
+				{% comment %}
+				{% for image in product.images %}
+				<div id="pi-lg-{{ forloop.index }}" class="pv-photo pv-photo-large js-photo" data-index="{{ forloop.index0 }}">
+					<div class="ir is-loading is-loading--pink" {%- include 'h-intrinsic-ratio', image: image -%}>
+						<img class="lazyload desktop-only" data-srcset="{{ image.src | product_img_url: '990x' }} 1x, {{ image.src | product_img_url: '1980x' }} 2x" alt="{{ image.alt | escape }} Large Desktop" />
+					</div>
+				</div>
+				{% endfor %}
+				{% endcomment %}
+			</div>
+		</div>
+	</div>
+</aside>
+<div id="largePhotosOverlay" class="modal-overlay modal-overlay__large-photos"></div>

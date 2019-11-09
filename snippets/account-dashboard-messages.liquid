@@ -1,0 +1,7 @@
+<div id="acMsg" v-cloak>
+	<transition name="message-fade">
+		<div v-show="show" class="message message--fixed" :class="messageTypeClass">
+			<p v-html="text"></p>
+		</div>
+	</transition>
+</div>

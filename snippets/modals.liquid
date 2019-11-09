@@ -1,0 +1,21 @@
+{% comment %}
+{% if template contains 'about' %}
+	{% include 'about-page-claims-modal' %}
+{% endif %}
+{% endcomment %}
+
+{% if template == 'product' %}
+	{% include 'product-images-modal' %}
+	{%- if m.ingredients_list != blank -%}
+		{% include 'product-modal-ingredients-list' %}
+	{% endif %}
+	{% include 'product-modal-shade-ingredients' %}
+{% endif %}
+
+{% if isDashboard %}
+	{% include 'account-dashboard-messages' %}
+{% endif %}
+
+{% if template contains 'sweepstakes' %}
+	{% include 'sweepstakes-modal' %}
+{% endif %}

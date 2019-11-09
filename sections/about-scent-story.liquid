@@ -1,0 +1,45 @@
+{% assign s = section.settings %}
+
+
+<!--<div id="scentSection" class="scent">
+	<div class="scent__content">
+		<div class="scent__bg js-bg-slide" style="background-color: {{ s.scent_bg_color }};"></div>
+		<div class="scent__img-wrap hide-phone ir" {% include 'h-intrinsic-ratio', image: s.scent_img_desktop %}>
+			<img data-srcset="{{ s.scent_img_desktop | img_url: '1298x' }} 1x, {{ s.scent_img_desktop | img_url: 'master' }} 2x" class="lazyload scent__img" alt="Scent Image Desktop" />
+		</div>
+		<div class="scent__img-wrap phone-only ir" {% include 'h-intrinsic-ratio', image: s.scent_img_phone %}>
+			<img data-srcset="{{ s.scent_img_phone | img_url: 'master' }} 1x, {{ s.scent_img_phone | img_url: 'master' }} 2x" class="lazyload scent__img" alt="Scent Image Mobile" />
+			<div class="scent__bg js-bg-slide" style="background-color: {{ s.scent_bg_color }};"></div>
+		</div>
+		<div class="scent__text">
+			<p class="scent__text-inner">
+				It’s all a swirl of blue skies, <i class="lib-icon lib-icon--smaller lib-icon--mobile lib-icon--flowers"></i> pink petals and cotton candy dreams up here on <i class="lib-icon lib-icon--smaller lib-icon--mobile lib-icon--cloud-mine"></i> Cloud Mine where the sun has nothing better to do than <i class="lib-icon lib-icon--smaller lib-icon--mobile lib-icon--diamond"></i> shine. Our signature scent and flavor is the <i class="lib-icon lib-icon--smaller lib-icon--mobile lib-icon--cherries"></i> cherry on top of our favorite <i class="lib-icon lib-icon--smaller lib-icon--mobile lib-icon--ice-cream"></i> sorbet, the sparkle in our eye and the XOXO on our everything.
+			</p>
+		</div>
+	</div>
+</div>-->
+
+{% schema %}
+{
+	"name": "Scent Story",
+	"class": "about-scent-story",
+	"settings": [
+		{
+			"type": "color",
+			"id": "scent_bg_color",
+			"label": "Background Color",
+			"default": "#ade0f1"
+		},
+		{
+			"type": "image_picker",
+			"id": "scent_img_desktop",
+			"label": "Desktop Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "scent_img_phone",
+			"label": "Phone/Tablet Image"
+		}
+	]
+}
+{% endschema %}

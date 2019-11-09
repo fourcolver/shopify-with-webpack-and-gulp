@@ -1,0 +1,185 @@
+// .about-founder
+.about-founder {
+	padding-top: em(65);
+
+	@include apply-to(desktop) {
+		padding-top: em(145);
+	}
+
+	// .about-founder__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+
+		@include apply-to(tablet) {
+			align-items: flex-start;
+			flex-direction: row;
+			justify-content: space-between;
+			position: relative;
+		}
+
+		@include apply-to(desktop-only) {
+			padding-right: 0;
+			margin-right: em(105);
+		}
+
+		@include apply-to(desktop-large) {
+			&.container {
+				margin-left: 0;
+				max-width: percentage(650/700);
+			}
+		}
+
+		&.bg-set * {
+			opacity: 1;
+			transition: opacity $general-timer $ease-1;
+		}
+	}
+
+	// .about-founder__bg
+	&__bg {
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		top: 0;
+		transform: translate3d(-100%,0,0);
+		width: 100%;
+		z-index: z(behind);
+
+		&.is-visible {
+			transform: translate3d(0,0,0);
+			/*transition: transform $general-timer $ease-2;*/
+			transition: all 1s;
+		}
+	}
+
+	//.about-founder__img-content, .about-founder__text
+	&__img-content,
+	&__text {
+		opacity: 0;
+	}
+
+	// .about-founder__icon
+	&__icon {
+		font-size: 5px;
+		margin-bottom: rem(-15);
+	}
+
+	// .about-founder__img-content
+	&__img-content {
+		position: relative;
+
+		@include apply-to(tablet) {
+			width: percentage(302/768);
+			max-width: em(555);
+		}
+
+		@include apply-to(desktop) {
+			padding-bottom: em(110);
+			width: 50%;
+		}
+
+		&--alt {
+			max-width: em(265);
+			margin: 0 auto;
+			padding-top: em(8);
+
+			@include apply-to(desktop) {
+				padding-bottom: 0;
+				max-width: em(272);
+			}
+		}
+	}
+
+	// .about-founder__img-bg
+	&__img-bg {
+		height: 100%;
+		position: absolute;
+		top: em(-24);
+		width: 100%;
+	}
+
+	// .about-founder__img-wrap
+	&__img-wrap {
+		margin-top: em(-25);
+	}
+
+	// .about-founder__text
+	&__text {
+		padding-top: em(29);
+
+		@include apply-to(tablet) {
+			max-width: em(635);
+			padding: em(35) em(42) 0 em(42);
+		}
+
+		@include apply-to(desktop) {
+			padding: em(50) em(40) 0 em(40);
+		}
+
+		@include apply-to(desktop-huge) {
+			padding-right: 0;
+		}
+	}
+
+	// .about-founder__tagline
+	&__tagline {
+		margin: 0 auto;
+
+		@include apply-to(mobile) {
+			padding: em(19) 0 em(25);
+			max-width: em(333);
+			margin: 0 auto;
+		}
+
+		@include apply-to(tablet-only) {
+			max-width: em(350);
+		}
+
+		@include apply-to(desktop) {
+			padding: em(10) em(0) em(12);
+		}
+
+		@include apply-to(desktop-large) {
+			padding-left: em(20);
+			padding-right: em(20);
+		}
+
+		// .about-founder__tagline-text
+		&-text {
+			text-align: center;
+			font-family: $primary-font;
+			margin-bottom: 0;
+			font-size: em(14);
+			color: $gray-3;
+		}
+	}
+
+	// .about-founder__desc
+	&__desc {
+		color: $gray-2;
+		font-family: $primary-font;
+		font-size: em(14);
+		margin-bottom: 0;
+		text-align: center;
+
+		p {
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	// .about-founder__title
+	&__title {
+		font-weight: $bold;
+		margin-bottom: rem(25);
+		margin-top: 0;
+		font-size: em(21);
+		text-align: center;
+
+		@include apply-to(mobile) {
+			font-size: em(21);
+		}
+	}
+}

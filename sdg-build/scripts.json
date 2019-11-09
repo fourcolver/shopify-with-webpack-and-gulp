@@ -1,0 +1,14 @@
+{
+	"about": "./src/js/build/about.js",
+	"account": "./src/js/build/account.js",
+	"account-dashboard": "./src/js/build/account-dashboard.js",
+	"app": "./src/js/build/app.js",
+	"collection": "./src/js/build/collection.js",
+	"contact": "./src/js/build/contact.js",
+	"faq": "./src/js/build/faq.js",
+	"index": "./src/js/build/index.js",
+	"product": "./src/js/build/product.js",
+	"style-guide": "./src/js/build/style-guide.js",
+	"sweepstakes": "./src/js/build/sweepstakes.js",
+	"variable-menu": "./src/js/build/variable-menu.js"
+}

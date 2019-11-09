@@ -1,0 +1,77 @@
+/**
+ * account nav
+ */
+.ac-nav {
+	float: left;
+	position: relative;
+	width: 100%;
+
+	@include apply-to(tablet) {
+		padding-right: em(16);
+		width: em(230);
+	}
+
+	@include apply-to(desktop) {
+		width: em(300);
+	}
+
+	.is-loading & {
+
+		&::before {
+			top: em(50);
+			@extend %loading;
+
+			@include apply-to(tablet) {
+				display: none;
+			}
+		}
+	}
+
+	// .ac-nav__list <ul>
+	&__list {
+	}
+
+	// .ac-nav__item <li>
+	&__item {
+		margin-bottom: em(10);
+	}
+
+	&__btn,
+	a {
+		background-color: $ac-nav-button-background-color;
+		display: block;
+		font-size: $ac-nav-button-font-size;
+		font-weight: $ac-nav-button-font-weight;
+		padding: rem(14) 0 rem(14) rem(18);
+		position: relative;
+		text-transform: uppercase;
+		z-index: z(backward);
+
+		@include apply-to(phone) {
+			background-color: $ac-nav-button-active-background-color;
+		}
+
+		.is-active & {
+			background-color: $ac-nav-button-active-background-color;
+		}
+
+		.is-loading & {
+
+			@include apply-to(phone) {
+				cursor: default;
+				opacity: 0.5;
+			}
+		}
+	}
+
+	// .ac-nav__btn <button>
+	&__btn {
+		border: 0;
+		color: $ac-nav-button-color;
+		cursor: pointer;
+		font-family: $ac-nav-button-font;
+		text-align: left;
+		transition: background-color $fast-timer $ease-1;
+		width: 100%;
+	}
+}

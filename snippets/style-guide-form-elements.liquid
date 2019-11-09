@@ -1,0 +1,120 @@
+<form>
+	<fieldset class="docs-fieldset">
+		<h3>Form Elements</h3>
+
+		<ul class="form-list">
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="email">
+						Email
+					</label>
+					<input id="email" class="input" type="email" />
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="orderNumber">
+						order number (optional)
+					</label>
+					<input id="orderNumber" class="input" type="text" />
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="select">
+					<select id="select" class="input">
+						<option id="defaultSelect" value="" selected>select a topic</option>
+						<option value="1">Option 1</option>
+						<option value="2">Option 2</option>
+						<option value="3">Option 3</option>
+						<option value="4" disabled>Option 4</option>
+						<option value="5">Option 5</option>
+					</select>
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="inputTextarea">
+						your inquiry...
+					</label>
+					<textarea id="inputTextarea" class="input"></textarea>
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="radio">
+					<input id="radio_1" type="radio" name="radio" />
+					<label for="radio_1">Radio Option 1</label>
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="radio">
+					<input id="radio_2" type="radio" name="radio" />
+					<label for="radio_2">Radio Option 2</label>
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="checkbox">
+					<input id="checkbox_1" type="checkbox" />
+					<label for="checkbox_1">Checkbox 1</label>
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="checkbox">
+					<input id="checkbox_2" type="checkbox" />
+					<label for="checkbox_2">Checkbox 2</label>
+				</div>
+			</li>
+		</ul>
+	</fieldset>
+
+	<fieldset class="docs-fieldset">
+		<h3>Form List</h3>
+		<ul class="form-list">
+			<!-- Thirds  -->
+			{% for i in (1..3) %}
+				<li class="form-item form-item--third">
+					<div class="input-placeholder">
+						<label for="form_list_third_{{ i }}">{{ i }}/3</label>
+						<input id="form_list_third_{{ i }}" class="input" type="text" />
+					</div>
+				</li>
+			{% endfor %}
+			<!-- Halves  -->
+			{% for i in (1..2) %}
+				<li class="form-item form-item--half">
+					<div class="input-placeholder">
+						<label for="form_list_half_{{ i }}">{{ i }}/2</label>
+						<input id="form_list_half_{{ i }}" class="input" type="text" />
+					</div>
+				</li>
+			{% endfor %}
+			<!-- Whole  -->
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="form_list_whole">1/1</label>
+					<input id="form_list_whole" class="input" type="text" />
+				</div>
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset class="docs-fieldset">
+		<h3>Form Inline</h3>
+		<div class="form-inline">
+			<div class="form-inline__input input-placeholder">
+				<label for="form_inline_email">Email</label>
+				<input id="form_inline_email" class="input" type="email" />
+			</div>
+			<button class="form-inline__btn" type="submit">
+				Sign Up
+			</button>
+		</div>
+	</fieldset>
+	<fieldset class="docs-fieldset">
+		<h3>Form Messages</h3>
+		<div class="message message--error">
+			<p>Error message!</p>
+		</div>
+		<div class="message message--success">
+			<p>Success message!</p>
+		</div>
+	</fieldset>
+</form>

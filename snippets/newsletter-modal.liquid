@@ -1,0 +1,17 @@
+<aside id="welcomeNewsletterModal" class="modal--bottom welcome-modal desktop-only">
+	<div class="welcome-modal__bg-wrap">
+		<div class="modal__inner welcome-modal__inner">
+			<div class="welcome-modal__title-wrap">
+				<h4 class="welcome-modal__title">{{ settings.newsletter_message }}</h4>
+			</div>
+			<div class="modal__content welcome-modal__content">
+				{% include 'newsletter-form', namespace: 'welcome', desc: 'Bottom Newsletter Form' %}
+				<button type="button" class="modal__close welcome-modal__close btn-icon js-modal-close">
+					<span class="screenreader">Close</span>
+					<i class="icon icon--x-white"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</aside>
+<div class="welcome-modal-overlay"></div>

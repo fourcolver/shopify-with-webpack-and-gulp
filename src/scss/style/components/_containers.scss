@@ -1,0 +1,107 @@
+/*
+////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------
+1. No Overflow
+2. Container
+3. Columns
+////////////////////////////////////////////////////////////////////////////////
+--------------------------------------------------------------------------------
+
+///////////////////////////////////////////////////////////
+1. No Overflow
+///////////////////////////////////////////////////////////
+*/
+.overflow-hidden {
+	overflow:hidden !important;
+
+	@include apply-to(phone) {
+		position: fixed;
+	}
+}
+
+/*
+///////////////////////////////////////////////////////////
+2. Container
+///////////////////////////////////////////////////////////
+*/
+.page-wrap {
+	transition:all $normal-timer $ease-1,
+		transform $normal-timer $ease-1,
+		margin $normal-timer $ease-1;
+
+	@each $breakpoint, $height in $header-height {
+		@if $breakpoint == null {
+			padding-top:em($height);
+		}
+		@else {
+			@include apply-to($breakpoint) {
+				padding-top:em($height);
+			}
+		}
+	}
+}
+
+.header-promo-on {
+	.page-wrap {
+		@each $breakpoint, $height in $header-height-promo {
+			@if $breakpoint == null {
+				padding-top:em($height);
+			}
+			@else {
+				@include apply-to($breakpoint) {
+					padding-top:em($height);
+				}
+			}
+		}
+	}
+}
+
+.template-index {
+	&.header-promo-on {
+		.page-wrap {
+			@include apply-to(desktop) {
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+.container {
+	@include clearfix;
+	margin:0 auto;
+	max-width:$breakpoint-huge;
+	@include gutters($gutter-base);
+
+	&--header {
+		@include gutters($gutter-header);
+	}
+
+	&--wide {
+		@include gutters($gutter-wide);
+	}
+
+	&--narrow {
+		@include gutters($gutter-narrow);
+	}
+}
+
+/*
+///////////////////////////////////////////////////////////
+3. Columns
+///////////////////////////////////////////////////////////
+*/
+$col-count:6;
+.cols {
+    @include clearfix;
+}
+.colm {
+	@include apply-to(desktop) {
+		float:left;
+
+		@for $i from 1 through $col-count {
+			&--#{$i} {
+				width:percentage($i/$col-count);
+			}
+		}
+	}
+}

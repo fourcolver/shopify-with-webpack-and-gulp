@@ -1,0 +1,31 @@
+/**
+ * header height
+ */
+$header-height: (
+	null: 0,
+	'desktop': 82
+);
+
+$header-height-mobile: 66;
+
+/**
+ * header height
+ */
+$header-height-promo: (
+	null: 0,
+	'desktop': 108
+);
+
+/**
+ * footer height
+ */
+$footer-height-above: (
+	null: 60,
+	'desktop': 100
+);
+
+// Promo
+$promo-height: calc(#{em($header-height-promo['desktop'])} - #{em($header-height['desktop'])});
+
+// Product
+$product-mobile-actions: 69;

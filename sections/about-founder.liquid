@@ -1,0 +1,90 @@
+{% assign s = section.settings %}
+
+{% if s.brand_img != blank and s.brand_title != blank %}
+<div id="aboutFounder" class="about-founder__container container">
+	<div class="about-founder__bg js-bg-slide" style="background-color: {{ s.founder_bg_color }};"></div>
+	<div class="about-founder__img-content js-rellax" data-rellax-speed="0.3">
+		<div class="about-founder__img-wrap is-loading ir"
+			{% include 'h-intrinsic-ratio', image: s.brand_img %}>
+			<img data-srcset="{{ s.brand_img | img_url: '555x' }} 1x,
+			{{ s.brand_img | img_url: 'master' }} 2x"
+			class="about-founder__img lazyload" alt="{{ s.brand_img_alt }}" />
+		</div>
+	</div>
+
+	<div class="about-founder__text">
+		<div class="about-founder__header">
+			<h2 class="about-founder__title">{{ s.brand_title }}</h2>
+		</div>
+
+		{% if s.brand_text contains '<p>' %}
+			<div class="about-founder__desc">
+				{{ s.brand_text }}
+			</div>
+		{% else %}
+			<p class="about-founder__desc">
+				{{ s.brand_text }}
+			</p>
+		{% endif %}
+
+		<div class="about-founder__img-content about-founder__img-content--alt">
+			<div class="is-loading ir"
+				{% include 'h-intrinsic-ratio', image: s.brand_autograph  %}>
+				<img data-srcset="{{ s.brand_autograph | img_url: '555x' }} 1x,
+				{{ s.brand_autograph | img_url: 'master' }} 2x"
+				class="about-founder__img lazyload" alt="{{ s.brand_img_alt }}" />
+			</div>
+		</div>
+
+		<div class="about-founder__tagline">
+			<p class="about-founder__tagline-text">{{ s.brand_btn_text }}</p>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+	"name": "About the Founder",
+	"class": "about-founder",
+	"settings": [
+		{
+			"type": "color",
+			"id": "founder_bg_color",
+			"label": "Background Color",
+			"default": "#f8ebf5"
+		},
+		{
+			"type": "image_picker",
+			"id": "brand_img",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "text",
+			"id": "brand_title",
+			"label": "Title",
+			"default": "From the Founder"
+		},
+		{
+			"type": "textarea",
+			"id": "brand_text",
+			"label": "Description"
+		},
+		{
+			"type": "image_picker",
+			"id": "brand_autograph",
+			"label": "Img for autograph"
+		},
+		{
+			"type": "text",
+			"id": "brand_btn_text",
+			"label": "Tagline Text"
+		}
+	]
+}
+{% endschema %}

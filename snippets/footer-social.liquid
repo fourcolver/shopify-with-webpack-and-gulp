@@ -1,0 +1,13 @@
+<div class="footer-action__social">
+	<ul class="social-links social-links--footer">
+		{% for link in linklists.social-links.links %}
+			<li class="footer__social-item">
+				<a class="footer__social-link icon icon--{{ link.title | downcase }}" href="{{ link.url }}" {%- include 'h-target', url: link.url -%}>
+					<span class="screenreader">
+						{{ link.title }}
+					</span>
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</div>

@@ -1,0 +1,51 @@
+/**
+ * Newsletter
+ */
+
+.newsletter {
+	&__messages {
+		&.is-visible {
+			height: auto !important;
+			padding-bottom: em(13) !important;
+			padding-top: em(13) !important;
+			text-align: center;
+		}
+	}
+
+	&__input,
+	&__label.newsletter__label,
+	&__messages.is-visible {
+		@include apply-to(desktop) {
+			padding-bottom: em(13);
+			padding-top: em(13);
+		}
+	}
+
+	&__btn {
+		bottom: em(-7, 12);
+		display: inline-block;
+		height: em(40, 12);
+		position: absolute;
+		font-size: em(12);
+		margin: 0;
+		right: em(-7, 12);
+		z-index: z(forward);
+
+		@include apply-to(desktop) {
+			bottom: em(-5, 12);
+			right: em(-5, 12);
+		}
+
+		&.is-loading {
+			position: absolute;
+
+			span {
+				visibility: hidden;
+			}
+		}
+	}
+
+	&__label {
+		z-index: z(front);
+	}
+}

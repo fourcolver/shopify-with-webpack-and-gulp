@@ -1,0 +1,28 @@
+/*
+///////////////////////////////////////////////////////////
+Shopify Challenge (reCAPTCHA)
+///////////////////////////////////////////////////////////
+*/
+.shopify-challenge {
+
+	// .shopify-challenge__container
+	&__container {
+		padding-bottom: em(80); 
+		padding-top: em(50);
+	}
+
+	// .shopify-challenge__error
+	&__error { 
+		margin-bottom: 0;
+	}
+
+	// .shopify-challenge__button
+	&__button {
+		background-color: $pink-1;
+		border: 1px solid $pink-1;
+
+		&:hover {
+			background-color: $white;
+		}
+	}
+}

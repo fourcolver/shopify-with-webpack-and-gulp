@@ -1,0 +1,22 @@
+.vm__group {
+	padding:em(40) em(15) em(20);
+	transition:padding $normal-timer $ease-1;
+
+	@include apply-to(desktop) {
+		padding:em(40) em(30) em(30);
+	}
+
+	&-title {
+        background:$black;
+        color:$white;
+		font-size:em(22);
+        line-height:em(23,22);
+        margin:0 rem(-15) rem(20);
+		padding:rem(10) rem(15) em(6);
+
+		@include apply-to(desktop) {
+            margin:0 rem(-30) rem(35);
+			padding:rem(15) rem(30) em(11);
+		}
+	}
+}

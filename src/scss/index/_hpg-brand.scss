@@ -1,0 +1,168 @@
+/**
+ * Home Page - Brand
+ */
+
+.home-brand-full {
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, #FFFFFF 100%), url(asset('bg-pink-light.jpg'));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, #FFFFFF 100%), url(asset('bg-pink-light.jpg'));
+	background: -o-linear-gradient(top, rgba(255,255,255,0), #FFFFFF 100%), url(asset('bg-pink-light.jpg'));
+	background: -ms-linear-gradient(top, rgba(255,255,255,0), #FFFFFF 100%), url(asset('bg-pink-light.jpg'));
+	background: linear-gradient(to bottom, rgba(255,255,255,0), #FFFFFF 100%), url(asset('bg-pink-light.jpg'));
+	background-size: auto auto, rem(150);
+
+	@include apply-to(tablet-only) {
+		background: url(asset('bg-pink-light.jpg'));
+		padding-bottom: em(70);
+		padding-top: em(50);
+		background-size: rem(150);
+	}
+
+	@include apply-to(desktop) {
+		padding-bottom: em(70);
+		padding-top: em(80);
+	}
+}
+
+.home-brand {
+	display: flex;
+	flex-direction: column;
+
+	@include apply-to(phone) {
+		padding-bottom: em(45);
+	}
+
+	@include apply-to(mobile) {
+		padding: 0 0 em(70) 0;
+	}
+
+	@include apply-to(tablet) {
+		flex-direction: row;
+	}
+
+	@include apply-to(desktop) {
+		padding-bottom: em(70);
+	}
+
+	&__img-content {
+		position: relative;
+
+		@include apply-to(tablet) {
+			width: percentage(302/768);
+		}
+
+		@include apply-to(desktop) {
+			width: 50%;
+		}
+	}
+
+	&__img-bg {
+		background-image: url(asset('brand-bg.jpg'));
+		background-repeat: no-repeat;
+		background-size: cover;
+		bottom: em(-40);
+		height: 100%;
+		position: absolute;
+		right: em(-24);
+		width: 100%;
+
+		@include apply-to(retina) {
+			background-image: url(asset('brand-bg@2x.jpg'));
+		}
+
+		@include apply-to(tablet) {
+			background-image: url(asset('brand-bg-tablet.jpg'));
+			bottom: em(-110);
+
+			@include apply-to(retina) {
+				background-image: url(asset('brand-bg-tablet@2x.jpg'));
+			}
+		}
+	}
+
+	&__img-wrap {
+		z-index: z(forward);
+	}
+
+	&__text {
+		padding: em(35) em(44) 0 em(44);
+
+		@include apply-to(tablet) {
+			padding: 0 0 0 em(58);
+			width: 50%;
+		}
+
+		@include apply-to(desktop) {
+			padding: em(75) 0 0 em(58);
+		}
+	}
+
+	&__img-content {
+		margin: em(30) em(24) em(24) 0;
+	}
+
+	&__desc {
+		color: $gray-3;
+		font-family: $primary-font;
+		font-size: em(14);
+		margin-bottom: 0;
+
+		@include apply-to(desktop) {
+			margin-bottom: em(60);
+		}
+	}
+
+	&__title {
+		font-weight: $bold;
+		margin-bottom: rem(35);
+		margin-top: 0;
+
+		@include apply-to(mobile) {
+			font-size: em(47);
+		}
+	}
+
+	&__actions {
+		margin-bottom: em(55);
+		padding: 0 em(0);
+		text-align: center;
+
+		@include apply-to(desktop) {
+			margin-bottom: 0;
+			padding: 0 em(0);
+			text-align: left;
+		}
+
+		a.btn {
+			padding: rem(15) rem(28);
+			width:60%;
+			margin: 0 auto;
+			margin-top: em(40);
+
+			@include apply-to(small-phone) {
+				width: 75%;
+			}
+			@include apply-to(tablet) {
+				padding: rem(20) rem(25);
+				width: 80%;
+				font-size: em(16);
+			}
+			@include apply-to(desktop) {
+				width: 70%;
+			}
+			@include apply-to(desktop-large) {
+				width: 58%;
+			}
+		}
+	}
+
+}
+
+.Layer_0 {
+  background-image: url("Layer 0.png");
+  height: 5295px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 414px;
+  z-index: 1;
+}

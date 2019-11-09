@@ -1,0 +1,343 @@
+/* Core */
+/**
+ * Functions
+ */
+/**
+ * pixels to em
+ */
+/**
+ * pixels to rem
+ */
+/**
+ * Asset Url
+ */
+/**
+ * z-index sass map
+ */
+/**
+ * Vars
+ */
+/**
+ * Breakpoints
+ * @description		Used for media queries
+ */
+/**
+ * Color Variables
+ */
+/**
+ * Color Samples
+ * @description 	Used in variable-menu/_colors.scss to generate class names
+ */
+/**
+ * Form Variables
+ */
+/**
+ * header height
+ */
+/**
+ * header height
+ */
+/**
+ * footer height
+ */
+/**
+ * Page Gutters
+ */
+/**
+ * intrinsic ratios
+ */
+/**
+ * Font Families
+ */
+/**
+ * Font Weights
+ */
+/**
+ * Font Sizes
+ */
+/**
+ * Line Heights
+ */
+/**
+ * Timers
+ */
+/**
+ * easing
+ */
+/**
+ * z-index
+ */
+/**
+ * account vars (settings)
+ */
+/**
+ * Mixins
+ */
+/**
+ * Apply To
+ * @param {string} $device
+ */
+/**
+ * Max width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Min width media query
+ * @param {string} $val (ex. 768px)
+ */
+/**
+ * Set Default Query Order
+ * Needed for the mqpacker gulp task to ensure the correct order is always in place.
+ */
+
+/**
+ * Clearfix
+ */
+/**
+ * Remove Clearfix
+ */
+/**
+ * Placeholder
+ */
+/**
+ * Intrinsic Ratio Full
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Intrinsic Ratio Base
+ */
+/**
+ * Intrinsic ratio padding
+ * @param $ratio	Aspect ratio (ex. 16/9)
+ * @param $width	Custom width (Optional)
+ */
+/**
+ * Letter Spacing
+ * @param {number} $tracking 	Based on Photoshop's tracking value.
+ * @param {number} $font-size
+ */
+/**
+ * Gutters
+ * @description - Used to add padding left and right to a container.
+ */
+/**
+ * Media Query Style
+ */
+/**
+ * white theme
+ */
+/**
+ * Placeholders
+ */
+/**
+ * Loading
+ */
+/**
+ * Text Replacement
+ */
+/* Components */
+/**
+ * contact
+ */
+.contact__subheader {
+  font-size: 1.3125rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+
+.contact__email-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 1.4375rem 0 0.1875rem 0;
+}
+
+.contact__icon-3-stars {
+  font-size: 4px;
+  position: absolute;
+  right: -3.375rem;
+  top: 11.125rem;
+}
+
+.contact__icon-ok-hand {
+  font-size: 4px;
+  left: -2.8125rem;
+  position: absolute;
+  top: -3.375rem;
+  z-index: 1;
+}
+
+.contact__email-link {
+  color: #ed3fa8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  text-decoration: underline;
+}
+
+.contact__content {
+  color: #8b8b8b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4375rem;
+  margin: 0 auto 3.75rem;
+  width: 35.625rem;
+}
+
+.contact__content a {
+  color: #ed3fa8;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.contact__form-container {
+  margin: 0 auto;
+  position: relative;
+  width: 60%;
+}
+
+.contact__form .form-item {
+  position: relative;
+}
+
+.contact__submit-container {
+  bottom: -0.25rem;
+  position: absolute;
+  right: -0.5625rem;
+}
+
+.contact__form-email-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin: 0 auto 3.125rem;
+  max-width: 60.125rem;
+}
+
+.contact__email-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+  margin: 2.6875rem 3.5625rem 3.4375rem 0;
+  position: relative;
+  width: 40%;
+}
+
+.contact__response-container {
+  color: #2e8b57;
+  height: 100px;
+}
+
+.contact__response-text {
+  background-color: #e2ffef;
+  display: none;
+  margin: 0;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.error-message {
+  color: #e20000;
+  font-size: 0.8125rem;
+  padding-top: 0.3125rem;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .contact__icon-3-stars {
+    right: -webkit-calc(50% - 165px);
+    right: calc(50% - 165px);
+    top: 6.0625rem;
+  }
+  .contact__content {
+    width: 100%;
+  }
+  .contact__form-container {
+    width: 80%;
+  }
+  .contact__form-email-container {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 0;
+  }
+  .contact__email-container {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    margin: 2.6875rem auto 3.4375rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+}
+
+@media only screen and (max-width: 554px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+
+@media only screen and (min-width: smaller-phone) {
+
+}
+
+@media only screen and (max-width: 374px) {
+
+  .contact__icon-3-stars {
+    right: -webkit-calc(50% - 145px);
+    right: calc(50% - 145px);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+
+}
+
+@media only screen and (min-width: 980px) {
+
+}
+
+@media only screen and (min-width: 1025px) {
+
+}
+
+@media only screen and (min-width: 1281px) {
+
+}
+
+@media only screen and (min-width: 1401px) {
+
+}
+
+@media only screen and (max-width: 1280px) {
+
+}
+
+@media only screen and (max-width: 1400px) {
+
+}
+
+/*# sourceMappingURL=contact.css.map */

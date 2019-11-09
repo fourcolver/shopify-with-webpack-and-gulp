@@ -1,0 +1,39 @@
+/**
+ * Clearfix
+ */
+@mixin clearfix {
+	@include apply-to(phone) {
+		zoom:1;
+	}
+
+	&:before,
+	&:after {
+		content:' ';
+		display:table;
+	}
+
+	&:after {
+		clear:both;
+	}
+}
+
+%clearfix {
+
+	&::after {
+		display: block;
+		content: '';
+	    clear: both;
+	}
+}
+
+/**
+ * Remove Clearfix
+ */
+@mixin removeclearfix {
+	&:before,
+	&:after {
+		display:none;
+		content:none;
+		clear:none;
+	}
+}

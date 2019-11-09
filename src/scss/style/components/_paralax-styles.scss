@@ -1,0 +1,42 @@
+/**
+ * Common paralax styles
+ *
+ * Text animation
+ */
+
+.animate {
+	opacity: 0;
+
+	// .animate-up
+	&-up {
+		transform: translate3d(0, 50px, 0);
+	}
+
+	// .animate-left
+	&-left {
+		transform: translate3d(50px, 0, 0);
+
+		// .animate-left-extra
+		&-extra {
+			transform: translate3d(300px, 0, 0);
+		}
+	}
+
+	// .animate-right
+	&-right {
+		transform: translate3d(-50px,0,0);
+
+		// .animate-right-extra
+		&-extra {
+			transform: translate3d(-100px, 0, 0);
+		}
+	}
+
+	// .animate.is-visbile
+	&.is-visible {
+		opacity: 1;
+		transform: translate3d(0,0,0);
+		/*transition: all $normal-timer $ease-2;*/
+		transition: all 1s;
+	}
+}

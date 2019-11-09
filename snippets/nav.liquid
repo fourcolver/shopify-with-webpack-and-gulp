@@ -1,0 +1,10 @@
+{% assign menu = linklists.main-menu %}
+{% for link in menu.links %}
+	{{ link.title }}
+	{% for sub_link in link.links %}
+		{{ sub_link.title }}
+		{% for sub_sub_link in sub_link.links %}
+			{{ sub_sub_link.title }}
+		{% endfor %}
+	{% endfor %}
+{% endfor %}

@@ -1,0 +1,52 @@
+/**
+ * accordion
+ */
+.acc {
+
+	&__menu {
+		display:none;
+		overflow:hidden;
+		padding:em(10);
+		transition:all $normal-timer $ease-1;
+		transform: tanslateZ(0);
+	}
+}
+
+%acc-btn,
+.acc__btn {
+	background:transparent;
+	border:0;
+	position:relative;
+	text-align:left;
+	width:100%;
+
+	&:before,
+	&:after {
+		// @include icon-svg;
+		margin-top:em(-8);
+		position:absolute;
+		right:0;
+		top:50%;
+		transition:opacity $normal-timer $ease-1,
+			transform $normal-timer $ease-1;
+	}
+
+	&:before {
+		// @include icon--chevron-down;
+	}
+	&:after {
+		// @include icon--chevron-up;
+		opacity:0;
+		transform:scale(.1);
+	}
+	&.active {
+		&:before {
+			opacity:0;
+			transform:scale(.1);
+		}
+		&:after {
+			opacity:1;
+			transform:scale(1);
+		}
+	}
+}

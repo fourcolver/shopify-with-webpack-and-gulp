@@ -1,0 +1,25 @@
+{% assign m = meta.product %}
+
+{%- if m.how != blank or m.ingredients != blank or m.claims != blank or m.shade_info != blank -%}
+
+	<ul class="list-reset" id="pvLinksList">
+
+		{%- if m.enable_shade_info == 'yes' -%}
+			<li><a href="#shadeInfo" id="shadeInfoTrigger">Shade Info</a></li>
+		{%- endif -%}
+
+		{%- if m.how != blank -%}
+			<li><a href="#howToUseIt" class="pv-link">How to Use It</a></li>
+		{%- endif -%}
+
+		{%- if m.ingredients != blank -%}
+			<li><a href="#keyIngredients" class="pv-link">Key Ingredients</a></li>
+		{%- endif -%}
+
+		{%- if m.claims != blank -%}
+			<li><a href="#scored" class="pv-link">Our Standards</a></li>
+		{%- endif -%}
+
+	</ul>
+
+{%- endif -%}

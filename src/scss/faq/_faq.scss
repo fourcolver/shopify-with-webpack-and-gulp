@@ -1,0 +1,238 @@
+// .faq
+.faq {
+
+	@include apply-to(mobile) {
+		padding-bottom: em(84);
+	}
+
+	@include apply-to(tablet-only) {
+		padding-left: em(82);
+		padding-right: em(74);
+	}
+
+	// .faq__sidebar
+	// (desktop only)
+	&__sidebar {
+		max-width: em(274);
+		padding-right: em(10);
+		position: relative;
+		width: 100%;
+
+		//.faq__sidebar-inner
+		&-inner {
+			display: flex;
+			flex-direction: column;
+
+			&.is-fixed {
+				position: fixed;
+				top: em(162); // header height + 50px offset
+			}
+			
+			&.is-bottom {
+				bottom: 0;
+				position: absolute;
+			}
+		}
+	}
+
+	// .faq__link
+	&__link {
+		padding-bottom: em(18);
+		text-decoration: underline;
+	}
+
+	// .faq__acc
+	&__acc {
+		position: relative;
+	}
+
+	// .faq__answer
+	&__answer {
+		font-size: em(14);
+		margin-bottom: em(0,14);
+	}
+
+	// .faq__container
+	&__container {
+
+		@include apply-to(desktop) {
+			padding: 0 em(35);
+		}
+	}
+
+	// .faq__content
+	&__content {
+
+		@include apply-to(desktop) {
+			display: flex;
+			padding-bottom: em(99);
+			padding-top: em(30);
+		}
+	}
+
+	// .faq__element
+	&__element {
+		position: absolute;
+
+		// .faq__element--license-plate
+		&--license-plate {
+			bottom: em(7);
+			right: em(-47);
+
+			// .faq__element--license-plate .lib-icon
+			.lib-icon {
+				font-size: 3.3px;
+				transform: rotate(17deg);
+			}
+		}
+
+		// .faq__element--peace
+		&--peace {
+			left: em(-50);
+			top: em(-40);
+			transform: rotate(15deg);
+
+			// .faq__element--peace .icon
+			.lib-icon {
+				font-size: 3px;
+			}
+		}
+
+		// .faq__element--3-stars
+		&--3-stars {
+			bottom: em(20);
+			right: em(-50);
+
+			// .faq__element--3-stars .icon
+			.icon {
+				font-size: 4px;
+			}
+		}
+
+		// .faq__element--3-stars-flipped
+		&--3-stars-flipped {
+			bottom: em(-5);
+			left: em(-45);
+			transform: scaleX(-1);
+
+			// .faq__element--3-stars-flipped .icon
+			.icon {
+				font-size: 4px;
+			}
+		}
+	}
+
+	// .faq__group-title
+	&__group-title {
+		font-size: em(22);
+		margin: 0;
+	}
+
+	// .faq__heading
+	&__heading {
+		padding-bottom: em(29);
+		position: relative;
+
+		@include apply-to(mobile) {
+			border-top: 1px solid $gray-10;
+			padding-bottom: em(20);
+			padding-left: em(10);
+			padding-top: em(20);
+		}
+
+		@include apply-to(tablet-only) {
+			padding-left: em(3);
+		}
+
+		@include apply-to(desktop) {
+			margin-top: em(-162);
+			padding-top: em(162);
+		}
+	}
+
+	// .faq__header
+	&__header {
+		padding-top: em(56);
+		text-align: center;
+
+		@include apply-to(mobile) {
+			padding-top: em(5);
+		}
+	}
+
+	// .faq__icon
+	&__icon {
+		bottom: 0;
+		height: em(17);
+		margin: auto 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: rotate3d(0, 0, 0, 0deg);
+		transition: transform $normal-timer $ease-1;
+		width: em(23);
+
+		@include apply-to(desktop) {
+			display: none;
+		}
+
+		.faq__heading.is-active & {
+			transform: rotate3d(-1, 0, 0, 180deg);
+		}
+	}
+
+	// .faq__item
+	&__item {
+		padding-bottom: em(30);
+
+		// .faq__item:last-child
+		&:last-child {
+			padding: 0;
+		}
+	}
+
+	// .faq__menu
+	&__menu {
+		max-width: em(821);
+		padding-left: em(14);
+		padding-top: em(40);
+		padding-top: em(10);
+
+		@include apply-to(tablet-only) {
+			padding-left: em(5);
+		}
+
+		@include apply-to(desktop) {
+			display: block !important;
+			height: auto !important;
+
+			// overwrite accordion styles
+			padding: 0 0 em(59) !important;
+			visibility: visible;
+		}
+	}
+
+	// .faq__question
+	&__question {
+		font-size: em(18);
+		margin: 0 0 em(7,18);
+	}
+
+	// .faq__title
+	&__title {
+		font-size: em(38);
+		margin: 0;
+		padding-bottom: rem(22);
+
+		@include apply-to(mobile) {
+			font-size: em(25);
+			font-weight: $bold;
+
+		}
+	}
+
+	// .faq__subtitle
+	&__subtitle {
+		font-size: em(13);
+	}
+}

@@ -1,0 +1,124 @@
+{%- assign cpage = handle -%}
+{%- if template contains 'index' -%}
+	{%- assign cpage = 'index' -%}
+{%- endif -%}
+{%- if template contains 'collection' -%}
+	{%- assign cpage = 'collection' -%}
+	<script type="text/javascript">
+		var col = {
+			handle : {% if collection.handle %}'{{- collection.handle -}}'{% else %}null{% endif %},
+			current_tags : {% if current_tags %}'{{ current_tags }}'{% else %}null{% endif %}
+		};
+	</script>
+{%- endif -%}
+<!-- ?? -->
+{%- if template contains 'contact' -%}
+	{%- assign cpage = 'contact' -%}
+{%- endif -%}
+{%- if template contains 'customers' -%}
+	{%- assign cpage = 'account' -%}
+	{%- if isDashboard -%}
+		{%- assign cpage = 'account-dashboard' -%}
+	{%- endif -%}
+{%- endif -%}
+{%- if template contains 'product' -%}
+	{%- assign cpage = 'product' -%}
+{%- endif -%}
+{%- if template contains 'style-guide' -%}
+	{% assign cpage = 'style_guide' %}
+{%- endif -%}
+{%- if template contains 'faq' -%}
+	{% assign cpage = 'faq' %}
+{%- endif -%}
+{%- if template contains 'about' -%}
+	{% assign cpage = 'about' %}
+{%- endif -%}
+{%- if template contains 'sweepstakes' -%}
+	{% assign cpage = 'sweepstakes' %}
+{%- endif -%}
+
+{% comment %}
+free shipping cta
+{% endcomment %}
+{% assign freeShippingEnable = settings.free_shipping_enable %}
+{% assign freeShippingMessage = settings.free_shipping_message %}
+{% assign freeShippingValue = settings.free_shipping_value %}
+
+{% comment %}
+cart product add on
+{% endcomment %}
+{% assign productAddOnEnable = settings.cart_product_add_on_enable %}
+
+{% comment %}
+set extension
+{% endcomment %}
+{%- if ENV == 'staging' -%}
+	{%- assign extension = '.js' -%}
+{%- else -%}
+	{%- assign extension = '.min.js' -%}
+{%- endif -%}
+
+{% comment %}
+capture script variables
+{% endcomment %}
+{%- capture scriptVars -%}
+<script type="text/javascript">
+	var path = {
+			about 			 	: '{{ 'about' | append: extension | asset_url }}',
+			account 			: '{{ 'account' | append: extension | asset_url }}',
+			account_dashboard 	: '{{ 'account-dashboard' | append: extension | asset_url }}',
+			collection 			: '{{ 'collection' | append: extension | asset_url }}',
+			contact 			: '{{ 'contact' | append: extension | asset_url }}',
+			clipboard 			: '{{ 'clipboard' | append: extension | asset_url }}',
+			index 				: '{{ 'index' | append: extension | asset_url }}',
+			faq					: '{{ 'faq' | append: extension | asset_url }}',
+			product 			: '{{ 'product' | append: extension | asset_url }}',
+			shopify_options 	: '{{ 'option_selection.js' | shopify_asset_url }}',
+			style_guide 		: '{{ 'style-guide' | append: extension | asset_url }}',
+			sweepstakes			: '{{ 'sweepstakes' | append: extension | asset_url }}',
+			variable_menu		: '{{ 'variable-menu' | append: extension | asset_url }}'
+		},
+		pageHandle = '{{ cpage  | replace : '-', '_' }}',
+		ssId = '{{ ssId }}',
+		themeSettings = {
+			freeShipping: {
+				enable: {{ freeShippingEnable }},
+				message: '{{ freeShippingMessage }}',
+				value: {% if freeShippingValue != blank %}{{ freeShippingValue }}{% else %}null{% endif %}
+			},
+			productAddOn: {
+				enable: {{ productAddOnEnable }}
+			}
+		};
+
+		{% if settings.enable_giveaway %}
+			{% assign productHandle = settings.giveaway_product | replace: '/products/','' %}
+			{% assign priceLimit = settings.giveaway_price_limit %}
+			var giveawayHandle = '{{ productHandle }}',
+				giveawayProduct = {{ all_products[productHandle] | json }},
+				giveawayLimit = {{ priceLimit }};
+		{% endif %}
+
+	</script>
+{%- endcapture -%}
+{% include 'h-minify', variable: scriptVars %}
+
+
+{%- comment %}
+	Get current giveaway id
+{% endcomment -%}
+{% assign productHandle = settings.giveaway_product | replace: '/products/','' %}
+{% assign product_item = all_products[productHandle] %}
+{% if settings.enable_giveaway %}
+	<script type="text/javascript">
+		var giveawayItemId = {{ product_item.id }};
+		var giveawayEnabled = {{ settings.enable_giveaway }};
+	</script>
+{% endif %}
+
+<script type="text/javascript" src="{{ 'app' | append: extension | asset_url }}" async></script>
+
+{% comment %} Yotpo Reviews {% endcomment %}
+{% if template contains 'product' %}
+<script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/SOlXUELM3M5TgrVFtwW6RioZl5JoDnZ3hdED7gu5/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+{% endif %}

@@ -1,0 +1,9 @@
+{%- if namespace -%}
+	{%- assign idArray = id | split: '' -%}
+	{%- assign idFirstLetter = idArray | first | capitalize -%}
+	{%- assign idRest = idArray | remove_first: idArray[0] | remove: '[' | remove: ']' | remove: '"' | remove: ',' | remove: ' ' -%}
+	{%- assign idFormat = idFirstLetter | append: idRest | prepend: namespace -%}
+	{{- idFormat | strip_newlines | strip -}}
+{%- else -%}
+	{{- id -}}
+{%- endif -%}

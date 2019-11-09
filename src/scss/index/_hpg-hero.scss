@@ -1,0 +1,209 @@
+/**
+ * Home hero
+ */
+
+.home-hero {
+	position: relative;
+
+	@include apply-to(tablet) {
+		margin-bottom: 0;
+	}
+
+	&__img-wrap {
+		height: 0;
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	&__text {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 15%;
+		z-index: z(base);
+
+		@include apply-to(tablet) {
+			max-width: rem(1024);
+			top: 15%;
+		}
+
+		@include apply-to(desktop) {
+			height: 73%;
+			max-width: rem(1440);
+			top: 21.5%;
+		}
+	}
+
+	&__text-image {
+		left: rem(50);
+		max-width: rem(660);
+		padding: rem(10) 0;
+		position: relative;
+
+		@include apply-to(small-phone) {
+			left: rem(20);
+			padding-right: 10%;
+			max-width: 90%;
+		}
+
+		@include apply-to(smallest-phone) {
+			padding-right: 10%;
+		}
+
+		@include apply-to(mobile) {
+			left: rem(20);
+			max-width: 80%;
+		}
+
+		@include apply-to(tablet) {
+			padding: rem(20) 0;
+			left: rem(50);
+			max-width: rem(650);
+		}
+
+		@include apply-to(desktop) {
+			left: rem(95);
+			max-width: rem(800);
+		}
+	}
+
+	&__title-text {
+		color: $pink-15;
+		font-size: rem(18);
+		font-style: italic;
+		font-weight: $bold;
+		left: rem(90);
+		position: relative;
+		/*transform: rotate(-6deg);*/
+
+		@include apply-to(small-phone) {
+			font-size: rem(18);
+			left: rem(50);
+		}
+
+		@include apply-to(smallest-phone) {
+			left: rem(50);
+		}
+
+		@include apply-to(mobile) {
+			ont-size: rem(21);
+			left: rem(90);
+		}
+
+		@include apply-to(tablet) {
+			font-size: rem(26);
+			left: rem(160);
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(40);
+			left: rem(170);
+		}
+	}
+
+	&__sub-text {
+		color: $white;
+		font-size: rem(30);
+		font-style: italic;
+		font-weight: $medium;
+		left: rem(50);
+		max-width: rem(500);
+		position: relative;
+		/*transform: rotate(-6deg);*/
+
+		@include apply-to(smallest-phone) {
+			font-size: rem(14);
+			left: rem(20);
+		}
+
+		@include apply-to(mobile) {
+			font-size: rem(17);
+			left: rem(20);
+			max-width: 70%;
+		}
+
+		@include apply-to(tablet) {
+			font-size: rem(22);
+			left: rem(50);
+			max-width: 70%;
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(30);
+			left: rem(95);
+			max-width: rem(700);
+		}
+	}
+
+	&__limited-time {
+		color: $pink-1;
+		font-size: rem(26);
+		margin-left: rem(-10);
+		margin-top: rem(40);
+
+		@include apply-to(tablet) {
+			font-size: rem(36);
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(48);
+			margin-top: rem(50);
+		}
+	}
+
+	&__value {
+		font-size: rem(19);
+		margin-left: rem(-10);
+
+		@include apply-to(tablet) {
+			font-size: rem(24);
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(35);
+		}
+	}
+
+	svg {
+		height: 100%;
+		width: 100%;
+	}
+
+	&__actions {
+		bottom: 20%;
+		margin-top: em(160);
+		position: absolute;
+		text-align: center;
+		width: 100%;
+
+		@include apply-to(smallest-phone) {
+			margin-top: em(20);
+		}
+
+		@include apply-to(tablet) {
+			bottom: 20%;
+			margin-top: em(160);
+		}
+
+		@include apply-to(desktop) {
+			bottom: 10%;
+		}
+	}
+
+	// .home-hero__btn
+	&__btn {
+		font-size: em(12);
+		padding: rem(18) rem(40);
+
+		@include apply-to(tablet) {
+			font-size: em(14);
+		}
+	}
+}

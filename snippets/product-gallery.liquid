@@ -1,0 +1,30 @@
+<div id="gallery" class="pv-gallery">
+	<button id="modalTriggerBtn" class="pv__photo-btn-modal hide">Modal</button>
+	<div id="photos" class="pv-photos">
+		{% if product.images.size < 2 %}
+			{% for image in product.images %}
+				<div class="pv-photo pv-photo-one js-photo">
+					<div class="ir is-loading is-loading--pink" {%- include 'h-intrinsic-ratio', image: image -%}>
+						<div class="desktop-only">
+							<img class="lazyload" data-srcset="{{ image.src | product_img_url: '670x' }} 1x, {{ image.src | product_img_url: '1340x' }} 2x" alt="{{ image.alt | escape }} Desktop" />
+						</div>
+						<div class="mobile-only">
+							<img class="lazyload tablet-only" data-srcset="{{ image.src | product_img_url: '839x' }} 1x, {{ image.src | product_img_url: '1678x' }} 2x" alt="{{ image.alt | escape }} Tablet" />
+							<img class="lazyload phone-only" data-srcset="{{ image.src | product_img_url: '690x' }} 1x, {{ image.src | product_img_url: '1380x' }} 2x" alt="{{ image.alt | escape }} Phone" />
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		{% endif %}
+	</div>
+
+
+	<div class="pv-thumbs {% if product.images.size == 1 %}pv-thumbs__one-only{% endif %}">
+		<div id="thumbs" class="pv-thumbs__inner">
+		</div>
+	</div>
+
+
+	{% include 'product-flags' %}
+</div>

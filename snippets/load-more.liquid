@@ -1,0 +1,18 @@
+{% if paginate.next %}
+
+	<script type="text/javascript">
+	var pages = {
+		current : {{ paginate.current_page }},
+		link : '{{ collection.url }}',
+		offset : {{ offset }},
+		paginate_by : {{ pageBy }},
+		total : {{ paginate.pages }}
+	};
+	</script>
+
+	<div class="load-more load-more--collection js-load-more" id="loadMoreContainer">
+		<a href="{{ paginate.next.url }}" id="loadMore" class="button load-more__btn">
+			Load More  <i class="icon icon--chevron-down-white"></i>
+		</a>
+	</div>
+{% endif %}

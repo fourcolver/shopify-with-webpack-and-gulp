@@ -1,0 +1,32 @@
+/*
+ * #petitenpretty
+ */
+
+.hashtag {
+	padding-top: em(30);
+	padding-bottom: em(30);
+	@include apply-to(desktop) {
+		padding-top: em(50);
+	}
+
+	&__hdr { // .hashtag__hdr
+		max-width: em(267);
+		margin: 0 auto;
+		@include apply-to(tablet) {
+			max-width: em(415);
+		}
+	}
+	&__social { // .hashtag__social
+		text-align: center;
+		@include apply-to(desktop) {
+			text-align: right;
+		}
+		.social-links li {
+			vertical-align: initial;
+			padding: 0 em(10,16);
+		}
+	}
+	&__yotpo { // .hashtag__yotpo
+		min-height: em(1000);
+	}
+}

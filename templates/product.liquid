@@ -1,0 +1,12 @@
+<section id="product" class="pv wrap">
+	{% include 'product-data' %}
+	{% include 'product-essentials' %}
+	{% include 'product-midsection' %}
+	{% if hasExclusiveProduct %}
+		{% include 'product-exclusive' %}
+	{% endif %}
+	{% if hasRelatedProduct %}
+		{% include 'product-related' %}
+	{% endif %}
+	{% include 'product-reviews' %}
+</section>

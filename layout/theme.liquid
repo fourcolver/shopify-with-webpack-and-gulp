@@ -1,0 +1,112 @@
+{% comment %}When the website goes live change this to production{% endcomment %}
+{% assign ENV = settings.env %}
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<link rel="stylesheet" href="../src/css/style.css" />
+	{% comment %}SEO Manager app{% endcomment %}
+	{% include 'SEOManager' %}
+
+	{% comment %}Meta Data{% endcomment %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	{{ 'api.jquery.js' | shopify_asset_url | script_tag }}
+	{% comment %}Social Meta{% endcomment %}
+	{% include 'social-meta-tags' %}
+
+	{% comment %}Favicons{% endcomment %}
+	{% include 'favicons' %}
+
+	{% comment %}Helpers{% endcomment %}
+	<link rel="canonical" href="{{ canonical_url }}">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes,viewport-fit=cover">
+
+	{% assign tempAssetUrl = 'temp' | asset_url | split: 'temp?' | first %}
+	{% assign tempFileUrl = 'temp' | file_url | split: 'temp?' | first %}
+	<script>
+		var assetUrl = '{{ tempAssetUrl }}';
+		var fileUrl = '{{ tempFileUrl }}';
+		window.SDG = window.SDG || {};
+		window._ = window._ || {};
+		SDG.sq = [];
+	</script>
+
+	{% comment %}Google Tag Manager{% endcomment %}
+	{% include 'googletagmanager-head' %}
+
+	{% comment %}Fonts{% endcomment %}
+	<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6929256/7986192/css/fonts.css" />
+
+	{% comment %}CSS{% endcomment %}
+	{% include 'stylesheets' %}
+
+	{% comment %}Yotpo Widget{% endcomment %}
+	{% include 'yotpo' %}
+
+	{% comment %}Account CSS/JS{% endcomment %}
+	{% if template contains 'customers' %}
+		{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+	{% endif %}
+
+	{{ content_for_header }}
+
+	{% include 'google_site_tag' %}
+	{% include 'globals' %}
+	{% include 'pinterest_script' %}
+</head>
+
+{% comment %}
+Check if hader promo is enabled
+{% endcomment %}
+{%- capture header_promo -%}
+	{%- if settings.header_promo_enable -%}
+		header-promo-on
+	{%- endif -%}
+{%- endcapture -%}
+
+{% comment %}
+White header for index enabled, and for any page that has metafield white.theme == 'yes' added
+White header for about page, only on phone
+{% endcomment %}
+{%- capture white_theme -%}
+	{%- if template == 'index' or page.metafields.theme.white == 'yes' -%}
+		white-theme
+	{%- elsif template == 'page.about' -%}
+		white-theme-phone
+	{%- endif -%}
+{%- endcapture -%}
+
+{% comment %}
+Set isDashboard
+{% endcomment %}
+{% assign isDashboard = false %}
+{% if template == 'customers/account' or template == 'customers/addresses' %}
+	{% assign isDashboard = true %}
+{% endif %}
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} {{ header_promo }} {{ white_theme }}">
+	<a href="#main" class="screenreader skip-link">Skip to main content</a>
+	{% include 'googletagmanager-body' %}
+	{% include 'header' %}
+	<main id="main" class="page-wrap" role="main">
+		{{ content_for_layout }}
+	</main>
+	{% include 'footer' %}
+	{% if template != 'cart' %}
+		{% include 'bag', modifier: 'mini' %}
+	{% endif %}
+	{% include 'variable-menu' %}
+	{% include 'modals' %}
+	{% include 'js' %}
+	{% section 'tracking-klaviyo' %}
+
+	{% comment %}Olark Live Chat Installation{% endcomment %}
+	{% include 'olark-live-chat' %}
+</body>
+</html>

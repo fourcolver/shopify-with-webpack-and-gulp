@@ -1,0 +1,19 @@
+<div class="pv-header">
+	<h1 class="pv-title">{{ product.title }}</h1>
+
+	{% comment %}
+	Yotpo Stars
+	{% endcomment %}
+	<div class="pv-review-stars">
+		<div class="yotpo bottomLine yotpo-widget" data-product-id="{{ product.id }}" data-url="{{ product.url }}"></div>
+	</div>
+
+
+	<div class="pv-price">
+		{{ product.price | money }} {% if product.compare_at_price %}<span class="pv-price__compare-at">({{ product.compare_at_price | money }} value)</span>{% endif %}
+	</div>
+</div>
+
+<div class="pv-desc">
+	{%- include 'h-description', description: product.description -%}
+</div>

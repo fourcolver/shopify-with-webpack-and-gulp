@@ -1,0 +1,11 @@
+{%- if settings.header_promo_enable -%}
+	<div class="hdr-promo">
+		{%- if settings.header_promo_url != blank -%}
+			<a href="{{ settings.header_promo_url }}" {%- include 'h-target', url: settings.header_promo_url -%}>
+		{%- endif -%}
+		<span class="hdr-promo__copy">{{ settings.header_promo_text }}</span>
+		{%- if settings.header_promo_url != blank -%}
+			</a>
+		{%- endif -%}
+	</div>
+{%- endif -%}

@@ -1,0 +1,10 @@
+{
+	"list": [
+		"icon",
+		"lib-icon"
+	],
+	"dir": "src/svg/",
+	"dist": "src/svg/sprite/",
+	"scss": "../src/scss/style/icons/",
+	"tpl": "src/scss/core/mixins/_svg-template.scss"
+}

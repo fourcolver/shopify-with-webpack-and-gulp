@@ -1,0 +1,48 @@
+/**
+ * pagination
+ */
+.pagination {
+	padding-top: em(50);
+
+	// .pagination__item
+	&__item {
+		display: block;
+		float: left; 
+		padding: 0;
+
+		&:not(:last-child) {
+			margin-right: rem(3);
+		}
+	}
+
+	// .pagination__btn
+	@at-root .pagination__btn.btn {
+		display: block;
+		font-size: em(14); 
+		height: rem(32);
+		padding: rem(3) rem(16) rem(10) rem(8); // ~ 32px x 32px
+		text-align: center;
+
+		&.is-active {
+			background-color: $gray-2;
+		}
+	}
+
+	// .pagination__btn-to-first
+	&__btn-to-first {
+		display: none;
+
+		.to-first & {
+			display: inline;
+		} 
+	}
+
+	// .pagination__btn-to-last
+	&__btn-to-last {
+		display: none;
+
+		.to-last & {
+			display: inline;
+		} 
+	}
+}

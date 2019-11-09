@@ -1,0 +1,64 @@
+<div class="blogs container">
+	<header class="blogs__heading">
+		<a href="{{ shop.url }}/pages/blogs">
+			{% if section.settings.title != blank %}
+				<h1>{{ section.settings.title }}</h1>
+			{% else %}
+				<h1>{{ blog.title }}</h1>
+			{% endif %}
+		</a>
+	</header>
+</div>
+<section class="article container">
+	<heading class="article__heading">
+		<p class="article__date">Petite 'n Pretty <span class="hide-phone">•</span><span class="phone-only"><br/></span> {{ article.created_at | date: "%B %d, %Y" }}</p>
+		<h1 class="article__title"> {{ article.title }} </h1>
+	</heading>
+
+	<main class="article__main">
+		<div class="article__img">
+			<div class="ir" {% include 'h-intrinsic-ratio', image: article.image.src %}>
+				<img data-srcset="{{ article.image.src | img_url: '1902x' }} 1x, {{ article.image.src | img_url: 'master' }} 2x" class="lazyload claims__img" alt="{{ article.title }} Image"/>
+			</div>
+		</div>
+		<div class="article__content">
+			{{ article.content }}
+		</div>
+	</main>
+	<footer class="article__footer">
+		<div class="article__icons list-reset">
+			{% for link in linklists.social-links.links %}
+					<a class="article__item" href="{{ link.url }}" {%- include 'h-target', url: link.url -%}>
+						<i class="icon icon--{{ link.title | downcase }}-gray"></i>
+						<span class="screenreader">
+							{{ link.title }}
+						</span>
+					</a>
+			{% endfor %}
+		</div>
+
+		<div class="article__pagination">
+			<a href="{{ blog.previous_article }}" class="article__pagination-previous">
+				Previous
+			</a>
+			<a href="{{ blog.next_article }}" class="article__pagination-next">
+				Next
+			</a>
+		</div>
+	</footer>
+</section>
+
+{% schema %}
+{
+	"name": "Article Heading",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Blogs Title",
+			"default": "The Glitter Diaries"
+		}
+	],
+	"blocks": []
+}
+{% endschema %}

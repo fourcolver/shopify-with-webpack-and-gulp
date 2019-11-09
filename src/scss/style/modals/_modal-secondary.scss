@@ -1,0 +1,64 @@
+.modal-secondary,
+.modal--alt {
+
+	h3 {
+		text-align: left;
+		font-size: rem(21);
+		color: $gray-4;
+		margin: 0 0 rem(18);
+		font-weight: $medium;
+	}
+
+	.modal {
+
+		&__close {
+			top: rem(20);
+			right: rem(12);
+
+			.icon {
+				font-size: rem(21);
+			}
+		}
+
+		&__inner {
+			padding: rem(40) rem(44);
+			border: 2px solid $pink-8;
+			margin: 0 rem(10);
+			width: auto;
+
+			@include apply-to(smallest-phone) {
+			    padding: rem(26) rem(30);
+			}
+		}
+
+		&__header {
+			margin-bottom: rem(15);
+		}
+
+		&__content {
+			font-size: rem(14);
+			color: $gray-3;
+			line-height: 1.6;
+
+			p, ul {
+				font-size: rem(14);
+				line-height: 1.6;
+			}
+		}
+	}
+
+	&-shade {
+		h3 {
+			margin: 0 0 rem(18);
+		}
+	}
+}
+
+.modal-secondary {
+
+	@include apply-to(phone) {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

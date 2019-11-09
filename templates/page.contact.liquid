@@ -1,0 +1,152 @@
+<div class="container">
+	<div class="section-header section-header--contact text-center">
+		<h1>{{ page.title }}</h1>
+	</div>
+
+	{% if page.content.size > 0 %}
+		<div class="contact__content text-center">
+			{{ page.content }}
+		</div>
+	{% endif %}
+
+	<div class="contact__form-email-container">
+		<div class="contact__form-container">
+
+			{% form 'contact' %}
+				<i class="contact__icon-ok-hand icon icon--ok-hand"></i>
+
+			{% comment %}
+			<form
+				id="form297"
+				class="contact__form"
+				name="form297"
+				enctype="multipart/form-data"
+				method="post"
+				action="https://spiegeldg.wufoo.com/forms/mivkyix1r46rwk/#public"
+				data-validate
+			>
+			{% endcomment %}
+				<i class="contact__icon-ok-hand icon icon--ok-hand"></i>
+
+				<ul class="form-list">
+					<li id="foli1" class="form-item">
+						<div class="input-placeholder">
+							<label id="contact[email]" for="contact[email]">
+								email
+							</label>
+							{% comment %} <input id="Field1" name="Field1" class="input" type="email" required/> {% endcomment %}
+							<input id="Field1" name="contact[email]" class="input" type="email" required/>
+
+						</div>
+					</li>
+					<li id="foli5" class="form-item">
+						<div class="input-placeholder">
+							<label id="contact[order_number]" for="contact[order_number]">
+								order number (optional)
+							</label>
+							{% comment %} <input id="Field5" name="Field5" class="input" type="text" /> {% endcomment %}
+							<input id="contact[order_number]" name="contact[order_number]" class="input" type="text" />
+						</div>
+					</li>
+					<li id="foli8" class="form-item">
+						<div class="select">
+							<label class="screenreader" id="title8" for="contact[topic]">
+								Select a topic
+							</label>
+							{% comment %}
+							<select id="Field8" name="Field8" class="input" required>
+								<option value="" selected="selected">
+									select a topic
+								</option>
+								<option value="General">
+									General
+								</option>
+								<option value="My Order">
+									My Order
+								</option>
+								<option value="Product" >
+									Product
+								</option>
+								<option value="Press">
+									Press
+								</option>
+								<option value="Partnerships">
+									Partnerships
+								</option>
+							</select>
+							{% endcomment %}
+							<select id="contact[topic]" name="contact[topic]" class="input" required>
+								<option value="" selected="selected">
+									select a topic
+								</option>
+								<option value="General">
+									General
+								</option>
+								<option value="My Order">
+									My Order
+								</option>
+								<option value="Product" >
+									Product
+								</option>
+								<option value="Press">
+									Press
+								</option>
+								<option value="Partnerships">
+									Partnerships
+								</option>
+							</select>
+						</div>
+					</li>
+					<li id="foli11" class="form-item">
+						<div class="input-placeholder">
+							<label id="contact[inquiry]" for="contact[inquiry]">
+								your inquiry...
+							</label>
+							{% comment %} <textarea id="Field11" name="Field11" class="input" required></textarea> {% endcomment %}
+							<textarea id="contact[inquiry]" name="contact[inquiry]" class="input" required></textarea>
+						</div>
+						<div class="contact__submit-container">
+							<button id="saveForm" class="btn btn--tertiary btn--submit-contact" name="saveForm" type="submit">
+								<span class="btn__bg"></span>
+								<span class="btn__label">
+									{{ 'contact.form.submit' | t }}
+								</span>
+							</button>
+						</div>
+					</li>
+					{% comment %}
+					<li class="hide">
+						<label for="comment">Do Not Fill This Out</label>
+						<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+						<input type="hidden" id="idstamp" name="idstamp" value="f2tePmgrg1e+jxgB5yENaaRYo2HaX9g0Akai6rANfWo=" />
+					</li>
+					{% endcomment %}
+				</ul>
+			{% comment %} </form> {% endcomment %}
+				{% if form.posted_successfully? %}
+				<div class="contact__response-container">
+					<p id="formResponse" class="contact__response-text" style="display: block;">
+						Thank you for submitting the form!
+					</p>
+				</div>
+				{% endif %}
+
+			{% endform %}
+		</div>
+	</div>
+
+	<div class="contact__response-container">
+		<p id="formResponse" class="contact__response-text">
+			Thank you for submitting the form!
+		</p>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+
+	var isPosted = window.location.search.substr(1)
+	if(isPosted == "contact_posted=true"){
+		$(".form-list").hide()
+	}
+});
+</script>

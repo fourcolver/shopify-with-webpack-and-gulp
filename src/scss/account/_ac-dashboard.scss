@@ -1,0 +1,41 @@
+/*
+///////////////////////////////////////////////////////////
+Account Dashboard
+///////////////////////////////////////////////////////////
+*/
+.ac-dashboard {
+	margin-bottom: em(50);
+	position: relative;
+
+	@include apply-to(phone) {
+		min-height: em(400);
+		overflow: hidden;
+	}
+
+	@include apply-to(tablet) {
+		margin-bottom: em(80);
+	}
+
+	&.is-loading {
+
+		&::before {
+			top: em(50);
+		}
+	}
+}
+
+.ac-dashboard__wrap {
+	position: relative;
+
+	@include apply-to(phone) {
+		transform: translate3d(0, 0, 0);
+		transition: all $normal-timer $easeOutQuad;
+	}
+
+	.content-is-active & {
+
+		@include apply-to(phone) {
+			transform: translate3d(calc(-100% - #{map-get($ac-gutter, null)}), 0, 0);
+		}
+	}
+}

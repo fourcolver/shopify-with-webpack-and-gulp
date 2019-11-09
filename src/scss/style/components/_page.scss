@@ -1,0 +1,27 @@
+/*
+///////////////////////////////////////////////////////////
+Page
+///////////////////////////////////////////////////////////
+*/
+.page {
+
+	// .page--404
+	&--404 {
+		padding-top: em(20);
+	}
+
+	// .page__header
+	&__header {
+		padding-top:em(35) 0;
+		text-align:center;
+
+		@include apply-to(desktop) {
+			padding:em(51) 0;
+		}
+	}
+
+	// .page__container
+	&__container {
+		max-width:em(928);
+	}
+}

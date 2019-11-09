@@ -1,0 +1,129 @@
+/**
+ * Apply To
+ * @param {string} $device
+ */
+@mixin apply-to($device) {
+	@if $device == smallest-phone {
+		@media only screen and (max-width: $breakpoint-smallest-phone) {
+			@content;
+		}
+	} @else if $device == smaller-phone {
+		@media only screen and (max-width: $breakpoint-smaller-phone) {
+			@content;
+		}
+	} @else if $device == small-phone {
+		@media only screen and (max-width: $breakpoint-phone) {
+			@content;
+		}
+	} @else if $device == phone {
+		@media only screen and (max-width: $breakpoint-tablet) {
+			@content;
+		}
+	} @else if $device == yotpo-carousel {
+		@media only screen and (max-width: $breakpoint-yotpo-carousel-phone) {
+			@content;
+		}
+	} @else if $device == mobile {
+		@media only screen and (max-width: $breakpoint-desktop) {
+			@content;
+		}
+	} @else if $device == tablet {
+		@media only screen and (min-width: $breakpoint-tablet+1) {
+			@content;
+		}
+	} @else if $device == tablet-only {
+		@media only screen and (min-width: $breakpoint-tablet+1) and (max-width: $breakpoint-desktop) {
+			@content;
+		}
+	} @else if $device == tablet-portrait {
+		@media only screen and (min-width: $breakpoint-tablet+1) and (max-width: $breakpoint-tablet-portrait) {
+			@content;
+		}
+	} @else if $device == tablet-landscape {
+		@media only screen and (min-width: $breakpoint-tablet-portrait+1) {
+			@content;
+		}
+	} @else if $device == phone-desktop {
+		@media only screen and (min-width: $breakpoint-tablet+1) and (max-width: $breakpoint-large) {
+			@content;
+		}
+	} @else if $device == desktop {
+		@media only screen and (min-width: $breakpoint-desktop + 1) {
+			@content;
+		}
+	} @else if $device == desktop-only {
+		@media only screen and (min-width: $breakpoint-desktop+1) and (max-width: $breakpoint-huge) {
+			@content;
+		}
+	} @else if $device == desktop-large {
+		@media only screen and (min-width: $breakpoint-large + 1) {
+			@content;
+		}
+	} @else if $device == desktop-huge {
+		@media only screen and (min-width: $breakpoint-huge + 1) {
+			@content;
+		}
+	} @else if $device == all-min {
+		@content;
+		@media only screen and (min-width: $breakpoint-tablet + 1) {
+			@content;
+		}
+		@media only screen and (min-width: $breakpoint-desktop + 1) {
+			@content;
+		}
+	} @else if $device == retina {
+		@media
+		only screen and (-webkit-min-device-pixel-ratio: 2),
+		only screen and (   min--moz-device-pixel-ratio: 2),
+		only screen and (     -o-min-device-pixel-ratio: 2/1),
+		only screen and (        min-device-pixel-ratio: 2),
+		only screen and (                min-resolution: 192dpi),
+		only screen and (                min-resolution: 2dppx) {
+			@content;
+		}
+	} @else if $device == print {
+		@media only print {
+			@content;
+		}
+	}
+}
+
+/**
+ * Max width media query
+ * @param {string} $val (ex. 768px)
+ */
+@mixin media-max($val) {
+	@media only screen and (max-width: $val) {
+		@content;
+	}
+}
+
+/**
+ * Min width media query
+ * @param {string} $val (ex. 768px)
+ */
+@mixin media-min($val) {
+	@media only screen and (min-width: $val) {
+		@content;
+	}
+}
+
+/**
+ * Set Default Query Order
+ * Needed for the mqpacker gulp task to ensure the correct order is always in place.
+ */
+@include apply-to(mobile) { .q { display:inherit; } }
+@include apply-to(phone) { .q { display:inherit; } }
+@include apply-to(yotpo-carousel) { .q { display:inherit; } }
+@include apply-to(small-phone) { .q { display:inherit; } }
+@include media-min(smaller-phone) { .q { display:inherit; } }
+@include apply-to(smallest-phone) { .q { display:inherit; } }
+@include apply-to(tablet) { .q { display:inherit; } }
+@include apply-to(tablet-only) { .q { display:inherit; } }
+@include apply-to(tablet-portrait) { .q { display:inherit; } }
+@include apply-to(tablet-landscape) { .q { display:inherit; } }
+@include apply-to(desktop) { .q { display:inherit; } }
+@include apply-to(desktop-large) { .q { display:inherit; } }
+@include apply-to(desktop-huge) { .q { display:inherit; } }
+@include media-max($breakpoint-large) { .q { display:inherit; } }
+@include media-max($breakpoint-huge) { .q { display:inherit; } }

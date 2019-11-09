@@ -1,0 +1,76 @@
+{% assign file_extension = 'jpg' %}
+
+{% if swatch == blank %}
+	<div class="config__error error">
+		<p>You must include the snippet swatch.liquid with the name of a product option.</p>
+		<p>Use: <code>{% raw %}{% include 'product-option', swatch : 'name of your product option here' %}{% endraw %}</code></p>
+		<p>Example: <code>{% raw %}{% include 'product-option', swatch : 'Color' %}{% endraw %}</code></p>
+	</div>
+{% else %}
+
+	{% assign found_option = false %}
+	{% assign is_color = false %}
+	{% assign option_index = 0 %}
+
+	{% for option in product.options %}
+		{% if option == swatch %}
+			{% assign found_option = true %}
+			{% assign option_index = forloop.index0 %}
+			{% assign downcased_option = swatch | downcase %}
+			{% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+				{% assign is_color = true %}
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+
+	{% unless found_option %}
+		<div class="config__error error">
+			<p>You included the snippet swatch.liquid with the name of a product option — <code>'{{ swatch }}'</code> — that does not belong to your product.</p>
+			<p>Use <code>{% raw %}{% include 'product-option', swatch : 'name of your product option here' %}{% endraw %}</code></p>
+			<p>Example: <code>{% raw %}{% include 'product-option', swatch : 'Color' %}{% endraw %}</code></p>
+			<p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is <code>'Color'</code>.</p>
+		</div>
+	{% else %}
+		<div id="configGroup{{ swatch | camelcase }}" class="config__group config__group--{{ swatch | downcase }} cf js-config-group {% if product.type == 'Gift Card' %}config__giftcard{% endif %}" data-option-index="{{ option_index }}">
+		  	<div class="config__header">
+				<h4 class="config__group-title">
+					{% if product.tags contains 'bundle' %}
+					{{ swatch | remove: 'Color ' }}:
+					{% else %}
+					{{ swatch }}:
+					{% endif %}
+					<span class="config__value-label js-config-label"></span>
+				</h4>
+			</div>
+			<div class="config__options config__options--{{ swatch | downcase }}">
+			  	{% assign values = '' %}
+			  	{% for variant in product.variants %}
+			    	{% assign value = variant.options[option_index] %}
+			    	{% unless values contains value %}
+			      		{% assign values = values | join: ',' %}
+			      		{% assign values = values | append: ',' | append: value %}
+			      		{% assign values = values | split: ',' %}
+			    		<div data-value="{{ value | escape }}" class="config__variant {% if is_color %}config__variant--color {% endif %}{{ value | handle }} js-config-variant" data-variant-id="{{ variant.id }}">
+			        		<input id="swatch-{{ option_index }}-{{ value | handle }}" type="radio" name="option-{{ option_index }}" value="{{ value | escape }}" class="config__radio js-config-radio" />
+					        {% if is_color %}
+
+					        	<label for="swatch-{{ option_index }}-{{ value | handle }}" class="config__btn swatch js-config-btn js-config-btn-color" data-val="{{ value | escape }}" data-variant-id="{{ variant.id }}">
+									<i class="icon-pd icon-pd--check{% if value != 'White' %}-white{% endif %}"></i>
+									<div class="swatch__ir ir--square is-loading is-loading--pink">
+										<img data-srcset="{{ value | handle | append: '.' | append: file_extension | prepend: 'swatch-' | asset_img_url: '35x' }} 1x, {{ value | handle | append: '.' | append: file_extension | prepend: 'swatch-' | asset_img_url: '70x' }} 2x" alt="{{ value }} Desktop" class="lazyload desktop-and-tablet" />
+										<img data-srcset="{{ value | handle | append: '.' | append: file_extension | prepend: 'swatch-' | asset_img_url: '24x' }} 1x, {{ value | handle | append: '.' | append: file_extension | prepend: 'swatch-' | asset_img_url: '48x' }} 2x" alt="{{ value }} Phone" class="lazyload phone-only" />
+									</div>
+						        </label>
+					        {% else %}
+						        <label for="swatch-{{ option_index }}-{{ value | handle }}" class="config__btn config__option{% unless variant.available %} is-disabled{% endunless %} js-config-btn" data-variant-id="{{ variant.id }}" data-val="{{ value | escape }}">
+						          	{{ value }}
+						        </label>
+			        		{% endif %}
+			      		</div>
+			    	{% endunless %}
+			  	{% endfor %}
+		  	</div>
+		</div>
+	{% endunless %}
+
+{% endif %}

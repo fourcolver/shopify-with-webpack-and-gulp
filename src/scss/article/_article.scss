@@ -1,0 +1,164 @@
+.article {
+	padding-top: rem(30);
+
+	@include apply-to(desktop) {
+		padding-top: rem(60);
+	}
+
+	&__heading {
+		text-align: center;
+		display: block;
+		margin-bottom: rem(60);
+	}
+
+	&__content {
+		padding-top: rem(42);
+
+		@include apply-to(desktop) {
+			padding-top: rem(85);
+		}
+
+		p {
+			font-size: rem(16);
+			font-family: $gotham;
+			font-weight: 100;
+			margin-bottom: 0;
+			margin-top: rem(40);
+
+			@include apply-to(desktop) {
+				font-size: rem(22);
+			}
+
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		ul,
+		ol {
+			padding-left: rem(20);
+		}
+
+		li {
+			font-family: $gotham;
+			font-weight: 100;
+			margin-bottom: 0;
+			padding-bottom: rem(5);
+			font-size: rem(16);
+			color: inherit;
+
+			@include apply-to(desktop) {
+				font-size: rem(22);
+			}
+		}
+	}
+
+	&__main {
+
+		@include apply-to(desktop) {
+			max-width: em(977);
+			margin: 0 auto;
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-style: normal;
+
+		@include apply-to(smallest-phone) {
+			font-size: rem(18);
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(41);
+		}
+	}
+
+	&__date {
+		margin-bottom: rem(35);
+		font-size: rem(16);
+		font-family: courier;
+		color: #8a8a8a;
+	}
+
+	&__icons {
+		display: flex;
+		margin: 0 auto;
+		max-width: 250px;
+		padding-top: rem(65);
+		justify-content: space-between;
+	}
+
+	&__item {
+		font-size: rem(16) !important;
+	}
+
+	&__pagination {
+		display: flex;
+		justify-content: space-between;
+		padding-top: rem(50);
+		padding-bottom: rem(29);
+
+		@include apply-to(desktop) {
+			padding-bottom: rem(58);
+			padding-top: rem(95);
+		}
+
+		&-previous,
+		&-next {
+			display: block;
+			text-transform: uppercase;
+			font-size: rem(11);
+			color: #636262;
+			font-family: $gotham;
+			font-weight: 100;
+
+			@include apply-to(desktop) {
+				font-size: rem(22);
+			}
+		}
+
+		&-previous {
+			text-align: left;
+		}
+
+		&-next {
+			text-align: right;
+		}
+
+		// for article pagination
+		&--size {
+			padding-top: rem(10);
+			display: block;
+			font-size: rem(15);
+			font-weight: $medium;
+			color: #636262;
+
+			@include apply-to(desktop) {
+				font-size: rem(30);
+			}
+		}
+	}
+}
+
+.blogs {
+
+	&__heading {
+		border-bottom: 4px solid $pink-1;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+
+		h1 {
+			color: $pink-1;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: $bold;
+			margin: 0;
+		}
+
+		@include apply-to(desktop) {
+			max-width: em(977);
+			margin: 0 auto;
+		}
+	}
+}

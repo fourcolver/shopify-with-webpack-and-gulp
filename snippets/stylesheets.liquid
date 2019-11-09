@@ -1,0 +1,45 @@
+{{ 'style.scss.css' | asset_url | stylesheet_tag }}
+
+{% if template == 'index' %}
+	{{ 'index.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'product' %}
+	{{ 'product.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'collection' or template contains 'search' %}
+	{{ 'collection.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'contact' %}
+	{{ 'contact.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'customer' %}
+	{{ 'account.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'faq' %}
+	{{ 'faq.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'about' %}
+	{{ 'about.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template contains 'petitenpretty' %}
+	{{ 'hashtag.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template == 'page.sweepstakes' %}
+	{{ 'sweepstakes.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template == 'article' %}
+	{{ 'article.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
+{% if template == 'blog' or template == 'page.blog' or page.url contains 'blog' %}
+	{{ 'blog.scss.css' | asset_url | stylesheet_tag }}
+{% endif %}

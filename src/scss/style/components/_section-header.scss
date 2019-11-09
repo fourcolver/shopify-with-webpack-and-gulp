@@ -1,0 +1,28 @@
+/**
+ * section header
+ */
+.section-header {
+	margin-bottom: em(35);
+	margin-top: em(30);
+	text-align: center;
+
+	@include apply-to(tablet) {
+		margin-bottom: em(50);
+	}
+
+	// .section-header__hdg
+	&__hdg {
+		font-style: italic;
+		font-weight: $medium;
+		margin: 0;
+		@include mqstyle('font-size', $size-section-header-hdg);
+	}
+
+	&--contact {
+		margin-bottom: rem(20);
+
+		@include apply-to(tablet) {
+			margin-bottom: rem(15);
+		}
+	}
+}

@@ -1,0 +1,51 @@
+{% if section.blocks.size > 0 %}
+	<div class="b-touts__container container">
+		<div class="b-touts__inner">
+			{% for block in section.blocks %}
+				{% assign b = block.settings %}
+				<div class="b-touts__item">
+					<div class="b-touts__img-wrap">
+						<i class="lib-icon lib-icon--small lib-icon--{{ b.image_name }}"></i>
+					</div>
+					<div class="b-touts__text">
+						<h3 class="b-touts__title">{{ b.tout_title }}</h3>
+						<p class="b-touts__desc text-center">
+							{{ b.tout_desc }}
+						</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+
+{% schema %}
+{
+	"name": "Brand Touts",
+	"class": "home-brand-touts",
+	"max_blocks": 3,
+	"blocks": [
+		{
+			"type": "image_picker",
+			"name": "Tout",
+			"settings": [
+				{
+					"type": "text",
+					"id": "image_name",
+					"label": "Image Name"
+				},
+				{
+					"type": "text",
+					"id": "tout_title",
+					"label": "Title"
+				},
+				{
+					"type": "textarea",
+					"id": "tout_desc",
+					"label": "Description"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

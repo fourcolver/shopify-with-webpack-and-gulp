@@ -1,0 +1,403 @@
+/**
+ * form elements
+ *
+ * form list
+ * form item
+ * form inline
+ * fieldset
+ * legend
+ * label
+ * input
+ * search
+ * textarea
+ * select
+ * radio and checkbox
+ * radio
+ * checkbox
+ * input placeholder
+ */
+
+/**
+ * form list
+ */
+.form-list {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: em(16);
+	justify-content: space-between;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * form item
+ * used in conjunction with .form-list
+ */
+.form-item {
+	margin-bottom: em(18);
+	padding-bottom: 0;
+	width: 100%;
+
+	@include apply-to(smaller-phone) {
+		width: 100%;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	// .form-item--half
+	&--half {
+		width: calc(#{percentage(1/2)} - #{em($form-list-gutter / 2)});
+	}
+
+	// .form-item--third
+	&--third {
+		width: calc(#{percentage(1/3)} - #{em($form-list-gutter * 2 / 3)});
+	}
+
+	// .form-item--fourth
+	&--fourth {
+		width: calc(#{percentage(1/4)} - #{em($form-list-gutter * 3 / 4)});
+	}
+}
+
+/**
+ * form inline
+ */
+.form-inline {
+	display: flex;
+
+	&__input-container {
+		position: relative;
+	}
+
+	&__input-cta {
+		margin-bottom: rem(12);
+		text-align: center;
+	}
+
+	// .form-inline__input
+	&__input {
+		flex: 1 0 0%;
+	}
+
+	// .form-inline__btn
+	&__btn {
+	}
+}
+
+/**
+ * fieldset
+ */
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * legend
+ */
+legend {
+}
+
+/**
+ * label
+ */
+label {
+	display: inline-block;
+	margin: 0 0 em(5);
+}
+
+/**
+ * input
+ */
+.input {
+	color: $gray-1;
+	font-family: $primary-font;
+	font-weight: $regular;
+	padding: $input-padding;
+	text-align: left;
+	width: 100%;
+	@include mqstyle('font-size', $size-input);
+}
+
+// Autofill styles
+.input,
+textarea,
+select {
+
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		-webkit-box-shadow: 0 0 0 1000px $pink-5 inset !important;
+		-webkit-text-fill-color: $gray-1;
+		background-color: transparent;
+	}
+}
+
+/**
+ * date
+ */
+input[type="date"] {
+	
+	&::-webkit-inner-spin-button,
+	&::-webkit-calendar-picker-indicator {
+		-webkit-appearance: none;
+		display: none;
+	}
+}
+
+/**
+ * search
+ */
+input[type="search"] {
+	-webkit-appearance: none;
+}
+
+/**
+ * textarea
+ */
+textarea {
+	min-height: em(213,14);
+	resize: none;
+}
+
+/**
+ * select
+ */
+.select {
+	position: relative;
+
+	&::before {
+		bottom: 0;
+		margin: auto 0;
+		pointer-events: none;
+		position: absolute;
+		right: em(9);
+		top: 0;
+		z-index: z(forward);
+		@include icon-svg;
+		@include icon--down-arrow;
+	}
+
+	select {
+		background-color: $pink-5;
+		border: 0;
+	    border-radius: 0;
+		color: $input-placeholder-color;
+		font-family: $primary-font;
+		font-weight: $regular;
+		margin: 0;
+		outline: none;
+		padding: $select-padding;
+		width: 100%;
+		@include mqstyle('font-size', $size-input);
+
+		&:-moz-focusring {
+			color: transparent;
+			text-shadow: 0 0 0 $black;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+@supports ( -webkit-appearance: none ) or ( appearance: none ) or ( ( -moz-appearance: none ) and ( mask-type: alpha ) ) {
+
+	.select {
+
+		&::after {
+			display: block;
+		}
+
+		select {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			appearance: none;
+		}
+	}
+}
+
+// Firefox
+@-moz-document url-prefix() {
+
+	.select {
+
+		&::after {
+			display: block;
+		}
+
+		select {
+			background:transparent;
+
+			// Firefox < 4
+			min-width: 6em;
+
+			// Firefox 4-15
+			min-width: -moz-calc(0em);
+
+			// Firefox 16+
+			min-width: calc(0em);
+			overflow: -moz-hidden-unscrollable;
+			padding-right: .4em;
+			width: 130%;
+			width: -moz-calc(100% + 2.4em);
+			width: calc(100% + 2.4em);
+		}
+
+		@supports ( mask-type: alpha ) {
+			overflow: visible;
+
+			select {
+				-moz-appearance: none;
+				padding-right: 2em;
+				width: 100%;
+			}
+		}
+	}
+}
+
+// IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+	.select {
+
+		&:after {
+			display: block;
+		}
+
+		select {
+			width: 110%;
+
+			&::-ms-expand {
+				display: none;
+			}
+
+			&:focus::-ms-value {
+				background: transparent;
+			}
+		}
+	}
+}
+
+/**
+ * radio and checkbox
+ */
+.radio,
+.checkbox {
+	position: relative;
+
+	label {
+		cursor: pointer;
+		margin: 0;
+		padding: em(9) 0 em(2) em(36);
+		position: relative;
+		text-align: left;
+
+		&::before {
+			display: block;
+			left: 0;
+			position: absolute;
+			top: 0;
+			@include icon-svg;
+		}
+	}
+
+	input {
+		height: 0;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 0;
+	}
+}
+
+/**
+ * radio
+ */
+.radio {
+
+	label::before {
+		// @include icon--radio-off;
+	}
+
+	input[type="radio"]:checked + label::before,
+	&.is-active label::before {
+		// @include icon--radio-on;
+	}
+}
+
+/**
+ * checkbox
+ */
+.checkbox {
+
+	label::before {
+		@include icon--checkbox-off;
+	}
+
+	input[type="checkbox"]:checked + label::before,
+	&.is-active label::before {
+		@include icon--checkbox-on;
+	}
+}
+
+/**
+ * input placeholder
+ */
+.input-placeholder {
+	position: relative;
+	z-index: z(base);
+
+	label {
+		border: 1px solid transparent;
+		color: $input-placeholder-color;
+		display: block;
+		font-weight: $regular;
+		margin: 0;
+		opacity: 1;
+		overflow: hidden;
+		padding: $input-padding;
+		pointer-events: none;
+		position: absolute;
+		text-align: left !important;
+		text-overflow: ellipsis;
+		top: 0;
+		visibility: visible;
+		white-space: nowrap;
+		z-index: z(front);
+		@include mqstyle('font-size', $size-input);
+
+		@include apply-to(smaller-phone) {
+			font-size: rem(13);
+		}
+	}
+
+	&.has-value {
+
+		label {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+
+	.input {
+		background-color: $pink-5;
+		border: 0;
+		box-shadow: none;
+		margin: 0;
+		position: relative;
+		z-index: z(forward);
+
+		&::placeholder {
+			color: $gray-5;
+			font-family: $primary-font;
+		}
+	}
+}

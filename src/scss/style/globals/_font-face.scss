@@ -1,0 +1,15 @@
+/*
+//////////////////////////////////////////////////////////////////////
+Font Face
+//////////////////////////////////////////////////////////////////////
+*/
+
+// Freight Text Book
+@font-face {
+	font-family: 'FreightTextBook';
+	src: url('{{ "36EC9C_0_0.eot" | asset_url }}');
+	src: url('{{ "36EC9C_0_0.eot?#iefix" | asset_url }}') format('embedded-opentype'),
+	url('{{ "36EC9C_0_0.woff2" | asset_url }}') format('woff2'),
+	url('{{ "36EC9C_0_0.woff" | asset_url }}') format('woff'),
+	url('{{ "36EC9C_0_0.ttf" | asset_url }}') format('truetype');
+}

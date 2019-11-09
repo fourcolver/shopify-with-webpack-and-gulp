@@ -1,0 +1,132 @@
+{% comment %}
+	variables set from parent snippet:
+	product, img, hasVariableImgRatio
+{% endcomment %}
+
+{% comment %} set default variables {% endcomment %}
+{% comment %} not being used currently
+{% assign comingSoon = false %}
+{% assign hasMoreColors = false %}
+{% assign isSoldOut = false %}
+{% assign productTitleArr = null %}
+{% assign soldOutText = 'products.product.sold_out' | t %}
+{% assign tags = product.tags | join: ', ' %}
+{% assign productTitle = product.title %}
+{% endcomment %}
+
+{% comment %} set isSoldOut
+{% unless product.available %}
+	{% assign isSoldOut = true %}
+{% endunless %}
+{% endcomment %}
+
+{% comment %} set comingSoon
+{% if tags contains 'coming-soon' %}
+	{% assign comingSoon = true %}
+{% endif %}
+{% endcomment %}
+
+{% comment %} check if more then 1 size
+{% endcomment %}
+{% for opt in product.options_with_values %}
+	{% assign optName = opt.name | downcase %}
+	{% if optName == 'color' %}
+		{% for val in opt.values %}
+			{% if forloop.length > 0 %}
+				{% assign hasMoreColors = true %}
+				{% break %}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endfor %}
+
+
+<article class="pi{% if module %} {{ module }}{% endif %}" itemscope itemtype="http://schema.org/Product" data-handle="{{product.handle}}">
+
+	<meta itemprop="name" content="{{ product.title }}" />
+	<link itemprop="image" href="{{ product | img_url: '622x' }}" />
+	<meta itemprop="url" content="{{ shop.url }}{{ product.url | within: collection }}" />
+
+	<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+		<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+		<meta itemprop="price" content="{{ product.price | money_without_currency | strip_html }}">
+		<meta itemprop="availability" content="In Stock">
+		<meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/NewCondition" />
+	</div>
+
+	{% include 'product-flags' %}
+
+	<figure class="pi__img">
+		<a class="is-loading pi__link ir ir--product" href="{{ product.url | within: collection }}">
+			<img class="lazyload" data-srcset="{{ product | img_url: '622x692' }} 1x, {{ product | img_url: '1244x1384' }} 2x" alt="{{- product.title | escape -}}" />
+		</a>
+		<div class="pi__new-shade new-shade" style="display:none;">
+			New Shade!
+		</div>
+
+	</figure>
+
+	<div class="pi__desc{% if module %} {{ module }}__desc{% endif %}">
+		<div class="pi__wrap">
+			<a href="{{ product.url | within: collection }}">
+				<h3 class="pi__title{% if module %} {{ module }}__title{% endif %}">
+					{{- product.title | replace: '!','!<br />' -}}
+				</h3>
+			</a>
+			{% unless product.tags contains 'bundle' %}
+			{% if product.variants.size != 1 %}
+				<ul class="pi__swatches hide-phone">
+					{% include 'swatches' with 'Color' %}
+				</ul>
+			{% endif %}
+			{% endunless %}
+		</div>
+		<div class="pi__price">
+			{{ product.price | money }} {%- if product.compare_at_price -%}<span class="pi__price-compare">({{ product.compare_at_price | money }} value)</span>{%- endif -%}
+		</div>
+		<div class="pi__details{% if module %} {{ module }}__details{% endif %}">
+			{% assign description = product.metafields.product.short_description %}
+			{% include 'h-description' with description %}
+		</div>
+		{% unless product.tags contains 'bundle' %}
+		{% if product.variants.size != 1 %}
+		<div class="pi__swatches-mobile phone-only">
+			<ul class="pi__swatches">
+				{% include 'swatches' with 'Color' %}
+			</ul>
+		</div>
+		{% endif %}
+		{% endunless %}
+
+		{% comment %}
+			If product has just oen variant,
+			allow it to be added to cart from the PLP (or any page this block appears)
+			via the `.plp-add-to-bag` button.
+		{% endcomment %}
+		{% assign singlevarIsTrue = false %}
+		{% for variant in product.variants %}
+			{% if forloop.length <= 1 %}
+				{% assign singlevarId = variant.id %}
+				{% assign singlevarIsTrue = true %}
+			{% endif %}
+		{% endfor %}
+		<footer class="pi__action">
+			{% if product.tags contains 'bundle' %}
+				<a href="{{ product.url }}" class="btn btn--tertiary btn--small">
+					<span class="btn__bg"></span>
+					<span class="btn__label">Customize It</span>
+				</a>
+			{% else %}
+				<span class="btn btn--tertiary btn--small">
+					<span class="btn__bg"></span>
+					<span
+						class="btn__label plp-add-to-bag"
+						data-variant-id="{{ product.variants.first.id }}"
+						data-handle="{{product.handle}}">Add To Bag</span>
+				</span>
+			{% endif %}
+		</footer>
+		{% comment %} END {% endcomment %}
+
+	</div>
+</article>

@@ -1,0 +1,99 @@
+{% assign s = section.settings %}
+
+{% if s.brand_img != blank and s.brand_title != blank %}
+<!--<div id="aboutAim" class="about-aim__container container">
+
+	<div class="about-aim__text">
+		<div class="about-aim__header">
+			<h1 class="multicolor-title about-aim__title">{{ s.brand_title }}</h1>
+		</div>
+
+		{% if s.brand_text contains '<p>' %}
+			<div class="about-aim__desc">
+				{{ s.brand_text }}
+			</div>
+		{% else %}
+			<p class="about-aim__desc">
+				{{ s.brand_text }}
+			</p>
+		{% endif %}
+	</div>
+
+	<div class="about-aim__imgs">
+		<div class="about-aim__img-content">
+			<div class="about-aim__img-wrap is-loading ir js-text-animate animate animate-left"
+				{% include 'h-intrinsic-ratio', image: s.brand_img %}>
+				<img data-srcset="{{ s.brand_img | img_url: '555x' }} 1x, {{ s.brand_img | img_url: 'master' }} 2x" class="about-aim__img lazyload" alt="{{ s.brand_img_alt }}" />
+			</div>
+			<i class="icon icon--3-stars about-aim__icon about-aim__icon--stars"></i>
+			<div class="about-aim__img-bg desktop-only js-rellax" style="top:40px;" data-rellax-speed="0.7"></div>
+			<div class="about-aim__img-bg hide-desktop"></div>
+		</div>
+		<div class="about-aim__wrap">
+			<div class="about-aim__wrap about-aim__wrap--alt js-text-animate animate animate-right">
+				<div class="about-aim__img-wrap is-loading ir"
+					{% include 'h-intrinsic-ratio', image: s.brand_img_2 %}>
+					<img data-srcset="{{ s.brand_img_2 | img_url: '555x' }} 1x, {{ s.brand_img_2 | img_url: 'master' }} 2x" class="lazyload" alt="{{ s.brand_img_alt_2 }}" />
+				</div>
+				<i class="lib-icon lib-icon--sunglasses about-aim__icon about-aim__icon--sunglasses"></i>
+			</div>
+			<div class="about-aim__img-wrap is-loading ir js-text-animate animate animate-left bg-visible"{% include 'h-intrinsic-ratio', image: s.brand_img_3 %}>
+				<img data-srcset="{{ s.brand_img_3 | img_url: '555x' }} 1x, {{ s.brand_img_3 | img_url: 'master' }} 2x" class="about-aim__img lazyload" alt="{{ s.brand_img_alt_3 }}" />
+				<div class="about-aim__lil-frame"></div>
+			</div>
+
+		</div>
+	</div>
+
+</div>-->
+{% endif %}
+
+{% schema %}
+{
+	"name": "We Aim to Sparkle",
+	"class": "about-aim",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "brand_img",
+			"label": "Image"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "image_picker",
+			"id": "brand_img_2",
+			"label": "Image 2"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_2_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "image_picker",
+			"id": "brand_img_3",
+			"label": "Image 2"
+		},
+		{
+			"type": "text",
+			"id": "brand_img_3_alt",
+			"label": "Image ALT Text"
+		},
+		{
+			"type": "text",
+			"id": "brand_title",
+			"label": "Title",
+			"default": "Redefining Pretty!"
+		},
+		{
+			"type": "textarea",
+			"id": "brand_text",
+			"label": "Description"
+		}
+	]
+}
+{% endschema %}

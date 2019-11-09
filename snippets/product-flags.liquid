@@ -1,0 +1,12 @@
+{% if product.tags contains 'flag: new' %}
+<div class="pv-flag pv-flag--new">
+	New!
+</div>
+{% endif %}
+
+
+{% if product.tags contains 'flag: spooky' %}
+<div class="pv-flag pv-flag--spooky">
+	<i class="icon icon--flag-spooky"></i>
+</div>
+{% endif %}

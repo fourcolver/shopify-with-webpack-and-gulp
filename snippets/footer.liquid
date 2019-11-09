@@ -1,0 +1,127 @@
+<!-- {% assign navLists = 'shop,help,connect' | split: ',' %} -->
+<footer class="footer" role="contentinfo">
+	<div class="container">
+		<div class="footer__wrap">
+			<div class="footer-col-wrap">
+				<div class="footer-col desktop-only">
+
+					<hr class="hr footer-hr" />
+
+					<ul class="list-reset">
+						{% for link in linklists.footer.links %}
+							<li class="footer__sub-nav-item">
+								<a class="footer__sub-nav-link bold-subheader" href="{{ link.url }}">
+									{{ link.title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+
+				<div class="footer-col footer-col--middle">
+
+					<span class="icon icon--logo-2-lines footer-icon">
+						<span class="screenreader">
+							Petite 'n Pretty
+						</span>
+					</span>
+
+					<div class="footer-social">
+						{% include 'footer-social' %}
+					</div>
+
+					<p class="footer-nl-cta bold-subheader">{{ settings.newsletter_message }}</p>
+					{% include 'newsletter-form', namespace: 'footer', desc: 'Footer Newsletter Form' %}
+
+					<p class="footer-copyright">
+						<span class="icon icon-exactly-brown"></span>&copy; Copyright {{ 'now' | date: '%Y' }} Petite 'n Pretty LLC.<br class="mobile-only" /> All Rights Reserved.
+					</p>
+
+				</div>
+
+				<div class="footer-col desktop-only">
+
+					<hr class="hr footer-hr" />
+
+					<ul class="list-reset">
+						{% for link in linklists.footer-menu-right.links %}
+							<li class="footer__sub-nav-item">
+								<a class="footer__sub-nav-link bold-subheader" href="{{ link.url }}">
+									{{ link.title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		{% comment %}
+		<div class="footer__line-container">
+			<div class="footer__sub">
+				<hr class="hr"/>
+			</div>
+			<div class="footer__sub  footer__sub--center footer__sub--logo-container">
+				<span class="icon icon--logo-2-lines">
+					<span class="screenreader">
+						Petite 'n Pretty
+					</span>
+				</span>
+			</div>
+			<div class="footer__sub">
+				<hr class="hr" />
+			</div>
+		</div>
+
+		<div class="footer__line-container">
+			<div class="footer__sub">
+				<div class="footer__sub-nav">
+					<ul class="list-reset">
+						{% for link in linklists.footer.links %}
+							<li class="footer__sub-nav-item">
+								<a class="footer__sub-nav-link bold-subheader" href="{{ link.url }}">
+									{{ link.title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="footer__sub footer__sub--center">
+				{% include 'footer-social' %}
+			</div>
+
+			<div class="footer__sub">
+				<div class="footer__sub-nav">
+					<ul class="list-reset">
+						{% for link in linklists.footer-menu-right.links %}
+							<li class="footer__sub-nav-item">
+								<a class="footer__sub-nav-link bold-subheader" href="{{ link.url }}">
+									{{ link.title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer__line-container">
+			<div class="footer__sub footer__sub--center">
+
+				{% include 'newsletter-form', namespace: 'footer', desc: 'Footer Newsletter Form' %}
+
+				<p class="footer-copyright">
+					<span class="icon icon-exactly-brown"></span>&copy; Copyright {{ 'now' | date: '%Y' }} Petite 'n Pretty LLC. All Rights Reserved.
+				</p>
+			</div>
+		</div>
+		{% endcomment %}
+	</div>
+</footer>

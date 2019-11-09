@@ -1,0 +1,15 @@
+<section id="page_{{ page.handle | replace : '-','_' }}" class="faq container">
+	<div class="faq__container">
+		{% comment %} Header {% endcomment %}
+		<div class="faq__header">
+			<h1 class="faq__title">
+				{{ page.title }}
+			</h1>
+			<p class="faq__subtitle">
+				{{ page.content }}
+			</p>
+		</div>
+		{% comment %} Content {% endcomment %}
+		{% section 'faq' %}
+	</div>
+</section>

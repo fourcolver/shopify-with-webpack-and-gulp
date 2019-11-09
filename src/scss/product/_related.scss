@@ -1,0 +1,132 @@
+.related {
+	padding: rem(32) 0 rem(45);
+
+	@include apply-to(tablet) {
+	    padding: rem(82) 0 rem(45);
+	}
+
+	@include apply-to(smallest-phone) {
+	    padding-bottom: 0;
+	}
+
+	.products {
+		@include apply-to(phone) {
+		    margin: 0;
+			padding: 0 rem(30);
+		}
+
+		@include apply-to(smallest-phone) {
+		    padding: 0 rem(10);
+		}
+
+		.pi {
+			@include apply-to(desktop) {
+				width: 50%;
+			}
+		}
+	}
+
+	.flickity-viewport {
+		@include apply-to(phone) {
+			width: 100%;
+		}
+	}
+
+	.flickity-prev-next-button {
+		width: rem(20);
+		height: rem(36);
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: 0;
+		border: 0;
+		padding: 0;
+
+		svg {
+			fill: $pink-13;
+		}
+
+		&.previous {
+			left: rem(-35);
+
+			@include apply-to(smallest-phone) {
+			    left: rem(-25);
+			}
+		}
+
+		&.next {
+			right: rem(-35);
+
+			@include apply-to(smallest-phone) {
+				right: rem(-25);
+			}
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		left: rem(30);
+		right: rem(30);
+		overflow: visible;
+		width: auto;
+		padding-bottom: 92%;
+		overflow: visible;
+
+		@include apply-to(smallest-phone) {
+			left: rem(10);
+			right: rem(10);
+			padding-bottom: 103%;
+		}
+	}
+
+	&__hdr {
+		@include apply-to(mobile) {
+			margin-bottom: rem(30);
+		}
+
+		@include apply-to(desktop) {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+
+	&__title-top {
+		font-weight: $bold;
+		margin: 0;
+		font-size: rem(47);
+		line-height: 1;
+
+		@include apply-to(desktop) {
+			font-size: rem(71);
+		}
+	}
+
+	&__list {
+		&:after {
+			@include apply-to(phone) {
+				content: 'flickity';
+				display: none;
+			}
+			@include apply-to(tablet) {
+			    content: '';
+			}
+		}
+	}
+}
+
+.related-item {
+	width: 100%;
+
+	@include apply-to(tablet) {
+		width: 50%;
+	}
+}
+
+.related-wrap {
+	position: relative;
+
+	@include apply-to(desktop) {
+		padding-left: 33%;
+	}
+}

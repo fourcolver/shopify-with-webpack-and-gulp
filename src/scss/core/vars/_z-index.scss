@@ -1,0 +1,28 @@
+/**
+ * z-index
+ */
+$z: (
+	front    		: 3,
+	forward  		: 2,
+	backward 		: 1,
+	base     		: 0,
+	behind   		: -1,
+	header          : 13,
+	header-logo		: 2,
+	promo   		: 14,
+	loading  		: 4,
+	nav-mobile		: 120,
+	nav-overlay		: 5,
+	bag	    		: 15,
+	bag-overlay	    : 5,
+	modal 			: 110,
+	modal-overlay 	: 100,
+	newsletter-banner: 14,
+	newsletter-modal: 125,
+	product-overlay : 2,
+	product-config  : 3,
+	product-toolbar : 4,
+	search-modal    : 130,
+	search-overlay  : 125,
+	skip-link 		: 15
+);

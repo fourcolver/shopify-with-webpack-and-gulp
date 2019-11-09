@@ -1,0 +1,70 @@
+/**
+ * image
+ */
+img {
+	max-width:100%;
+}
+
+/**
+ * intrinsic ratios
+ */
+.ir {
+	@include irb;
+
+	img {
+		display:block;
+		min-height:1px;
+		width:100%;
+	}
+}
+
+/**
+ * intrinsic ratio fill
+ */
+.ir__fill {
+	bottom:0;
+	display:flex;
+	left:0;
+	right:0;
+	position:absolute;
+	top:0;
+
+	&--bottom {
+		align-items:flex-end;
+	}
+
+	&--middle,
+	&--center {
+		align-items:center;
+	}
+
+	&--top {
+		align-items:flex-start
+	}
+
+	&-inner {
+		position:relative;
+		width:100%;
+	}
+}
+
+// loop through $intrinsic-ratios map
+@each $modifier, $value in $intrinsic-ratios {
+	.ir--#{$modifier} {
+		@if type-of($value) == 'map' {
+			@each $breakpoint, $responsive-value in $value {
+				@if $breakpoint == null {
+					@include irp($responsive-value);
+				}
+				@else {
+					@include apply-to($breakpoint) {
+						@include irp($responsive-value);
+					}
+				}
+			}
+		}
+		@else {
+			@include irp($value);
+		}
+	}
+}

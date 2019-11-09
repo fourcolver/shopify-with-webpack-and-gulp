@@ -1,0 +1,15 @@
+/**
+ * Media Query Style
+ */
+@mixin mqstyle($style, $map) {
+	@each $breakpoint, $value in $map {
+		@if $breakpoint == null {
+			#{$style}: $value;
+		}
+		@else {
+			@include apply-to($breakpoint) {
+				#{$style}: $value;
+			}
+		}
+	}
+}

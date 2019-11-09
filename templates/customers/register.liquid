@@ -1,0 +1,72 @@
+<section class="container">
+
+	<header class="section-header">
+		<h1 class="section-header__hdg">
+			{{ 'customer.register.title' | t }}
+		</h1>
+	</header>
+
+	{% form 'create_customer', class: 'ac-form-col' %}
+
+		{{ form.errors | default_errors }}
+
+		<ul class="form-list">
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="registerFirstName">
+						{{ 'customer.register.first_name' | t }}
+					</label>
+					<input id="registerFirstName" class="input" type="text" name="customer[first_name]" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} required autofocus />
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="registerLastName">
+						{{ 'customer.register.last_name' | t }}
+					</label>
+					<input id="registerLastName" class="input" type="text" name="customer[last_name]" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} required />
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="registerEmail">
+						{{ 'customer.register.email' | t }}
+					</label>
+					<input id="registerEmail" class="input{% if form.errors contains 'email' %} has-error{% endif %}" type="email" name="customer[email]" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" required />
+				</div>
+			</li>
+			<li class="form-item">
+				<div class="input-placeholder">
+					<label for="registerPassword">
+						{{ 'customer.register.password' | t }}
+					</label>
+					<input id="registerPassword" class="input{% if form.errors contains 'password' %} has-error{% endif %}" type="password" name="customer[password]" required />
+				</div>
+			</li>
+			<li class="form-item">
+				<label class="form-item__label" for="registerDob">
+					Date of Birth
+				</label>
+				<div class="input-placeholder">
+					<input id="registerDob" class="input" type="date" name="customer[note][DOB]" required />
+				</div>
+			</li>
+			<li class="form-item ac-form-action">
+				<button class="btn btn--full" type="submit">
+					<span class="btn__bg"></span>
+					<span class="btn__border"></span>
+					<span class="btn__label">
+						{{ 'customer.register.submit' | t }}
+					</span>
+				</button>
+			</li>
+			<li class="form-item">
+				<div class="ac-btn-link button-link text-center">
+					{{ 'customer.register.have_account' | t | customer_login_link }}
+				</div>
+			</li>
+		</ul>
+
+	{% endform %}
+
+</section>

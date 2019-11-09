@@ -1,0 +1,182 @@
+/**
+ * Home Product Grid
+ */
+
+.hpg {
+	background-color: $pink-9;
+	background-image: url(asset('bg-pink-light.jpg'));
+	background-size: rem(150);
+    padding: em(30) 0 0 0;
+
+    @include apply-to(tablet) {
+        padding: em(50) 0 0;
+    }
+
+    @include apply-to(desktop) {
+        padding: em(30) 0 0;
+    }
+
+	// .hpg__container
+	&__container {
+		@include apply-to(phone) {
+			text-align: center;
+		}
+	}
+
+	// .hpg__header
+	&__header {
+		display: inline-block;
+		padding: em(20) em(40) em(10);
+		position: relative;
+		text-align: center;
+
+		@include apply-to(tablet) {
+			display: flex;
+			justify-content: center;
+			padding: em(20) 0;
+		}
+
+		.lib-icon--brush {
+			font-size: 2.2px;
+			position: absolute;
+			right: rem(-12);
+			top: rem(36);
+
+			&::before {
+				background-position: 0 -31em;
+			}
+
+			@include apply-to(tablet) {
+				font-size: 2.6px;
+				position: relative;
+				right: rem(20);
+				top: rem(30);
+			}
+		}
+
+		.icon--3-stars-reverse,
+		.icon--snowflakes {
+			font-size: 4px;
+			left: rem(-3);
+			position: absolute;
+			top: rem(10);
+
+			@include apply-to(tablet) {
+				font-size: 5px;
+				left: rem(-2);
+				position: relative;
+				top: rem(-15);
+			}
+		}
+
+		.icon--snowflakes {
+			font-size: 3px;
+
+			@include apply-to(tablet) {
+				font-size: 4px;
+			}
+		}
+
+		h2 {
+			font-family: $secondary-font;
+			font-size: rem(42);
+
+			@include apply-to(tablet) {
+				font-size: rem(58);
+			}
+		}
+	}
+
+	// .hpg__grid
+    &__grid {
+        display: flex;
+        flex-direction: column;
+
+        @include apply-to(phone) {
+            padding: 0 em(40);
+        }
+
+        @include apply-to(tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 0 0 0 em(-40);
+        }
+
+		.pi {
+			margin-bottom: em(60);
+		}
+    }
+
+	// .hpg__actions
+	&__action {
+		margin: 0 auto 110px;
+		text-align: center;
+
+		@include apply-to(tablet) {
+			margin: rem(60) auto rem(30);
+		}
+	}
+
+	/**
+	 * Flickity
+	 */
+
+	.flickity-prev-next-button {
+		background: transparent;
+    	border: 0;
+		position: absolute;
+	    top: 25%;
+	    // width: em(40);
+	}
+
+	.flickity-prev-next-button.next {
+		right: rem(-10);
+		// right: 0;
+
+		.flickity-button-icon {
+			// filter: drop-shadow( -2px -2px 1px #000 );
+		}
+	}
+
+	.flickity-prev-next-button.previous {
+		left: rem(-10);
+		// left: 0;
+
+		.flickity-button-icon {
+			// filter: drop-shadow( 2px 2px 1px #000 );
+		}
+	}
+
+	.flickity-button-icon {
+		fill: $pink-3;
+		height: rem(26);
+		width: rem(26);
+	}
+
+	.carousel::after {
+		content: 'flickity';
+		display: none; /* hide :after */
+	}
+
+	@include apply-to(tablet) {
+
+		.carousel::after {
+			content: '';
+		}
+	}
+}
+
+.home {
+
+	&-pf {
+		@include apply-to(tablet-only) {
+			padding-bottom: em(70);
+			padding-top: em(50);
+		}
+
+		@include apply-to(desktop) {
+			padding-bottom: em(70);
+			padding-top: em(80);
+		}
+	}
+}

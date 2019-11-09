@@ -1,0 +1,70 @@
+{% comment %}
+Product add on
+Note: has to be a simple product. I.e. a simple product with no variants
+{% endcomment %}
+{% assign productAddOnHandle = settings.cart_product_add_on_product %}
+{% assign productAddOn = all_products[productAddOnHandle] %}
+{% assign productAddOnVariant = productAddOn.variants.first %}
+
+<h3 class="bag__add-on-title">
+	{{- settings.cart_product_add_on_title -}}
+</h3>
+
+<article
+	class="bag-item js-bag-item"
+	id="bagItem{{ productAddOnVariant.id }}"
+	data-variant-id="{{ productAddOnVariant.id }}"
+	data-variant-inventory-quantity="{{ productAddOnVariant.inventory_quantity }}"
+>
+	<div class="bag-item__photo">
+		<a href="{{ productAddOn.url }}" class="bag-item__photo-ir ir ir--product">
+			<img class="lazyload" data-srcset="{{ productAddOn | img_url: '86x' }} 1x, {{ productAddOn | img_url: '172x' }}" alt="{{ productAddOn.title }}">
+		</a>
+	</div>
+
+	<div class="bag-item__info">
+		<div class="bag-item__desc">
+			<header class="bag-item__header">
+				<h4 class="bag-item__title">
+					<a href="{{ productAddOn.url }}">
+						{{- productAddOn.title -}}
+					</a>
+				</h4>
+			</header>
+			<p class="bag-item__price">
+				<span class="bag-item__original-price">
+					{{- productAddOn.price | money_without_trailing_zeros -}}
+				</span>
+			</p>
+		</div>
+
+		<div class="bag-item__actions">
+
+			<div class="bag-item__qty">
+				<div class="increment js-increment">
+					<input id="productAddOnQty" type="number" name="quantity" value="1" size="3" class="increment__input js-increment-input" tabindex="-1">
+					<button type="button" class="increment__btn increment__add js-increment-btn" data-action="add">
+						<i class="increment__icon increment__icon--add icon icon--plus">
+							<span class="screenreader">Add</span>
+						</i>
+					</button>
+					<button type="button" class="increment__btn increment__subtr js-increment-btn" data-action="remove">
+						<i class="increment__icon increment__icon--subtr icon icon--minus">
+							<span class="screenreader">Subtract</span>
+						</i>
+					</button>
+				</div>
+			</div>
+
+			<input id="productAddOnVariantId" type="hidden" name="id" value="{{ productAddOnVariant.id }}" />
+
+			<button id="productAddOnBtn" class="btn btn--tertiary quick-add-btn" type="button">
+				<span class="btn__bg"></span>
+				<span class="btn__label">
+					Add
+				</span>
+			</button>
+		</div>
+
+	</div>
+</article>

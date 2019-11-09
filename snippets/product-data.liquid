@@ -1,0 +1,69 @@
+{% comment %} Get product tags {% endcomment %}
+{%- assign tags = product.tags | join: '' | downcase -%}
+
+{% comment %}
+Capture and output product/image JSON
+{% endcomment %}
+{%- capture productJson -%}
+<script type="text/javascript">
+	var productJson = {{ product | json }},
+		imageJson = [
+			{% for image in product.images %}
+				{% unless forloop.first %},{% endunless %}
+				{
+					src: '{{ image.src | product_img_url: "master" }}',
+					alt: '{{ image.alt | escape }}',
+					ratio: '{{ 100 | divided_by: image.aspect_ratio }}%'
+				}
+			{% endfor %}
+		];
+</script>
+{%- endcapture -%}
+{%- include 'h-minify', variable: productJson -%}
+
+{% comment %}
+Meta Keys
+{% endcomment %}
+{% assign meta = product.metafields %}
+
+{% comment %}
+Tags
+{% endcomment %}
+
+{% comment %}
+Loop over product options, set variables:
+isDefaultOption (see if it's a "simple" product, i.e. is default option),
+hasColor, colorIndex, productColor
+{% endcomment %}
+{% assign hasColor = false %}
+{% assign isDefaultOption = false %}
+{% for option in product.options %}
+	{% assign optionDowncase = option | downcase %}
+	{% if optionDowncase == 'title' %}
+		{% assign isDefaultOption = true %}
+	{% endif %}
+	{% if optionDowncase == 'color' %}
+		{% assign hasColor = true %}
+		{% assign colorIndex = forloop.index0 %}
+		{% assign productColor = product.variants[0].options[colorIndex] %}
+	{% endif %}
+{% endfor %}
+
+{% comment %}
+Related products
+{% endcomment %}
+{% assign hasRelatedProduct = false %}
+
+{%- capture relatedProducts -%}
+	{% assign ri = 0 %}
+	{%- for tag in product.tags -%}
+		{%- if tag contains 'related_' -%}
+			{%- if ri < 3 -%}
+				{%- assign hasRelatedProduct = true -%}
+				{%- capture relatedTag -%}{{- tag | remove: 'related_' -}}{%- endcapture -%}
+				{%- include 'product-grid-item', product: all_products[relatedTag], module: 'related-item' -%}
+			{%- endif -%}
+			{%- assign ri = ri | plus: 1 -%}
+		{%- endif -%}
+	{%- endfor -%}
+{%- endcapture -%}

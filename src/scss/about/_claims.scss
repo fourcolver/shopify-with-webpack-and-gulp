@@ -1,0 +1,465 @@
+// .claims
+.claims {
+	margin-top: rem(69);
+
+	@include apply-to(mobile){
+		width: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		margin-top: 0;
+	}
+
+	//.claims__box
+	&__box {
+		//min-height: rem(500);
+		color: $white;
+		text-align: center;
+		width: 100%;
+		position: relative;
+
+		@include apply-to(tablet){
+			//height: rem(893);
+		}
+
+		@include apply-to(desktop){
+			//height: rem(893);
+		}
+	}
+
+	//.claims__img
+	&__img {
+		repeat: no-repeat;
+	}
+
+	//.claims__hdg
+	&__hdg {
+		position: absolute;
+		top: rem(25);
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+
+		@include apply-to(tablet){
+			top: rem(35);
+		}
+
+		@include apply-to(desktop){
+			top: rem(45);
+		}
+
+		//.claims__hgd-title
+		&-title {
+			font-size: rem(42);
+			font-style: italic;
+			font-weight: bold;
+			margin-bottom: rem(20);
+			text-align: center;
+
+			@include apply-to(tablet){
+				font-size: rem(64);
+				margin-bottom: rem(10);
+			}
+
+			@include apply-to(desktop){
+				font-size: rem(71);
+				margin-bottom: rem(25);
+			}
+		}
+
+		//.claims__hgd-desc
+		&-desc {
+			font-size: rem(14);
+			width: rem(300);
+			text-align: center;
+			margin: 0 auto;
+
+			@include apply-to(tablet){
+				width: rem(315);
+				width: rem(600);
+			}
+
+			@include apply-to(desktop){
+				width: rem(315);
+				width: rem(600);
+			}
+		}
+	}
+}
+
+//.safety
+#shopify-section-about-claims {
+	background-image: url(asset('bg-pink-lighter.jpg'));
+	background-repeat: repeat-x;
+	background-position: center 40%;
+	background-size: 169px 1007px;
+
+	@include apply-to(phone) {
+	    background-position: center 60%;
+	}
+
+	@include apply-to(retina) {
+	    background-image: url(asset('bg-pink-lighter@2x.jpg'));
+	}
+}
+.safety {
+	background-color: $white;
+	margin: -27% rem(20) rem(35);
+	position: relative;
+
+	@include apply-to(tablet) {
+		width: 90%;
+		margin: rem(-134) auto rem(60);
+	}
+
+	@include apply-to(desktop) {
+		width: 90%;
+	}
+
+	.lib-icon {
+		@include apply-to(phone) {
+			font-size: 2.9px;
+		}
+	}
+
+	//.safety__tabs
+	&__tabs {
+		border-bottom: rem(1) solid $gray-9;
+		color: $gray-6;
+		display: flex;
+	}
+
+	//.safety__tab
+	&__tab {
+		outline: none;
+		background: none;
+		border: none;
+		align-items: center;
+		background-color: $white;
+		flex: 1;
+		font-weight: $medium;
+		line-height: rem(54);
+		text-align: center;
+		color: $gray-4;
+		font-size: rem(14);
+		padding: 0 rem(10);
+		font-family: $primary-font;
+
+		@include apply-to(tablet) {
+			font-size: rem(17);
+		}
+
+		@include apply-to(desktop) {
+			font-size: rem(17);
+		}
+
+		//safety__tab-is-active
+		&.is-active {
+			background-color: $pink-11;
+			color: $pink-1;
+		}
+
+		//safety__tab-left
+		&-left {
+			border-right: rem(1) solid $gray-9;
+		}
+	}
+
+	//safety__grid
+	&__grid {
+		display: flex; //tab click changes to none or flex
+		flex-wrap: wrap;
+		justify-content: center;
+		flex-direction: column;
+		position: relative;
+
+		@include apply-to(tablet){
+			flex-direction: row;
+		}
+
+		@include apply-to(desktop){
+			flex-direction: row;
+		}
+
+		//safety__grid-item
+		&-item {
+			padding: rem(35) rem(30) 0;
+			text-align: center;
+			flex: 1;
+			width: 100%;
+			min-height: rem(215);
+
+			@include apply-to(tablet){
+				width: 50%;
+				min-height: rem(250);
+				flex: none;
+				padding: rem(55) rem(30) 0;
+			}
+
+			@include apply-to(desktop){
+				width: percentage(1/3);
+				min-height: rem(250);
+				flex: none;
+			}
+		}
+
+		//safety__grid-image
+		&-image {
+			max-width: rem(150);
+			margin: 0 auto;
+			min-height: rem(85);
+
+			@include apply-to(tablet){
+				min-height: rem(120);
+			}
+
+			@include apply-to(desktop){
+				min-height: rem(120);
+			}
+		}
+
+		//safety__grid-title
+		&-title {
+			color: $gray-4;
+			font-size: rem(21);
+			margin: rem(5) 0 rem(15) 0;
+			font-weight: $medium;
+
+			@include apply-to(tablet){
+				margin: rem(5) 0 rem(22) 0;
+			}
+		}
+
+		//safety__grid-desc
+		&-desc {
+			color: $gray-3;
+			font-size: rem(14);
+			font-weight: $medium;
+			line-height: 1.6;
+		}
+
+		//safety__grid-learn
+		&-learn {
+			color: $pink-1;
+			font-size: rem(16);
+			font-weight: $medium;
+			text-decoration: none;
+			cursor: pointer;
+			border-bottom: 1px solid $pink-12;
+			font-family: $primary-font;
+			line-height: 1;
+		}
+	}
+}
+
+//.safety-modal
+.safety-modal {
+	display: none;
+	position: absolute;
+	top: rem(125);
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	min-height: rem(275);
+	width: rem(612);
+	border: rem(1) solid $pink-8;
+	padding: rem(40);
+	background-color: $white;
+
+	//safety-modal__title
+	&__title {
+		font-size: rem(21);
+		font-weight: $medium;
+		color: $gray-4;
+		margin-bottom: rem(30);
+		text-align: left;
+	}
+
+	//safety-modal__details
+	&__details {
+		color: $gray-3;
+		font-size: rem(14);
+		text-align: left;
+	}
+
+	//safety-modal__close
+	&__close {
+		height: rem(25);
+		width: rem(25);
+		font-size: rem(25);
+		color: $pink-1;
+		cursor: pointer;
+		position: absolute;
+	    top: 5px;
+	    right: 5px;
+	}
+}
+
+.safety-why {
+	display: none; //tab click changes to none or flex
+	flex-direction: column;
+	padding: rem(60) rem(20) 0;
+
+	@include apply-to(tablet){
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: nowrap;
+		padding: rem(35) rem(20) rem(30);
+	}
+
+	@include apply-to(desktop){
+		flex-direction: row;
+		padding: rem(46) rem(36);
+		justify-content: flex-start;
+		flex-wrap: nowrap;
+	}
+
+	&__icon {
+		display: none;
+
+		@include apply-to(tablet){
+			display: block;
+			position: absolute;
+			top: rem(-18);
+			left: 84%;
+			transform: rotate(-20deg);
+		}
+
+		@include apply-to(desktop){
+			display: block;
+			position: absolute;
+			top: rem(-18);
+			left: 79%;
+			transform: rotate(-20deg);
+		}
+	}
+
+	&__column {
+		flex: 1;
+		background-color: $gray-6;
+		position: relative;
+		padding: 0 rem(30) rem(50);
+
+		@include apply-to(phone) {
+			margin: rem(30) rem(-20) 0;
+		}
+
+		@include apply-to(tablet){
+			margin: 0;
+			padding: rem(30) rem(15) rem(40);
+		}
+
+		@include apply-to(desktop){
+			margin: 0;
+			padding: rem(30) rem(30) rem(60);
+		}
+
+		&--large {
+			flex: 2;
+			background-color: $white;
+			padding: 0;
+
+			@include apply-to(phone) {
+			    margin: 0;
+			}
+
+			@include apply-to(tablet){
+				padding: 0;
+				margin-right: rem(15);
+			}
+
+			@include apply-to(desktop){
+				padding: 0;
+				margin-right: rem(30);
+			}
+		}
+	}
+
+	&__title {
+		font-size: rem(24);
+		font-style: italic;
+		color: $gray-4;
+		margin: 0;
+		font-weight: $medium;
+		padding-left: rem(15);
+
+		&--pink {
+			font-size: rem(24);
+			color: $pink-1;
+			font-weight: $medium;
+			font-style: italic;
+			width: rem(205);
+			position: static;
+			padding-left: 0;
+			z-index: 1;
+			margin-top: rem(-15);
+
+			@include apply-to(tablet){
+				width: rem(205);
+				margin: rem(-44) 0 0;
+			}
+
+			@include apply-to(desktop){
+				width: rem(205);
+			}
+		}
+	}
+
+	&__row {
+		flex-direction: column;
+
+		&--board {
+			padding-left: 0;
+		}
+
+		&-item {
+			flex: 1;
+			margin-top: rem(30);
+			border-bottom: 1px solid $gray-9;
+			padding-left: rem(15);
+
+			@include apply-to(phone) {
+			    margin-top: rem(20);
+			}
+
+			&:last-child {
+				border-color: transparent;
+			}
+
+			&--board {
+				border-bottom: none;
+				margin-top: rem(35);
+				padding-left: 0;
+
+				@include apply-to(phone) {
+				    margin-top: rem(35);
+				}
+			}
+		}
+
+		&-title {
+			font-size: rem(21);
+			font-weight: $medium;
+			color: $gray-4;
+			margin: 0 0 rem(20) 0;
+
+			&-board {
+				margin: 0 0 rem(20) 0;
+			}
+		}
+
+		&-desc {
+			font-size: rem(14);
+			color: $gray-3;
+
+			p {
+				margin-bottom: rem(20);
+			}
+
+			&--board {
+				font-size: rem(14);
+				color: $gray-3;
+				line-height: 1.6;
+			}
+		}
+	}
+}

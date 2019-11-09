@@ -1,0 +1,43 @@
+/**
+ * white theme
+ */
+@mixin white-theme() {
+
+	.hdr {
+
+		&__link {
+			color: $white;
+		}
+
+		&__cart-white {
+			opacity: 1;
+		}
+
+		&__cart-pink {
+			opacity: 0;
+		}
+
+		&__count {
+			color: $white;
+		}
+
+	}
+
+	.hdr__icon {
+
+		&--pink {
+			opacity: 0;
+			z-index: z(backward);
+		}
+
+		&--white {
+			opacity: 1;
+			z-index: z(forward);
+		}
+
+		&--pink-nonfixed {
+			opacity: 0;
+			z-index: z(front);
+		}
+	}
+}

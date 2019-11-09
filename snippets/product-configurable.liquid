@@ -1,0 +1,132 @@
+{% comment %} capture suffix, for element id's {% endcomment %}
+{% comment %}
+	example:
+	{% include 'h-namespace', id: 'addToBagForm' %}
+{% endcomment %}
+
+<form id="{% include 'h-namespace', id: 'addToBagForm' %}" action="/cart/add" method="post" enctype="multipart/form-data">
+
+	{% comment %}
+	{%- if product.handle == '9021-glow-cheek-highlighter-duo' -%}
+	{% assign addOn = all_products['dual-ended-contour-brush'] %}
+	<div class="pv-addon">
+		<div class="pv-addon__bg">
+			<h4>Save $7, Glow For Less when you add the<br /><span>Dual Ended Contour Brush</span></h4>
+			<label><input type="checkbox" name="addOnProduct" style="display: none;" value="{{ addOn.variants[0].id }}"/>
+				<span class="pink"></span>
+				<span>
+					{% if product.available == false %}
+						Out of Stock
+					{% else %}
+						ADD BRUSH
+					{% endif %}
+				</span>
+			</label>
+		</div>
+		{% assign addOn = all_products['dual-ended-contour-brush'] %}
+		<div class="pv-addon__img">
+			<img class="lazyload" data-srcset="{{ addOn | img_url }}" alt="{{ image.alt | escape }}" />
+		</div>
+	</div>
+	{%- endif -%}
+	{% endcomment %}
+
+	{%- if product.tags contains 'free-bag' -%}
+	{% assign freeBag = all_products['spooky-sparkle-bag'] %}
+	<div class="pv-addon">
+		<div class="pv-addon__bg pv-addon__bg--spooky-bag">
+			<h4>Free Spooky Sparkle Bag</h4>
+			<p>With your R.I.Pretty purchase. (Save $12).</p>
+			<input type="hidden" name="addOnProduct" value="{{ freeBag.variants[0].id }}"/>
+		</div>
+	</div>
+	{%- endif -%}
+
+	<div class="config">
+		<select id="{% include 'h-namespace', id: 'productSelect' %}" class="hide" name="id">
+			{% for variant in product.variants %}
+				{% if variant.available %}
+					<option data-sku="{{ variant.sku }}" value="{{ variant.id }}"{% if variant == product.selected_or_first_available_variant %} selected{% endif %}>
+						{{ variant.title }} - {{ variant.price | money_with_currency }}
+					</option>
+				{% else %}
+					<option disabled="disabled" value="{{ variant.id }}">
+						{{ variant.title }} - {{ 'products.product.sold_out' | t }}
+					</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		{% if isDefaultOption != true %}
+			<div id="configOptions" class="config__options-wrapper">
+				{% if product.variants.size > 0 %}
+					{% for option in product.options %}
+						{% include 'product-option', swatch: option %}
+					{% endfor %}
+				{% endif %}
+			</div>
+		{% endif %}
+	</div>
+	<div class="pv-actions">
+		<div class="p-action p-add">
+
+			<button id="{% include 'h-namespace', id: 'btnAddToBag' %}" class="GiftWizard-add-to-cart-button pv-add-btn btn btn--full{% if product.available == false %} is-disabled{% endif %}" type="submit" name="add"{% if product.available == false %} disabled="disabled" style="display: none;"{% endif %}>
+				<span class="btn__bg"></span>
+				<span class="btn__border"></span>
+				<span id="{% include 'h-namespace', id: 'btnAddToBagText' %}" class="btn__label">
+					{% if tags contains 'pre-order' %}
+						PreOrder
+					{% elsif product.available == false %}
+						Out of Stock
+					{% else %}
+						Add to Bag
+					{% endif %}
+				</span>
+			</button>
+
+          {% if product.type == "Gift Card" %}
+
+          <button class="gwbutton pv-add-btn btn btn--full{% if product.available == false %} is-disabled{% endif %}">
+				<span class="btn__bg"></span>
+				<span class="btn__border"></span>
+				<span class="btn__label">
+					SEND GIFT CARD
+				</span>
+			</button>
+
+
+
+
+          		<style>
+                  .gwbutton {
+                    margin-bottom:0px !important;
+                     display: none;
+                  }
+          		</style>
+				<style>
+                  .GiftWizard-add-to-cart-button {
+                    display: none !important;
+                  }
+          		</style>
+			{% endif %}
+		</div>
+
+		<div class="p-action p-qty">
+			<label for="{% include 'h-namespace', id: 'quantity' %}" class="p-qty__label hide">
+				Quantity:
+			</label>
+			<input id="{% include 'h-namespace', id: 'quantity' %}" class="p-qty__input hide" type="text" name="quantity" value="1" min="1" pattern="\d*" title="Please enter numbers only" />
+			<div id="quantityMessages" class="p-qty__messages messages"></div>
+		</div>
+	</div>
+	<div class="p-share phone-only">
+		<a href="sms:&body=My%20new%20fave%20{{ product.title | escape }}%20by%20Petite'n Pretty!%20Check%20it%20out%20at%20{{ shop.url }}{{ product.url }}" title="SMS/Text" class="btn btn--full btn--quaternary">
+			<span class="btn__bg"></span>
+			<span class="btn__border"></span>
+			<span class="btn__label">
+				<i class="icon icon--share-it"></i> <span class="btn__label-text">Share It!</span>
+			</span>
+		</a>
+	</div>
+</form>
+
+{% include 'product-notify-me', suffix : 'Config' %}

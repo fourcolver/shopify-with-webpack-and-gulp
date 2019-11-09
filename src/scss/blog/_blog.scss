@@ -1,0 +1,214 @@
+.blogs {
+
+	&__heading {
+		border-bottom: 4px solid $pink-1;
+		padding-top: rem(50);
+		padding-bottom: rem(30);
+		margin-bottom: rem(30);
+
+		h1 {
+			color: $pink-1;
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: $bold;
+			margin: 0;
+		}
+
+	}
+
+	&__featured {
+
+		a {
+			display: block;
+		}
+
+		@include apply-to(phone) {
+			display: none;
+		}
+
+		&-img {
+			position: relative;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&-caption {
+			padding: rem(32) rem(20);
+			bottom: rem(65);
+			position: absolute;
+			left: 0;
+			max-width: rem(725);
+
+			@include apply-to(tablet-only) {
+				max-width: calc(100% - 100px);
+			}
+
+			&:before {
+				content: '';
+				background-color: $blue-2;
+				opacity: 0.8;
+				position: absolute;
+				left: 0;
+				top:0;
+				width: 100%;
+				height: 100%;
+			}
+
+			p {
+				font-size: rem(27);
+				font-weight: 600;
+				text-transform: uppercase;
+				color: $pink-1;
+				margin-bottom: 0;
+				font-style: italic;
+			}
+		}
+
+		&-text {
+			position: relative;
+		}
+	}
+
+	&__main {
+		padding-bottom: rem(50);
+	}
+
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		padding: rem(25) 0;
+		border-top: 1px solid $gray-9;
+		border-bottom: 1px solid $gray-9;
+		margin-bottom: rem(35);
+		margin-top: rem(24);
+
+		@include apply-to(phone) {
+			display: none;
+		}
+
+		@include apply-to(tablet-only) {
+			flex-direction: column;
+		}
+
+		&-container {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+			@include apply-to(desktop) {
+				max-width: calc(100% - 230px);
+			}
+
+			@include apply-to(desktop-large) {
+				max-width: calc(100% - 300px);
+			}
+		}
+
+		&-link {
+			border-color: $pink-1;
+
+			&.active {
+				color: $pink-1;
+			}
+
+			&:hover {
+				transition: border $ease-1 $normal-timer;
+				border-bottom: 1px solid $pink-1;
+			}
+		}
+
+		&-title {
+			text-transform: uppercase;
+			margin-bottom: 0;
+			color: $gray-5;
+			font-weight: $bold;
+
+			@include apply-to(tablet-only) {
+				padding-bottom: rem(15);
+			}
+		}
+	}
+
+	.article {
+		display: flex;
+
+		@include apply-to(phone) {
+			flex-direction: column;
+		}
+
+		&:not(:first-child) {
+			padding-top: rem(25);
+		}
+
+		&:not(:last-child) {
+			padding-bottom: rem(25);
+			border-bottom: 1px solid #DCDCDC;
+		}
+
+		&__content {
+
+			@include apply-to(phone) {
+				display: flex;
+				flex-direction: column;
+
+			}
+
+			@include apply-to(tablet) {
+				width: 100%;
+				max-width: 40%;
+				padding: rem(25);
+				position: relative;
+			}
+		}
+
+		&__readmore {
+
+			@include apply-to(phone) {
+				align-self: flex-end;
+				margin-top: rem(50);
+			}
+
+			@include apply-to(tablet) {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+			}
+		}
+
+		&__img {
+
+			img {
+				width: 100%;
+			}
+
+			@include apply-to(tablet) {
+				width: 100%;
+				max-width: 60%;
+			}
+		}
+
+		&__title {
+			margin: 0;
+			font-weight: $bold;
+			font-style: italic;
+			color: $gray-5;
+			padding-bottom: rem(20);
+
+			@include apply-to(phone) {
+				padding-top: rem(20);
+			}
+		}
+
+		&__text {
+			font-style: italic;
+			color: $gray-5;
+			font-weight: 500;
+
+			@include apply-to(phone) {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

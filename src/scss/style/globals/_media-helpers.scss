@@ -1,0 +1,88 @@
+/*
+///////////////////////////////////////////////////////////
+Media Helpers
+///////////////////////////////////////////////////////////
+*/
+.hide,
+.no-display {
+	display:none;
+}
+
+@include apply-to(mobile) {
+	.hide-mobile,
+	.desktop-only {
+		display:none !important;
+	}
+}
+
+@include apply-to(phone) {
+	.tablet-only,
+	.hide-phone,
+	.desktop-and-tablet {
+		display:none !important;
+	}
+}
+
+@include apply-to(small-phone) {
+	.hide-small-phone {
+		display: none !important;
+	}
+}
+
+@include apply-to(smallest-phone) {
+	.hide-smallest-phone {
+		display:none !important;
+	}
+}
+
+@include apply-to(tablet) {
+	.phone-only {
+		display:none !important;
+	}
+}
+
+@include apply-to(tablet-only) {
+	.hide-tablet {
+		display:none !important;
+	}
+}
+
+@include apply-to(tablet-portrait) {
+	.tablet-portrait {
+		display:inherit;
+	}
+}
+
+@include apply-to(tablet-landscape) {
+	.tablet-landscape {
+		display:inherit;
+	}
+}
+
+@include apply-to(desktop) {
+	.mobile-only,
+	.tablet-only,
+	.hide-desktop {
+		display:none !important;
+	}
+}
+
+@include apply-to(desktop-large) {
+	.large-only {display:inherit}
+}
+
+@include apply-to(desktop-huge) {
+	.huge-only {display:inherit}
+}
+
+@media only screen and (max-width:$breakpoint-large) {
+    .large-only {
+        display:none !important;
+    }
+}
+
+@media only screen and (max-width:$breakpoint-huge) {
+	.huge-only {
+		display:none !important;
+	}
+}

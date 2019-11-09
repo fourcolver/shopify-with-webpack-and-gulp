@@ -1,0 +1,105 @@
+/**
+ * account login
+ */
+.ac-login {
+	margin-bottom: em(80);
+	max-width: em(640); // ~ 600px wide content
+
+	@include apply-to(desktop) {
+		max-width: em(1144); // ~ 940px wide content
+	}
+
+	// .ac-login__row
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	// .ac-login__col
+	&__col {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+
+		@include apply-to(desktop) {
+			flex: 1 1 0%;
+		}
+
+		// .ac-login__col-bd
+		&-bd {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+
+			@include apply-to(desktop) {
+				min-height: em(162);
+				padding-bottom: em(30);
+			}
+		}
+
+		// .ac-login__col-ft
+		&-ft {
+			align-items: flex-start;
+			display: flex;
+			flex: 1 1 auto;
+			flex-direction: column;
+			justify-content: flex-start;
+
+			@include apply-to(mobile) {
+				padding-top: em(25);
+			}
+		}
+
+		// .ac-login__col--1
+		&--1 {
+			border-bottom: 1px solid $gray-7;
+			padding-bottom: em(35);
+
+			@include apply-to(tablet) {
+				padding-bottom: em(50);
+			}
+
+			@include apply-to(desktop) {
+				border-bottom: 0;
+				padding-bottom: 0;
+				padding-right: em(95);
+			}
+
+			// Divider
+			&::after {
+
+				@include apply-to(desktop) {
+					background-color: $gray-7;
+					bottom: 0;
+					content: '';
+					display: block;
+					position: absolute;
+					right: 0;
+					top: em(50);
+					width: 1px;
+				}
+			}
+		}
+
+		// .ac-login__col--2
+		&--2 {
+
+			@include apply-to(desktop) {
+				padding-left: em(95);
+			}
+		}
+	}
+
+	// .ac-login__register-desc
+	&__register-desc {
+		font-size: em(16);
+		margin: em(-8) 0 0;
+	}
+
+	// .ac-login__register-btn
+	&__register-btn {
+		width: 100%;
+	}
+}

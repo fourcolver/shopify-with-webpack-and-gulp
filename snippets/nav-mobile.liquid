@@ -1,0 +1,102 @@
+{% assign nav = linklists.main-mobile-nav.links %}
+{% comment %}
+Nav menu
+Shows fixed on the bottom of mobile view
+{% endcomment %}
+
+<nav id="navm" class="navm mobile-only">
+	<ul class="navm__list list-reset list-li-reset">
+		{% for link in nav  %}
+			{% capture icon %}icon-{{ link.title | handleize }}{% endcapture %}
+			{% capture menu_id %}navm{{ link.title | camelcase }}{% endcapture %}
+			{%- capture menu_name -%}submenu-{{- link.handle -}}{%- endcapture -%}
+			<li class="navm__item">
+				{% if menu_id == 'navmAccount' %}
+					{% if customer %}
+					{{link.active}}
+					{% if template == 'customers/login' %}
+					ON LOGIN PAGE
+					{% endif %}
+						<a class="navm__btn {% if template == 'customers/account' %}is-active{% endif %}" href="/account">
+							<i class="navm__icon">
+								{% include icon %}
+							</i>
+							<span class="navm__name">
+								Account
+							</span>
+						</a>
+					{% else %}
+						<a class="navm__btn {% if template == 'customers/login' %}is-active{% endif %}" href="/account/login">
+							<i class="navm__icon">
+								{% include icon %}
+							</i>
+							<span class="navm__name">
+								Sign In
+							</span>
+						</a>
+					{% endif %}
+				{% elsif link.url == '#' %}
+					<button type="button" class="navm__btn btn-icon js-navm-btn" data-menu="{{ menu_id }}">
+						<i class="navm__icon">
+							{% include icon %}
+						</i>
+						<span class="navm__name">
+							<span class="navm__name-wrap">
+								{{ link.title }}
+							</span>
+						</span>
+					</button>
+				{% else %}
+					<a href="{{ link.url }}" class="navm__btn btn-icon {% if link.active %}is-active{% endif %}">
+						<i class="navm__icon">
+							{% include icon %}
+						</i>
+						<span class="navm__name">
+							{{ link.title }}
+						</span>
+					</a>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</nav>
+
+{% comment %}
+Nav Sub Menu
+{% endcomment %}
+<nav id="navmMenuModal" class="modal modal--nav modal--top navm-menu mobile-only">
+
+	<div class="navm-menu__inner">
+
+		{% for menu in nav  %}
+
+			{% assign groups = menu.links %}
+
+			{% capture menu_id %}navm{{ menu.title | camelcase }}{% endcapture %}
+
+			{% if groups.size > 0 %}
+				<div id="{{ menu_id }}" class="navm-menu__content navm-menu__content--{{ menu_id }} js-navm-content">
+
+					<button type="button" class="btn-icon modal__close navm-menu__close js-modal-close">
+						<i class="modal__close-icon icon icon--x"></i>
+						<span class="screenreader">close</span>
+					</button>
+
+					<div class="navm-menu__content-inner">
+						<ul class="navm-menu__list list-reset">
+							{% for group in groups %}
+								<li class="navm-menu__item">
+									<a href="{{ group.url }}" class="navm-menu__anchor js-navm-menu-anchor">
+										{{ group.title }}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			{% endif %}
+
+		{% endfor %}
+	</div>
+</nav>
+<div id="navMenuOverlay" class="modal-overlay modal-overlay--nav modal-overlay--white"></div>

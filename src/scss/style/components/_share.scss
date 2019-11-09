@@ -1,0 +1,25 @@
+.share {
+
+	&__list {
+		margin:0 0 0 em(-30);
+	}
+
+	li {
+		display:inline-block;
+		padding:0 0 0 em(30);
+	}
+
+	&__btn {
+		display:inline-block;
+		padding:em(9) 0 em(8) em(45);
+		position:relative;
+		text-decoration:none;
+	}
+
+	&__icon {
+		left:0;
+		margin:em(-23) 0 0 em(-3);
+		position:absolute;
+		top:50%;
+	}
+}

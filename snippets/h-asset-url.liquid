@@ -1,0 +1,6 @@
+{%- if ENV == 'staging' -%}
+	{%- assign extension = '.js' -%}
+{%- else -%}
+	{%- assign extension = '.min.js' -%}
+{%- endif -%}
+{{- name | append: extension | asset_url -}}

@@ -1,0 +1,252 @@
+// .about-aim
+.about-aim {
+
+	// .about-aim__container
+	&__container {
+		display: flex;
+		flex-direction: column-reverse;
+		padding-top: em(10);
+
+		&.container {
+			padding-bottom: em(60);
+			padding-right: em(53);
+
+			@include apply-to(tablet) {
+				padding-left: em(53);
+				padding-right: em(90);
+				padding-bottom: em(30);
+			}
+		}
+
+		@include apply-to(tablet) {
+			align-items: flex-start;
+			flex-direction: row;
+			justify-content: space-between;
+			padding-top: em(31);
+		}
+
+		@include apply-to(desktop) {
+			padding-top: em(66);
+		}
+	}
+
+	&__icon {
+		position: absolute;
+
+		&--stars {
+			top: rem(10);
+			font-size: 3.5px;
+			z-index: z(forward);
+			left: rem(-23);
+
+			@include apply-to(desktop) {
+				font-size: 4.5px;
+				left: rem(-30);
+			}
+		}
+
+		&--sunglasses {
+			font-size: 2px;
+			bottom: rem(-32);
+			z-index: z(forward);
+
+			@include apply-to(desktop) {
+				font-size: 2.9px;
+				bottom: rem(-48);
+			}
+
+			@include apply-to(desktop-large) {
+				font-size: 3.7px;
+				bottom: rem(-60);
+			}
+		}
+	}
+
+	// .about-aim__imgs
+	&__imgs {
+		position: relative;
+		width: 100%;
+		margin-top: em(40);
+
+		@include apply-to(phone) {
+			margin: 0 auto;
+		}
+
+		@include apply-to(smaller-phone) {
+			margin: 0 0;
+		}
+
+		@include apply-to(tablet) {
+			padding-left: em(53);
+			width: 50%;
+			max-width: em(555);
+		}
+	}
+
+	// .about-aim__img-content
+	&__img-content {
+		max-width: em(230);
+		margin-left: percentage(150/414);
+		position: relative;
+
+		@include apply-to(tablet) {
+			margin-left: auto;
+			max-width: 100%;
+		}
+	}
+
+	// .about-aim__img-bg
+	&__img-bg {
+		background-image: url(asset('brand-bg.jpg'));
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		position: absolute;
+		right: em(-10);
+		top: em(-14);
+		width: 100%;
+		z-index: z(behind);
+
+		@include apply-to(tablet) {
+			background-image: url(asset('brand-bg-tablet.jpg'));
+			right: em(-20);
+		}
+	}
+
+	// .about-aim__img-wrap
+	&__img-wrap {
+		z-index: z(forward);
+		position:relative;
+		margin-top: em(5);
+
+		@include apply-to(tablet) {
+			margin-top: em(0);
+		}
+	}
+
+	// .about-aim__text
+	&__text {
+		padding: em(35) em(20) 0 em(0);
+
+		@include apply-to(tablet) {
+			padding: 0;
+			width: 50%;
+		}
+
+		@include apply-to(desktop) {
+			padding: em(65) 0 0 0;
+		}
+	}
+
+	// .about-aim__desc
+	&__desc {
+		color: $gray-3;
+		font-family: $primary-font;
+		font-size: em(14);
+		margin-bottom: 0;
+		max-width: 85%;
+
+		@include apply-to(small-phone) {
+			max-width: none;
+		}
+
+		@include apply-to(tablet) {
+			max-width: none;
+		}
+
+		p {
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	// .about-aim__title
+	&__title {
+		font-weight: $bold;
+		margin-bottom: rem(25);
+		margin-top: 0;
+
+		@include apply-to(mobile) {
+			font-size: em(47);
+			text-align: left;
+		}
+	}
+
+	&__wrap {
+		left: em(-140);
+		margin-left: percentage(190/414);
+		max-width: em(160);
+		top: em(170);
+
+		@include apply-to(tablet) {
+			margin: 0 auto;
+			padding-top: em(25);
+			max-width: em(395);
+			margin-left: auto;
+		}
+
+		@include apply-to(desktop-large) {
+			margin: 0 auto;
+		}
+
+		&--alt {
+			max-width: em(135);
+			position: absolute;
+			width: 100%;
+			z-index: z(front);
+
+			@include apply-to(smallest-phone) {
+				left: em(-100);
+				max-width: em(90);
+				top: em(105);
+			}
+
+			@include apply-to(tablet) {
+				left: em(-140);
+				max-width: em(230);
+				top: em(295);
+			}
+
+			@include apply-to(desktop) {
+				left: em(-250);
+				max-width: em(340);
+				top: em(365);
+			}
+		}
+	}
+// .about-aim__lil-frame
+	&__lil-frame {
+		background-image: url(asset('lil-frame.png'));
+		background-repeat: no-repeat;
+		background-size: cover;
+		position:absolute;
+		z-index: z(front);
+		top: em(5);
+		right: em(-12);
+		height: em(32);
+		width: em(34);
+
+
+		@include apply-to(tablet) {
+			height: em(67);
+			width: em(70);
+			right: em(-25);
+			top: em(15);
+		}
+
+		@include apply-to(desktop) {
+			right: em(-28);
+			top: em(20);
+		}
+
+		@include apply-to(desktop-large) {
+			right: em(-31);
+			top: em(20);
+		}
+	}
+}
+
+.bg-visible {
+	overflow:visible;
+}

@@ -1,0 +1,23 @@
+/*
+///////////////////////////////////////////////////////////
+Product View General
+///////////////////////////////////////////////////////////
+*/
+.pv__hdg {
+	font-size: em(28);
+	line-height: em(38, 28);
+	margin: 0;
+
+	@include apply-to(tablet) {
+		font-size: em(36);
+		line-height: em(52, 36);
+	}
+}
+
+.fb-messenger-checkbox {
+	display:none !important;
+}
+
+.license-tilt {
+	transform: rotate(-5deg);
+}

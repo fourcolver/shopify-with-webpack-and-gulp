@@ -1,0 +1,17 @@
+{% assign m = meta.product %}
+
+<aside id="ingredientsListModal" class="modal modal-secondary js-modal">
+	<div class="modal__inner">
+		<button type="button" class="modal__close btn-icon js-modal-close">
+			<span class="screenreader">Close</span>
+			<i class="icon icon--x"></i>
+		</button>
+		<header class="modal__header">
+			<h3>Ingredients list</h3>
+		</header>
+		<div class="modal__content">
+			{{ m.ingredients_list }}
+		</div>
+	</div>
+</aside>
+<div id="ingredientsListOverlay" class="modal-overlay"></div>

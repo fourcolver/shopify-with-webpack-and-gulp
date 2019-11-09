@@ -1,0 +1,72 @@
+/**
+ * account content
+ */
+.ac-content {
+	float: left;
+	position: relative;
+	width: 100%;
+
+	@include apply-to(phone) {
+		transform: translate3d(calc(100% + #{map-get($ac-gutter, null)}), 0, 0);
+	}
+
+	@include apply-to(tablet) {
+		border-left: 1px solid $ac-content-border-color;
+		min-height: em(590);
+		width: calc(100% - #{em(230)});
+	}
+
+	@include apply-to(desktop) {
+		width: calc(100% - #{em(300)});
+	}
+
+	.is-loading & {
+
+		&::before {
+			@extend %loading;
+			top: em(50);
+
+			@include apply-to(phone) {
+				display: none;
+			}
+		}
+	}
+}
+
+.ac-content-box {
+	margin-bottom: em(40);
+	padding-right: em(90);
+	position: relative;
+
+	@include apply-to(tablet) {
+		margin-bottom: em(70);
+		padding-right: em(160);
+	}
+
+	// .ac-content-box__actions
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem(70);
+
+		@include apply-to(tablet) {
+			width: rem(150);
+		}
+	}
+
+	// .ac-content-box__action
+	&__action {
+		margin-left: auto;
+		text-align: center;
+		width: rem(100);
+
+		@include apply-to(phone) {
+			display: block;
+			margin-bottom: rem(8);
+		}
+	}
+}

@@ -1,0 +1,5 @@
+{%- if namespace -%}
+	{%- assign return = namespace | append: '-' | append: module | prepend: ' ' | downcase -%}
+{%- else -%}
+	{%- assign return = null -%}
+{%- endif -%}

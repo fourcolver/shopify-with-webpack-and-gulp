@@ -1,0 +1,128 @@
+<section class="sweep" id="sweepNewsletter">
+	<!--<div class="sweep-top-bg"{% if page.metafields.page.background-top != '' %} style="background-image: url('{{ page.metafields.page.background-top | file_img_url: '1708x' }}');"{% endif %}></div>-->
+	<div class="container">
+
+		<div class="sweep-wrap">
+			<div class="sweep-left desktop-only">
+				<div class="sweep-img ir is-loading">
+					<i class="lib-icon lib-icon--peace-sign sweep-icon sweep-icon--peace"></i>
+					<i class="lib-icon lib-icon--sunglasses sweep-icon sweep-icon--sun"></i>
+					<i class="icon icon--3-stars sweep-icon sweep-icon--stars"></i>
+					<img class="lazyload sweep-img__top" data-srcset="{{ page.metafields.page.img | file_img_url: '1100x' }}" alt="Hero" />
+					<img class="lazyload sweep-img__bottom" data-srcset="{{ page.metafields.page.img_offset | file_img_url: '550x' }} 1x, {{ page.metafields.page.img_offset | file_img_url: '1100x' }} 2x" alt="Hero Offset" />
+				</div>
+
+			</div>
+			<div class="sweep-right">
+				<h1 class="multicolor-title">{{ page.metafields.page.title }}</h1>
+				{{ page.content }}
+					<!-- <p>We’ve got $1,000 with your name on it for you and your travel BFF to go to our so fancy launch party on July 21st at the iconic Beverly Hills Hotel (plus a one night stay!).</p>
+				<p>Rub shoulders with influencers, sparkle the day away and spend a night at the hotel before going home with so much Petite ‘n Pretty swag — including our debut gloss, glitter and palette.</p> -->
+				<div id="formWrap">
+					<h2>
+						<span>{{ page.metafields.page.requirement }}</span>
+					</h2>
+					<form
+						id="form302"
+						name="form302"
+						class="wufoo topLabel page"
+						accept-charset="UTF-8"
+						autocomplete="off"
+						enctype="multipart/form-data"
+						method="post"
+						data-validate
+						action="https://petitenpretty.wufoo.com/forms/zjsbasj0tegmgv/#public"
+					>
+						<ul class="form-list list-reset">
+							<li class="notranslate form-item" id="foli1">
+								<div class="input-placeholder">
+									<label class="desc" for="Field1" id="title1">First Name </label>
+									<input class="field text medium input" id="Field1" maxlength="255" name="Field1" onkeyup="" placeholder="" tabindex="1" type="text" value="" autocomplete="given-name" required />
+								</div>
+							</li>
+							<li class="notranslate form-item" id="foli3">
+								<div class="input-placeholder">
+									<label class="desc" for="Field3" id="title3">Last Name </label>
+									<input class="field text medium input" id="Field3" maxlength="255" name="Field3" onkeyup="" placeholder="" tabindex="2" type="text" value="" autocomplete="family-name" required />
+								</div>
+							</li>
+						</ul>
+						<h3>Birthday</h3>
+						<ul class="form-list list-reset">
+							<li class="form-item form-item--third" id="foli13">
+								<div class="select">
+									<label class="desc notranslate screenreader" for="Field13" id="title13">Month </label>
+									<select class="field select medium" id="Field13" name="Field13" tabindex="3" autocomplete="month" required>
+										<option selected="selected" value="">month</option><option value="January">January</option><option value="February">February</option><option value="March">March</option><option value="April">April</option><option value="May">May</option><option value="June">June</option><option value="July">July</option><option value="August">August</option><option value="September">September</option><option value="October">October</option><option value="November">November</option><option value="December">December</option>
+									</select>
+								</div>
+							</li>
+							<li class="form-item form-item--third" id="foli14">
+								<div class="select">
+									<label class="desc notranslate screenreader" for="Field14" id="title14">Day </label>
+									<select class="field select medium" id="Field14" name="Field14" tabindex="4" autocomplete="day" required>
+										<option selected="selected" value="">day</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
+									</select>
+								</div>
+							</li>
+							<li class="form-item form-item--third" id="foli16">
+								<div class="select">
+									<label class="desc notranslate screenreader" for="Field16" id="title16">Year </label>
+									<select class="field select medium" id="Field16" name="Field16" tabindex="5" autocomplete="year" required>
+										<option selected="selected" value="">year</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1947">1947</option><option value="1946">1946</option><option value="1945">1945</option><option value="1944">1944</option><option value="1943">1943</option><option value="1942">1942</option><option value="1941">1941</option><option value="1940">1940</option><option value="1939">1939</option><option value="1938">1938</option><option value="1937">1937</option><option value="1936">1936</option><option value="1935">1935</option><option value="1934">1934</option><option value="1933">1933</option><option value="1932">1932</option><option value="1931">1931</option><option value="1930">1930</option><option value="1929">1929</option><option value="1928">1928</option><option value="1927">1927</option><option value="1926">1926</option><option value="1925">1925</option><option value="1924">1924</option><option value="1923">1923</option><option value="1922">1922</option><option value="1921">1921</option><option value="1920">1920</option><option value="1919">1919</option><option value="1918">1918</option><option value="1917">1917</option><option value="1916">1916</option><option value="1915">1915</option><option value="1914">1914</option><option value="1913">1913</option><option value="1912">1912</option><option value="1911">1911</option><option value="1910">1910</option><option value="1909">1909</option><option value="1908">1908</option><option value="1907">1907</option><option value="1906">1906</option><option value="1905">1905</option><option value="1904">1904</option><option value="1903">1903</option><option value="1902">1902</option><option value="1901">1901</option><option value="1900">1900</option>
+									</select>
+								</div>
+							</li>
+							<li class="form-item" id="foli10">
+								<div class="input-placeholder">
+									<label class="desc" for="Field10" id="title10">ZIP Code </label>
+									<input class="field text medium input" id="Field10" maxlength="255" name="Field10" onkeyup="" placeholder="" tabindex="6" type="text" value="" autocomplete="postal-code" required />
+								</div>
+							</li>
+							<li class="form-item" id="foli11">
+								<div class="input-placeholder">
+									<label class="desc" for="Field11" id="title11">Email Address </label>
+									<input class="field text medium input" id="Field11" maxlength="255" name="Field11" placeholder="" spellcheck="false" tabindex="7" type="email" value="" autocomplete="email" required />
+								</div>
+							</li>
+						</ul>
+
+						<div class="form-list sweep-check">
+							<div class="sweep__checkbox" style="display:none;">
+								<div class="checkbox">
+									<input id="Field18" name="Field18" type="checkbox" tabindex="8" required checked />
+									<label for="Field18">Yes! I want to receive Petite ‘n Pretty emails for more giveaways, events and products!</label>
+								</div>
+							</div>
+							<div class="form-item sweep-check__bottom">
+								<p>{{ page.metafields.form.requirement }}</p>
+							</div>
+						</div>
+
+						<button type="submit" id="saveForm" name="saveForm" class="btn btn--full btn--primary">
+							<span class="btn__bg"></span>
+							<span class="btn__border"></span>
+							<span class="btn__label">ENTER TO WIN</span>
+						</button>
+
+						<div class="hide">
+							<label for="comment">Do Not Fill This Out</label><textarea cols="1" id="comment" name="comment" rows="1"></textarea> <input id="idstamp" name="idstamp" type="hidden" value="yOgqKqtUfO/O2k4GQafF4aWAUDfmxkqs+a+A2Q9vx4=" />
+						</div>
+						<input type="hidden" value="{{ page.handle }}" id="Field119" name="Field119" />
+					</form>
+				</div>
+
+				<div id="formThanks" style="display:none;">
+					<div class="sweep-thanks">
+						<p>Thank you for submitting the form!</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+</section>

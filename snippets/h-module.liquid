@@ -1,0 +1,5 @@
+{%- if namespace and class -%}
+	{{- class | append: ' ' | append: namespace | append: '-' | append: class -}}
+{%- else -%}
+	{{- class -}}
+{%- endif -%}

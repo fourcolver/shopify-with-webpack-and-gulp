@@ -1,0 +1,124 @@
+{% assign m = meta.product %}
+
+
+{%- capture how_ingredients_claims_section -%}
+	<div class="pv-mid-wrap" id="howToUseIt">
+		<div class="pv-mid-left">
+			{%- if m.how != blank -%}
+			<div class="pv-mid-title">
+				{% if m.how_header %}
+					{{ m.how_header }}
+				{% else %}
+					Use it like this:
+				{% endif %}
+			</div>
+			{{ m.how }}
+			{%- endif -%}
+
+			{%- if m.enable_video == 'yes' -%}
+			<div class="pv-mid-video">
+				<div id="vid" class="vid js-vid-embed" data-video-id="{{ m.video_id }}">
+					<div class="vid__image ir ir--vid js-vid-image is-loading">
+						<img class="lazyload" data-srcset="{{ m.video_image | file_img_url: '496x' }} 1x, {{ m.video_image | file_img_url: '992x' }} 2x" alt="Video" />
+						<span class="vid__play"><i class="icon icon--play-button"></i></span>
+						<span class="vid__press-play">Press Play!</span>
+					</div>
+				</div>
+			</div>
+			{%- endif -%}
+
+		</div>
+		<div class="pv-mid-right">
+			{%- if m.ingredients -%}
+			<div id="keyIngredients" class="pv-key-ingredients">
+				<div class="pv-mid-title">
+					{% if m.ingredients_header %}
+						{{ m.ingredients_header }}
+					{% else %}
+						This is what’s in it:
+					{% endif %}
+				</div>
+				{{ m.ingredients }}
+			</div>
+			{%- endif -%}
+			{%- if m.ingredients_list != blank -%}
+				<div class="pv-mid-link">
+					<button type="button" class="btn-link pv-mid-btn" id="ingredientsListTrigger">View full ingredient list.</button>
+				</div>
+			{%- endif -%}
+
+			{%- if m.claims -%}
+			<div class="pv-mid-claims" id="scored">
+				<div class="pv-mid-title">
+					{% if m.claims_header %}
+						{{ m.claims_header }}
+					{% else %}
+						Here’s how it scored:
+					{% endif %}
+				</div>
+				{{ m.claims }}
+			</div>
+			{%- endif -%}
+
+		</div>
+	</div>
+{%- endcapture -%}
+
+<section class="pv-mid {% if m.extra == blank %}pv-mid--less-padding{% endif %}">
+	<div class="container container--narrow">
+		<div class="pv-mid-wrap-container">
+
+			{% if m.extra != blank %}
+			<div class="pv-mid-desc">
+				<p>
+					{{ m.extra }}
+				</p>
+			</div>
+			{% endif %}
+
+			{%- if m.enable_shade_info != 'yes' -%}
+				{{ how_ingredients_claims_section }}
+			{%- endif -%}
+
+			{%- if m.enable_shade_info == 'yes' -%}
+			<div class="pv-mid-tabs" id="pvTabs">
+
+				<button type="button" class="pv-mid-tabs__btn btn-left btn-link js-tab-btn is-active" id="leftTabBtn">What's Inside</button>
+				<div class="pv-mid-tabs__menu menu-left js-tab-menu">
+					<div class="pv-mid-tabs__content">
+						{{ how_ingredients_claims_section }}
+					</div>
+				</div>
+
+				<button type="button" class="pv-mid-tabs__btn btn-right btn-link js-tab-btn" id="rightTabBtn">Shade Info</button>
+				<div class="pv-mid-tabs__menu menu-right js-tab-menu" id="shadeInfo">
+					<div class="pv-mid-tabs__content">
+
+						<ul class="pv-mid-tabs__list list-reset" id="pvTabsList">
+
+							{% for i in (1..8) %}
+
+							{% assign metaKey = 'ingredient' | append: i %}
+							{% assign metaField = product.metafields.product[metaKey] %}
+
+							{% assign metaKeyModal = 'ingredient' | append: i | append: '_modal' %}
+							{% assign metafieldModal = product.metafields.product[metaKeyModal] %}
+
+								{%- if metaField != blank -%}
+									<li class="pv-mid-tabs__item">
+										{{ metaField }}
+									</li>
+								{%- endif -%}
+
+							{% endfor %}
+						</ul>
+						</div>
+					</div>
+
+				</div>
+			{%- endif -%}
+
+			</div>
+
+		</div>
+	</section>

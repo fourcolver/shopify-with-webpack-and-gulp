@@ -1,0 +1,135 @@
+/**
+ * contact
+ */
+.contact__subheader {
+	font-size: rem(21);
+	font-weight: $medium;
+	margin-bottom: rem(40);
+}
+
+.contact__email-title {
+	font-size: rem(16);
+	font-weight: $medium;
+	margin: rem(23) 0 rem(3) 0;
+}
+
+.contact__icon-3-stars {
+	font-size: 4px;
+	position: absolute;
+	right: rem(-54);
+	top: rem(178);
+
+	@include apply-to(mobile) {
+		right: calc(50% - 165px);
+		top: rem(97);
+	}
+
+	@include apply-to(smallest-phone) {
+		right: calc(50% - 145px);
+	}
+}
+
+.contact__icon-ok-hand {
+	font-size: 4px;
+	left: rem(-45);
+	position: absolute;
+	top: rem(-54);
+	z-index: 1;
+}
+
+.contact__email-link {
+	color: $pink-1;
+	font-size: rem(14);
+	font-weight: $medium;
+	margin: 0;
+	text-decoration: underline;
+}
+
+.contact__content {
+	color: $gray-3;
+	font-size: rem(14);
+	font-weight: $medium;
+	line-height: rem(23);
+	margin: 0 auto rem(60);
+	width: rem(570);
+
+	a {
+		color: $pink-1;
+		font-weight: $medium;
+		text-decoration: underline;
+	}
+
+	@include apply-to(mobile) {
+		width: 100%;
+	}
+}
+
+.contact__form-container {
+	margin: 0 auto;
+	position: relative;
+	width: 60%;
+
+	@include apply-to(mobile) {
+		width: 80%;
+	}
+}
+
+.contact__form {
+
+	.form-item {
+		position: relative;
+	}
+}
+
+.contact__submit-container {
+	bottom: rem(-4);
+	position: absolute;
+	right: rem(-9);
+}
+
+.contact__form-email-container {
+	display: flex;
+	margin: 0 auto rem(50);
+	max-width: rem(962);
+
+	@include apply-to(mobile) {
+		align-items: center;
+		flex-direction: column;
+		margin-bottom: 0;
+	}
+}
+
+.contact__email-container {
+	display: flex;
+    justify-content: flex-end;
+	margin: rem(43) rem(57) rem(55) 0;
+	position: relative;
+	width: 40%;
+
+	@include apply-to(mobile) {
+		align-items: center;
+		justify-content: center;
+		margin: rem(43) auto rem(55);
+		width: 100%;
+	}
+}
+
+.contact__response-container {
+	color: $green-1;
+	height: 100px;
+}
+
+.contact__response-text {
+	background-color: $green-2;
+	display: none;
+	margin: 0;
+	padding: rem(40) 0;
+	text-align: center;
+}
+
+// validation
+.error-message {
+	color: $red-1;
+	font-size: rem(13);
+	padding-top: rem(5);
+}

@@ -1,0 +1,23 @@
+<div id="hashtag" class="hashtag container">
+	<header class="hashtag__hdr">
+		<div class="ir ir--hashtag-logo is-loading">
+			<img class="lazyload" data-srcset="{{ 'hashtag-logo.png' | asset_img_url: '415x' }} 1x, {{ 'hashtag-logo.png' | asset_img_url: '830x' }} 2x" alt="#petitenpretty" title="#petitenpretty" />
+		</div>
+	</header>
+	<div class="hashtag__social">
+		<ul class="social-links">
+			{% for link in linklists.social-links.links limit:3 %}
+				<li>
+					<a class="icon icon--{{ link.title | downcase }}" href="{{ link.url }}" {%- include 'h-target', url: link.url -%}>
+						<span class="screenreader">
+							{{ link.title }}
+						</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="hashtag__yotpo">
+		{% include 'page-social-yotpo-embed' %}
+	</div>
+</div>

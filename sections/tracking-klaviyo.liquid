@@ -1,0 +1,51 @@
+{% if section.settings.klaviyo_api_key != '' %}
+	<script text="text/javascript">
+	  var _learnq = _learnq || [];
+
+	  var item = {
+	    Name: {{ product.title|json }},
+	    ProductID: {{ product.id|json }},
+	    Categories: {{ product.collections|map:'title'|json }},
+	    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+	    URL: "{{ shop.secure_url }}{{ product.url }}",
+	    Brand: {{ product.vendor|json }},
+	    Price: {{ product.price|money|json }},
+	    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+	  };
+
+	  _learnq.push(['track', 'Viewed Product', item]);
+	  _learnq.push(['trackViewedItem', {
+	    Title: item.Name,
+	    ItemId: item.ProductID,
+	    Categories: item.Categories,
+	    ImageUrl: item.ImageURL,
+	    Url: item.URL,
+	    Metadata: {
+	      Brand: item.Brand,
+	      Price: item.Price,
+	      CompareAtPrice: item.CompareAtPrice
+	    }
+	  }]);
+
+	  var _learnq = _learnq || [];
+
+	  _learnq.push(['account', '{{ section.settings.klaviyo_api_key }}']);
+
+	  (function () {
+	  var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+	  b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+	  var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+	  })();
+	</script>
+{% endif %}
+{% schema %}
+{
+	"name": "Klaviyo Tracking",
+	"class": "tracking-klaviyo",
+	"settings": [{
+		"type": "text",
+		"id": "klaviyo_api_key",
+		"label": "Klaviyo API key"
+	}]
+}
+{% endschema %}

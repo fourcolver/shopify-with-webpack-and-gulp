@@ -1,0 +1,80 @@
+/**
+ * lazy load class
+ */
+.lazyload,
+.lazyloading {
+	opacity: 0;
+	transition:opacity $normal-timer ease-in-out;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+/**
+ * lazy laod container
+ */
+.is-load-container {
+	position:relative;
+
+	&::after {
+		background:$white;
+		bottom:0; // .is-load-container::after
+		content:' ';
+		left:0;
+		opacity:1;
+		position:absolute;
+		right:0;
+		top:0;
+		transition:all $normal-timer $ease-1;
+		visibility:visible;
+		z-index:z(forward);
+	}
+
+	&--loaded::after {
+		opacity:0;
+		visibility:hidden; // .is-load-container--loaded
+	}
+}
+
+/**
+ * loading animation
+ */
+@keyframes rotating {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/**
+ * is loading
+ */
+.is-loading {
+	position:relative;
+
+	&::before {
+		content: '';
+		@extend %loading;
+	}
+}
+
+.is-loading--pink {
+	
+	&::before {
+		background-image: url(asset('loading-pink.svg'));
+	}
+
+	&.btn--secondary,
+	&.btn--tertiary {
+
+		&:hover {
+
+			&::before {
+				background-image: url(asset('loading.svg'));
+			}
+		}
+	}
+}

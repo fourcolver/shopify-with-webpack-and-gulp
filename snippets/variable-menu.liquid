@@ -1,0 +1,324 @@
+{% if ENV == 'staging' %}
+	{{ 'variable-menu.scss.css' | asset_url | stylesheet_tag }}
+	<section id="variableMenu" class="vm">
+		<div class="vm__content">
+			<header class="vm__header">
+				<h1 class="vm__title">Variables</h1>
+			</header>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Breakpoints</h3>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$break-smallest-phone</span>
+						<span class="code-value code-value--vars">374px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-smaller-phone</span>
+						<span class="code-value code-value--vars">413px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-phone</span>
+						<span class="code-value code-value--vars">480px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-tablet</span>
+						<span class="code-value code-value--vars">767px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-tablet-portrait</span>
+						<span class="code-value code-value--vars">979px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-desktop</span>
+						<span class="code-value code-value--vars">1024px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-large</span>
+						<span class="code-value code-value--vars">1280px</span>
+					</li>
+					<li>
+						<span class="code code--vars">$break-huge</span>
+						<span class="code-value code-value--vars">1400px</span>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Colors</h3>
+				<ul class="colors">
+					<li>
+                        <p>
+    						<span class="code">$black</span><br />
+                            <span class="code-value">#000000</span>
+                        </p>
+						<div class="colors__sample colors__sample--black"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-1</span><br />
+                            <span class="code-value">#464545</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-1"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-2</span><br />
+                            <span class="code-value">#5e5c5c</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-2"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-3</span><br />
+                            <span class="code-value">#f6f8f9</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-3"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-4</span><br />
+                            <span class="code-value">#999</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-4"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-5</span><br />
+                            <span class="code-value">#ccc</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-5"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-6</span><br />
+                            <span class="code-value">#4a4a4a</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-6"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-7</span><br />
+                            <span class="code-value">#9b9b9b</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-7"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-8</span><br />
+                            <span class="code-value">#e2e2e2</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-8"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-9</span><br />
+                            <span class="code-value">#d8d8d8</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-9"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-10</span><br />
+                            <span class="code-value">#979797</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-10"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-11</span><br />
+                            <span class="code-value">#f7f7f7</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-11"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-12</span><br />
+                            <span class="code-value">rgba(226,232,241,0.30)</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-12"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-13</span><br />
+                            <span class="code-value">#a4a4a4</span>
+                        </p>
+						<div class="colors__sample colors__sample--gray-13"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$gray-14</span><br />
+                            <span class="code-value">#fbfbfb</span>
+                        </p>
+					<div class="colors__sample colors__sample--gray-14"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$purple-1</span><br />
+                            <span class="code-value">#181848</span>
+                        </p>
+						<div class="colors__sample colors__sample--purple-1"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$purple-2</span><br />
+                            <span class="code-value">#181549</span>
+                        </p>
+						<div class="colors__sample colors__sample--purple-2"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$purple-3</span><br />
+                            <span class="code-value">#2A2755</span>
+                        </p>
+						<div class="colors__sample colors__sample--purple-3"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$purple-4</span><br />
+                            <span class="code-value">#191648</span>
+                        </p>
+						<div class="colors__sample colors__sample--purple-4"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$blue-1</span><br />
+                            <span class="code-value">#194f90</span>
+                        </p>
+						<div class="colors__sample colors__sample--blue-1"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$blue-2</span><br />
+                            <span class="code-value">#3b5998</span>
+                        </p>
+						<div class="colors__sample colors__sample--blue-2"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$blue-3</span><br />
+                            <span class="code-value">#9cb7d4</span>
+                        </p>
+						<div class="colors__sample colors__sample--blue-3"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$blue-4</span><br />
+                            <span class="code-value">#00aced</span>
+                        </p>
+						<div class="colors__sample colors__sample--blue-4"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$green-1</span><br />
+                            <span class="code-value">#2e8b57</span>
+                        </p>
+						<div class="colors__sample colors__sample--green-1"></div>
+					</li>
+                    <li>
+                        <p>
+    						<span class="code">$pink-1</span><br />
+                            <span class="code-value">#e91d24</span>
+                        </p>
+						<div class="colors__sample colors__sample--red-1"></div>
+					</li>
+					<li>
+                        <p>
+    						<span class="code">$offwhite</span><br />
+                            <span class="code-value">#f9fafc</span>
+                        </p>
+						<div class="colors__sample colors__sample--offwhite"></div>
+					</li>
+                    <li>
+                        <p>
+    						<span class="code">$white</span><br />
+                            <span class="code-value">#ffffff</span>
+                        </p>
+						<div class="colors__sample colors__sample--white"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Easing</h3>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$ease-1</span>
+						<span class="code-value code-value--vars">ease-in-out</span>
+					</li>
+					<li>
+						<span class="code code--vars">$ease-2</span>
+						<span class="code-value code-value--vars">cubic-bezier(.75,.02,.5,.99)</span>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Font Weight</h3>
+				<p>Classes fw-light, fw-normal, and fw-bold available.</p>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$normal</span>
+						<span class="code-value code-value--vars fw-normal">400</span>
+					</li>
+					<li>
+						<span class="code code--vars">$medium</span>
+						<span class="code-value code-value--vars fw-medium">500</span>
+					</li>
+					<li>
+						<span class="code code--vars">$bold</span>
+						<span class="code-value code-value--vars fw-bold">700</span>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Paths</h3>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$svg-sprite-dir</span>
+						<span class="code-value code-value--vars">"assets/"</span>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Text</h3>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$primary-font</span>
+						<span class="code-value code-value--vars">'Montserrat'</span>
+					</li>
+					<li>
+						<span class="code code--vars">$secondary-font</span>
+						<span class="code-value code-value--vars">'GT Sectra'</span>
+					</li>
+				</ul>
+			</div>
+			<div class="vm__group">
+				<h3 class="vm__group-title">Timers</h3>
+				<ul class="vars">
+					<li>
+						<span class="code code--vars">$fastest-timer</span>
+						<span class="code-value code-value--vars">100ms</span>
+					</li>
+					<li>
+						<span class="code code--vars">$fast-timer</span>
+						<span class="code-value code-value--vars">200ms</span>
+					</li>
+					<li>
+						<span class="code code--vars">$normal-timer</span>
+						<span class="code-value code-value--vars">400ms</span>
+					</li>
+					<li>
+						<span class="code code--vars">$slow-timer</span>
+						<span class="code-value code-value--vars">600ms</span>
+					</li>
+					<li>
+						<span class="code code--vars">$slowest-timer</span>
+						<span class="code-value code-value--vars">800ms</span>
+					</li>
+				</ul>
+			</div>
+		</div><!-- / Variable Menu Content -->
+	</section>
+
+	<script>
+		SDG.sq.push('{% include "h-asset-url", name: "variable-menu" %}');
+	</script>
+
+{% endif %}

@@ -1,0 +1,142 @@
+// .redefining-pretty
+.redefining-pretty {
+
+	// .redefining-pretty__container
+	&__container {
+		display: flex;
+		flex-direction: column-reverse;
+
+		@include apply-to(mobile) {
+			padding-top: em(25);
+			padding: 0;
+		}
+
+		@include apply-to(tablet) {
+			align-items: flex-start;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		@include apply-to(desktop) {
+			padding-right: 0;
+			padding-top: em(31);
+		}
+	}
+
+	// .redefining-pretty__icon
+	&__icon {
+		font-size: 5px;
+		margin-bottom: rem(-15);
+	}
+
+	// .redefining-pretty__img-content
+	&__img-content {
+		position: relative;
+		margin: 0 0 em(24) em(24);
+
+		@include apply-to(tablet) {
+			width: percentage(302/768);
+		}
+
+		@include apply-to(desktop) {
+			width: 50%;
+		}
+	}
+
+	// .redefining-pretty__img-bg
+	&__img-bg {
+		background-image: url(asset('brand-bg.jpg'));
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		position: absolute;
+		left: em(-24);
+		bottom: em(-24);
+		width: 100%;
+
+		@include apply-to(tablet) {
+			background-image: url(asset('brand-bg-tablet.jpg'));
+		}
+	}
+
+	// .redefining-pretty__img-wrap
+	&__img-wrap {
+		z-index: z(forward);
+	}
+
+	// .redefining-pretty__text
+	&__text {
+		padding: em(35) em(42) 0 em(42);
+
+		@include apply-to(tablet) {
+			padding-left:0;
+			width: 50%;
+		}
+
+		@include apply-to(desktop) {
+			padding: em(53) em(58) 0 0;
+		}
+	}
+
+	// .redefining-pretty__quote
+	&__quote {
+		max-width: em(395);
+		margin: 0 auto;
+
+		@include apply-to(mobile) {
+			padding: em(19) 0 0;
+			max-width: em(333);
+			margin: 0 auto;
+		}
+
+		@include apply-to(tablet-only) {
+			max-width: em(350);
+		}
+
+		@include apply-to(desktop) {
+			padding: em(39) em(0) 0;
+		}
+
+		@include apply-to(desktop-large) {
+			padding-left: em(20);
+			padding-right: em(20);
+		}
+
+		&-text {
+			text-align: center;
+			font-family: $secondary-font;
+			margin-bottom: 0;
+			font-size: em(35);
+
+			@include apply-to(tablet) {
+				font-size: em(43);
+			}
+		}
+	}
+
+	// .redefining-pretty__desc
+	&__desc {
+		color: $gray-3;
+		font-family: $primary-font;
+		font-size: em(14);
+		margin-bottom: 0;
+
+		p {
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	// .redefining-pretty__title
+	&__title {
+		font-weight: $bold;
+		margin-bottom: rem(25);
+		margin-top: 0;
+
+		@include apply-to(mobile) {
+			font-size: em(47);
+			text-align: left;
+		}
+	}
+}

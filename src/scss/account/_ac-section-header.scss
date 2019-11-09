@@ -1,0 +1,56 @@
+/**
+ * account section header
+ */
+.ac-section-header {
+	margin-top: em(30);
+	padding-right: em(70);
+	position: relative;
+
+	@include apply-to(phone) {
+		margin-bottom: em(35);
+		text-align: left;
+	}
+
+	@include apply-to(tablet) {
+		margin-top: 0;
+	}
+
+	// .ac-section-header--sub
+	&--sub {
+		margin-bottom: em(50);
+
+		@include apply-to(phone) {
+			margin-top: em(30);
+		}
+	}
+
+	// .ac-section-header__hdg
+	&__hdg {
+		font-weight: $medium;
+		margin: 0;
+		@include mqstyle('font-size', $ac-section-header-heading-font-size);
+	}
+
+	// .ac-section-header__back
+	&__back {
+		cursor: pointer;
+		font-family: $ac-section-header-back-button-font;
+		font-size: em(14);
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		// icon
+		&::before {
+			font-size: rem(10);
+			margin-right: rem(3);
+			top: rem(-1);
+		}
+	}
+
+	// .ac-section-header__desc <p>
+	&__desc {
+		margin: 0;
+		padding-top: rem(10);
+	}
+}

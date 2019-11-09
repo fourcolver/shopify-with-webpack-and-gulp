@@ -1,0 +1,11 @@
+/**
+ * z-index sass map
+ */
+@function z($key) {
+	@if map-has-key($z, $key) {
+		@return map-get($z, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $z.";
+	@return null;
+}

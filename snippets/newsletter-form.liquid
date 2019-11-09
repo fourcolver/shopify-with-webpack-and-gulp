@@ -1,0 +1,47 @@
+{% comment %}
+	set is accordion
+{% endcomment %}
+{% assign newsletterIsAcc = false %}
+{% if namespace == 'banner' %}
+	{% assign newsletterIsAcc = true %}
+{% endif %}
+
+<div id="{% include 'h-namespace', id: 'newsletter' %}" class="{% include 'h-module', class: 'newsletter' %}{% if newsletterIsAcc %} acc{% endif %}">
+
+	{% if newsletterIsAcc %}
+		<button id="{% include 'h-namespace', id: 'newsletterBtnToggle' %}" class="{% include 'h-module', class: 'newsletter__btn-toggle' %} btn-icon js-acc-btn">
+			<span class="banner-newsletter-subheader bold-subheader">{{ settings.newsletter_message }}</span>
+			<span class="{% include 'h-module', class: 'newsletter__btn-toggle-icon' %} icon icon--down-carrot-white">
+				<span class="screenreader">
+					Toggle
+				</span>
+			</span>
+		</button>
+	{% endif %}
+
+	<div id="{% include 'h-namespace', id: 'newsletterFormWrap' %}" class="{% include 'h-module', class: 'newsletter__form-wrap' %}{% if newsletterIsAcc %} acc__menu js-acc-menu{% endif %}">
+		<form
+		id="{% include 'h-namespace', id: 'newsletterForm' %}"
+		class="{% include 'h-module', class: 'newsletter__form' %}"
+		action="https://manage.kmail-lists.com/subscriptions/subscribe"
+		method="GET"
+		target="_blank"
+		novalidate="novalidate"
+		data-ajax-submit="https://klaviyo.sdg.la/v1/add/lexjc9">
+			<fieldset>
+				<legend class="screenreader">{{ desc }}</legend>
+				<div class="newsletter__inputs input-placeholder js-field-group">
+					<label class="{% include 'h-module', class: 'newsletter__label' %}" for="{% include 'h-namespace', id: 'newsletterInput' %}">your email</label>
+					<input id="{% include 'h-namespace', id: 'newsletterInput' %}" class="{% include 'h-module', class: 'newsletter__input' %} input js-email" name="email" type="email" value="" autocomplete="email" required>
+					<button id="{% include 'h-namespace', id: 'newsletterSubmit' %}" class="{% include 'h-module', class: 'newsletter__btn' %} btn btn--tertiary" type="submit">
+							<span class="btn__bg"></span>
+							<span class="btn__label">
+								Subscribe
+							</span>
+					</button>
+				</div>
+			</fieldset>
+		</form>
+		<div id="{% include 'h-namespace', id: 'newsletterMessages' %}" class="messages {% include 'h-module', class: 'newsletter__messages' %}" style="display:none;"></div>
+	</div>
+</div>

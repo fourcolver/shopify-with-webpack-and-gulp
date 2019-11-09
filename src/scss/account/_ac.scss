@@ -1,0 +1,141 @@
+/**
+ * account
+ */
+
+// container
+.container--account {
+	max-width: em(940) + (#{map-get($ac-gutter, null)} * 2);
+	@include gutters($ac-gutter);
+}
+
+// globals / misc
+
+// form column
+.ac-form-col {
+	margin: 0 auto em(50);
+	max-width: em(375);
+}
+
+// form action
+.ac-form-action {
+	padding-top: em(10);
+}
+
+// heading
+.ac-hdg {
+	font-weight: $medium;
+	margin-top: 0;
+	@include mqstyle('font-size', $ac-heading-font-size);
+}
+
+// button link
+.ac-btn-link {
+	font-family: $primary-font;
+	font-size: em(14);
+}
+
+// small icon
+.ac-icon-sm {
+
+	&::before {
+		top: rem(-1);
+	}
+}
+
+// table
+.ac-table {
+}
+
+/**
+ * messages
+ */
+
+// message, errors
+.message,
+.errors {
+	padding: rem(15);
+	text-align: left;
+	@include mqstyle('font-size', $size-p);
+	@include mqstyle('line-height', $lineheight-p);
+
+	ul {
+		font-size: 1em;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	p {
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+}
+
+// message
+.message {
+
+	// .message--ac
+	&--ac {
+		margin-top: rem(15);
+	}
+
+	// .message--success
+	&--success {
+		background-color: $green-2;
+	}
+}
+
+// errors
+.errors {
+	background-color: $red-2;
+	color: $red-1;
+	margin-bottom: rem(15);
+}
+
+// error
+.error {
+	color: $red-1;
+}
+
+/**
+ * transitions
+ */
+
+// Message fade
+.message-fade-enter-active,
+.message-fade-leave-active {
+	transform: translate3d(0, 0, 0);
+	transition: all $normal-timer $ease-1;
+}
+
+.message-fade-enter,
+.message-fade-leave-to {
+	opacity: 0;
+	transform: translate3d(0, rem(30), 0);
+}
+
+// Component fade
+.component-fade-enter-active,
+.component-fade-leave-active {
+
+	@include apply-to(tablet) {
+		transition: opacity $fast-timer $ease-1;
+	}
+}
+
+.component-fade-enter-active {
+
+	@include apply-to(phone) {
+		transition: opacity $fast-timer $ease-1;
+	}
+}
+
+.component-fade-enter,
+.component-fade-leave-to {
+	opacity: 0;
+}

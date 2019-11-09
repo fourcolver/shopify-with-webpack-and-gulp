@@ -1,0 +1,95 @@
+{% assign s = section.settings %}
+<div class="home-vid">
+
+	<!-- Images -->
+	{% if s.vid_bg_desktop != blank %}
+		<div class="home-vid__img-wrap desktop-only ir is-loading" {% include 'h-intrinsic-ratio', image: s.vid_bg_desktop %}>
+			<img data-src="{{ s.vid_bg_desktop | img_url: 'master' }}" class="lazyload home-vid__img" alt="{{ s.vid_bg_title }} Desktop"/>
+			<div class="home-vid__bg js-vid-bg"></div>
+		</div>
+	{% endif %}
+	{% if s.vid_bg_tablet != blank %}
+		<div class="home-vid__img-wrap tablet-only ir is-loading" {% include 'h-intrinsic-ratio', image: s.vid_bg_tablet %}>
+			<img data-src="{{ s.vid_bg_tablet | img_url: 'master' }}" class="lazyload home-vid__img" alt="{{ s.vid_bg_title }} Tablet"/>
+		</div>
+	{% endif %}
+	{% if s.vid_bg_phone != blank %}
+		<div class="home-vid__img-wrap phone-only ir is-loading" {% include 'h-intrinsic-ratio', image: s.vid_bg_phone %}>
+			<img data-src="{{ s.vid_bg_phone | img_url: 'master' }}" class="lazyload home-vid__img" alt="{{ s.vid_bg_title }} Phone" />
+		</div>
+	{% endif %}
+
+	<div class="home-vid__content container">
+		<div class="home-vid__inner">
+
+			<div class="home-vid__player">
+				<div id="homeVid" class="vid js-vid-embed" data-video-id="{{ s.vid_id }}" data-video-player="youtube">
+					<div class="vid__image ir js-vid-image is-loading" {% include 'h-intrinsic-ratio', image: s.vid_placeholder %}>
+						<img class="lazyload" data-srcset="{{ s.vid_placeholder | img_url: '735x' }} 1x, {{ s.vid_placeholder | img_url: 'master' }} 2x" alt="{{ s.vid_title }} video" />
+						<span class="vid__play home-vid__play"><i class="icon icon--play-button"></i></span>
+					</div>
+				</div>
+				{% if s.vid_title != blank %}
+					<div class="home-vid__title-wrap">
+						{% if s.vid_title contains '</' %}
+							{{ s.vid_title }}
+						{% else %}
+							<h1>{{ s.vid_title }}</h1>
+						{% endif %}
+					</div>
+				{% endif %}
+			</div>
+
+			<div class="home-vid__text-wrap">
+				{% if s.vid_description contains '<p>' %}
+					{{ s.vid_description }}
+				{% else %}
+					<p>{{ s.vid_description }}</p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% schema %}
+{
+	"name": "Home Video",
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "vid_bg_desktop",
+			"label": "Desktop Background Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "vid_bg_tablet",
+			"label": "Tablet Background Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "vid_bg_phone",
+			"label": "Phone Background Image"
+		},
+		{
+			"type": "image_picker",
+			"id": "vid_placeholder",
+			"label": "Video Placeholder Image"
+		},
+		{
+			"type": "text",
+			"id": "vid_id",
+			"label": "Video ID"
+		},
+		{
+			"type": "html",
+			"id": "vid_title",
+			"label": "Section Title"
+		},
+		{
+			"type": "html",
+			"id": "vid_description",
+			"label": "Description"
+		}
+	]
+}
+{% endschema %}

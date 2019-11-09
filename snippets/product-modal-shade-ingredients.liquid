@@ -1,0 +1,27 @@
+{% assign m = meta.product %}
+
+<aside id="shadeIngredientsModal" class="modal modal-secondary modal-secondary-shade js-modal">
+	<div class="modal__inner">
+		<button type="button" class="modal__close btn-icon js-modal-close">
+			<span class="screenreader">Close</span>
+			<i class="icon icon--x"></i>
+		</button>
+		<div class="modal__content">
+
+			{% for i in (1..8) %}
+
+				{% assign metaKeyModal = 'ingredient' | append: i | append: '_modal' %}
+				{% assign metafieldModal = product.metafields.product[metaKeyModal] %}
+
+				{%- if metafieldModal != blank -%}
+					<div class="js-shade-modal hide" data-shade-modal="ingredient{{ i }}">
+						{{ metafieldModal }}
+					</div>
+				{%- endif -%}
+
+			{% endfor %}
+
+		</div>
+	</div>
+</aside>
+<div id="shadeIngredientsOverlay" class="modal-overlay"></div>
