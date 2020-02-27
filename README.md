@@ -1,4 +1,8 @@
 # SETUP README
+## Project Live Url
+https://www.petitenpretty.com/
+
+
 ## Project Setup
 1. In Mac Terminal navigate to your project's root folder.
 2. Make sure themekit is installed. If it's not go to https://shopify.github.io/themekit/
