@@ -2,6 +2,9 @@
 ## Project Live Url
 https://www.petitenpretty.com/
 
+## Nice UI with Smart animation
+![Screenshot_65](https://user-images.githubusercontent.com/52229166/75410754-bc5f6900-58d1-11ea-90c2-4f6682258f1d.png)
+![Screenshot_66](https://user-images.githubusercontent.com/52229166/75410757-be292c80-58d1-11ea-9e64-b63d48ade411.png)
 
 ## Project Setup
 1. In Mac Terminal navigate to your project's root folder.
