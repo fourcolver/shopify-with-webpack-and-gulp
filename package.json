@@ -68,7 +68,7 @@
 		"confetti-js": "0.0.11",
 		"flickity": "^2.1.1",
 		"flickity-as-nav-for": "^2.0.1",
-		"node-sass": "^4.8.3",
+		"node-sass": "^4.13.1",
 		"rellax": "^1.6.2",
 		"scrollreveal": "^3.4.0",
 		"vue": "^2.5.16"
